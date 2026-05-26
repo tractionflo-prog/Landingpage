@@ -1,26 +1,292 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #ffffff;
+  --bg-muted: #f4f4f4;
+  --text: #111111;
+  --text-muted: #666666;
+  --lime: #bef227;
+  --lime-hover: #b0e820;
+  --border: rgba(0, 0, 0, 0.08);
+  --radius-card: 20px;
+  --radius-btn: 999px;
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.06);
+  --max-w: 1180px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-muted: var(--bg-muted);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-lime: var(--lime);
+  --color-lime-hover: var(--lime-hover);
+  --font-sans: var(--font-inter);
+  --font-hand: var(--font-caveat);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 768px) {
+  .page-wrap {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* —— Typography (mockup scale) —— */
+.t-hero {
+  font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--text);
+}
+
+.t-section {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.t-body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.t-body-sm {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* —— Brush highlight (mockup style) —— */
+.brush-wrap {
+  position: relative;
+  display: inline;
+}
+
+.brush-svg {
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  bottom: -0.08em;
+  width: 112%;
+  height: 0.45em;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* —— Cards —— */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-flat {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* —— Buttons —— */
+.btn-lime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--lime);
+  color: #111;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-lime:hover {
+  background: var(--lime-hover);
+}
+
+.btn-lime-lg {
+  padding: 16px 28px;
+  font-size: 1rem;
+}
+
+.btn-lime-md {
+  padding: 12px 22px;
+  font-size: 0.875rem;
+}
+
+/* —— Section backgrounds —— */
+.section-white {
+  background: var(--bg);
+  padding: 80px 0;
+}
+
+.section-grey {
+  background: var(--bg-muted);
+  padding: 80px 0;
+}
+
+@media (max-width: 767px) {
+  .section-white,
+  .section-grey {
+    padding: 56px 0;
+  }
+}
+
+/* —— Handwritten —— */
+.font-hand {
+  font-family: var(--font-caveat), "Segoe Script", cursive;
+  color: #6fa800;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.text-highlight {
+  background: linear-gradient(180deg, transparent 58%, rgba(190, 242, 39, 0.65) 58%);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* —— Problem icon boxes (mockup: light squares, no heavy shadow) —— */
+.problem-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.problem-icon-inner {
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.problem-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .problem-flow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .problem-icon-inner {
+    max-width: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .problem-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* —— VS badge —— */
+.vs-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* —— Tab pills —— */
+.tab-pill {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.tab-pill-active {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: #111;
+}
+
+/* —— Workflow step cards —— */
+.wf-step {
+  flex: 1;
+  min-width: 140px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* —— Growth card —— */
+.growth-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+  height: 100%;
+}
+
+.growth-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(190, 242, 39, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
 }

@@ -5,11 +5,10 @@ import { Menu, X } from "lucide-react";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 
 const links = [
-  { label: "How it works", href: "#problem" },
-  { label: "Features", href: "#comparison" },
+  { label: "Problem", href: "#problem" },
+  { label: "Compare", href: "#comparison" },
   { label: "Workflows", href: "#workflows" },
   { label: "Benefits", href: "#growth" },
-  { label: "Founding", href: "#founding" },
   { label: "About", href: "#about" },
 ];
 

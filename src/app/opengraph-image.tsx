@@ -1,0 +1,340 @@
+import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+export const runtime = "nodejs";
+export const alt = "TractionFlo — Turn comments and DMs into customers";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+async function loadFonts() {
+  const [interBold, interSemi] = await Promise.all([
+    readFile(join(process.cwd(), "public/fonts/Inter-Bold.woff")),
+    readFile(join(process.cwd(), "public/fonts/Inter-SemiBold.woff")),
+  ]);
+  return { interBold, interSemi };
+}
+
+export default async function OgImage() {
+  const { interBold, interSemi } = await loadFonts();
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          background: "linear-gradient(135deg, #f7f8f4 0%, #ffffff 45%, #f0fae0 100%)",
+          fontFamily: "Inter",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            position: "relative",
+          }}
+        >
+          {/* Left: copy */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              width: "58%",
+              padding: "56px 0 48px 64px",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div
+                style={{
+                  width: 52,
+                  height: 52,
+                  background: "#bef227",
+                  borderRadius: 14,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 20,
+                  fontWeight: 700,
+                  color: "#111",
+                }}
+              >
+                TF
+              </div>
+              <span
+                style={{
+                  fontSize: 30,
+                  fontWeight: 700,
+                  color: "#111",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                TractionFlo
+              </span>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginTop: 36,
+                fontSize: 52,
+                fontWeight: 700,
+                color: "#111",
+                lineHeight: 1.08,
+                letterSpacing: "-0.035em",
+              }}
+            >
+              <span>Turn comments &amp; DMs into</span>
+              <span
+                style={{
+                  background: "linear-gradient(180deg, transparent 55%, rgba(190,242,39,0.85) 55%)",
+                }}
+              >
+                customers
+              </span>
+            </div>
+
+            <div
+              style={{
+                marginTop: 22,
+                fontSize: 22,
+                fontWeight: 600,
+                color: "#555",
+                lineHeight: 1.45,
+                maxWidth: 520,
+              }}
+            >
+              Intelligent workflows for business growth — without complex builders.
+            </div>
+
+            <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
+              {["Comment → DM", "FAQ replies", "Follow-ups"].map((label) => (
+                <div
+                  key={label}
+                  style={{
+                    padding: "8px 16px",
+                    borderRadius: 999,
+                    background: "#fff",
+                    border: "1px solid rgba(0,0,0,0.08)",
+                    fontSize: 15,
+                    fontWeight: 600,
+                    color: "#333",
+                  }}
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{
+                marginTop: 32,
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                fontSize: 16,
+                fontWeight: 600,
+                color: "#6fa800",
+              }}
+            >
+              <div
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "#bef227",
+                }}
+              />
+              Join founding access — free
+            </div>
+          </div>
+
+          {/* Right: product mock */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "42%",
+              paddingRight: 48,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: 380,
+                background: "#fff",
+                borderRadius: 20,
+                border: "1px solid rgba(0,0,0,0.07)",
+                padding: 24,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div
+                    style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: 8,
+                      background: "#bef227",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: "#111",
+                    }}
+                  >
+                    TF
+                  </div>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: "#111" }}>
+                    Workflow running
+                  </span>
+                </div>
+                <span style={{ fontSize: 13, fontWeight: 700, color: "#8ab800" }}>70%</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  marginTop: 12,
+                  height: 6,
+                  borderRadius: 999,
+                  background: "#f0f0f0",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    width: "70%",
+                    height: "100%",
+                    background: "#bef227",
+                    borderRadius: 999,
+                  }}
+                />
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginTop: 20,
+                  padding: 14,
+                  borderRadius: 14,
+                  background: "#f8f8f8",
+                  border: "1px solid rgba(0,0,0,0.05)",
+                }}
+              >
+                <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <div
+                    style={{
+                      width: 32,
+                      height: 32,
+                      borderRadius: "50%",
+                      background: "linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)",
+                    }}
+                  />
+                  <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "#111" }}>jonahfit</span>
+                    <div
+                      style={{
+                        padding: "8px 12px",
+                        borderRadius: 12,
+                        background: "#f0f0f0",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: "#333",
+                      }}
+                    >
+                      GUIDE 👇
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginTop: 12,
+                  padding: 14,
+                  borderRadius: 14,
+                  background: "#f4fce0",
+                  border: "1px solid rgba(190,242,39,0.35)",
+                }}
+              >
+                <div style={{ fontSize: 12, fontWeight: 700, color: "#111", marginBottom: 6 }}>
+                  TractionFlo
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#333" }}>
+                  Hi! Here&apos;s the guide 👋
+                </div>
+              </div>
+
+              <div style={{ display: "flex", marginTop: 16, gap: 12 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    padding: "12px 14px",
+                    borderRadius: 12,
+                    background: "#fafafa",
+                    border: "1px solid rgba(0,0,0,0.06)",
+                    gap: 2,
+                  }}
+                >
+                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>
+                    Leads captured
+                  </span>
+                  <span style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>2.4k</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    padding: "12px 14px",
+                    borderRadius: 12,
+                    background: "#fafafa",
+                    border: "1px solid rgba(0,0,0,0.06)",
+                    gap: 2,
+                  }}
+                >
+                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Conversion</span>
+                  <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>68%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            height: 6,
+            background: "linear-gradient(90deg, #bef227 0%, #d4ff4d 50%, #bef227 100%)",
+          }}
+        />
+      </div>
+    ),
+    {
+      ...size,
+      fonts: [
+        { name: "Inter", data: interBold, weight: 700, style: "normal" },
+        { name: "Inter", data: interSemi, weight: 600, style: "normal" },
+      ],
+    }
+  );
+}

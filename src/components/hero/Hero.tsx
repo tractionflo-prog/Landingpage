@@ -18,10 +18,10 @@ function IgIcon() {
 
 export function Hero() {
   return (
-    <section className="section-white !pt-12 !pb-16 md:!pt-16 md:!pb-20">
-      <div className="page-wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
+    <section className="section-white !pt-10 !pb-12 sm:!pt-12 sm:!pb-16 md:!pt-16 md:!pb-20" aria-labelledby="hero-heading">
+      <div className="page-wrap grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-10">
         <div>
-          <h1 className="t-hero">
+          <h1 id="hero-heading" className="t-hero">
             Help businesses
             <br />
             grow with{" "}
@@ -37,7 +37,7 @@ export function Hero() {
             Without setup headaches.
           </p>
 
-          <QuizTrigger size="lg" className="mt-8" />
+          <QuizTrigger size="lg" className="btn-lime-mobile-full mt-6 sm:mt-8" />
 
           <div className="mt-6 flex items-center gap-3">
             <div className="flex -space-x-2">

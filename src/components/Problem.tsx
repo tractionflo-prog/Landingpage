@@ -21,9 +21,9 @@ const steps = [
 
 export function Problem() {
   return (
-    <section id="problem" className="section-grey">
+    <section id="problem" className="section-grey" aria-labelledby="problem-heading">
       <div className="page-wrap">
-        <h2 className="t-section mx-auto max-w-[720px] text-center">
+        <h2 id="problem-heading" className="t-section mx-auto max-w-[720px] text-center">
           You&apos;re losing growth opportunities{" "}
           <BrushHighlight>every day.</BrushHighlight>
         </h2>

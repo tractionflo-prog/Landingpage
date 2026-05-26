@@ -7,12 +7,19 @@ import { Growth } from "@/components/Growth";
 import { About } from "@/components/About";
 import { FoundingAccess } from "@/components/FoundingAccess";
 import { Footer } from "@/components/Footer";
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: siteConfig.title,
+  description: siteConfig.description,
+};
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Problem />
         <Comparison />

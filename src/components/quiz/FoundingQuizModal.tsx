@@ -67,6 +67,10 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
       setError("Please enter your name and email.");
       return;
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
 
     setLoading(true);
     try {

@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Caveat } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { JsonLd } from "@/components/JsonLd";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,15 +18,66 @@ const caveat = Caveat({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#bef227",
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
-  title: "TractionFlo — Intelligent workflows for business growth",
-  description:
-    "Turn comments, DMs and followers into leads, follow-ups and customers — without complex builders or setup headaches.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.creator }],
+  creator: siteConfig.creator,
+  publisher: siteConfig.creator,
+  applicationName: siteConfig.name,
+  category: "technology",
+  alternates: {
+    canonical: absoluteUrl("/"),
+  },
   openGraph: {
-    title: "TractionFlo — Intelligent workflows for business growth",
-    description:
-      "Same outcomes. 10× simpler. Help businesses grow with intelligent workflows.",
     type: "website",
+    locale: siteConfig.locale,
+    url: absoluteUrl("/"),
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: absoluteUrl("/opengraph-image"),
+        width: 1200,
+        height: 630,
+        alt: siteConfig.title,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [absoluteUrl("/opengraph-image")],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon",
+    apple: "/icon",
   },
 };
 
@@ -36,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${caveat.variable} scroll-smooth`}>
       <body className="min-h-screen bg-white font-sans text-foreground antialiased">
+        <JsonLd />
         <GoogleAnalytics />
         <Providers>{children}</Providers>
       </body>

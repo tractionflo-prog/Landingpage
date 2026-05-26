@@ -42,11 +42,7 @@ export function WorkflowSimulation({ tab }: { tab: Tab }) {
 }
 
 function FlowWrap({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex min-w-[680px] items-start gap-2 overflow-x-auto pb-1 md:min-w-0">
-      {children}
-    </div>
-  );
+  return <div className="wf-flow">{children}</div>;
 }
 
 function Step({
@@ -69,8 +65,19 @@ function Step({
   );
 }
 
-function Arrow() {
-  return <ArrowRight size={18} className="mt-10 shrink-0 text-[#ccc]" />;
+function FlowArrow() {
+  return (
+    <>
+      <ArrowRight
+        size={18}
+        className="hidden shrink-0 text-[#ccc] md:mt-10 md:block"
+        aria-hidden
+      />
+      <div className="flex justify-center py-1 md:hidden" aria-hidden>
+        <ArrowRight size={18} className="rotate-90 text-[#ccc]" />
+      </div>
+    </>
+  );
 }
 
 function CommentFlow({ step }: { step: number }) {
@@ -134,7 +141,7 @@ function CommentFlow({ step }: { step: number }) {
           <Step title={c.title} active={step === i}>
             {c.body}
           </Step>
-          {i < 3 && <Arrow />}
+          {i < 3 && <FlowArrow />}
         </Fragment>
       ))}
     </FlowWrap>
@@ -181,7 +188,7 @@ function FaqFlow({ step }: { step: number }) {
           <Step title={c.title} active={step === i}>
             {c.body}
           </Step>
-          {i < 3 && <Arrow />}
+          {i < 3 && <FlowArrow />}
         </Fragment>
       ))}
     </FlowWrap>
@@ -202,7 +209,7 @@ function GenericFlow({
           <Step title={s.t} active={step === i}>
             <p className="text-[13px]">{s.b}</p>
           </Step>
-          {i < 3 && <Arrow />}
+          {i < 3 && <FlowArrow />}
         </Fragment>
       ))}
     </FlowWrap>

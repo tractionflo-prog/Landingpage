@@ -34,7 +34,7 @@ const fadeUp = {
 
 export function About() {
   return (
-    <section id="about" className="section-white">
+    <section id="about" className="section-white" aria-labelledby="about-heading">
       <div className="page-wrap">
         <div className="mx-auto max-w-3xl text-center">
           <motion.p
@@ -50,6 +50,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
+            id="about-heading"
             className="t-section mt-3"
           >
             We help businesses grow with{" "}

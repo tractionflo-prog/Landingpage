@@ -23,11 +23,11 @@ const BENEFITS = [
 
 export function FoundingAccess() {
   return (
-    <section id="founding" className="section-grey">
+    <section id="founding" className="section-grey" aria-labelledby="founding-heading">
       <div className="page-wrap">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="t-section">
+            <h2 id="founding-heading" className="t-section">
               Be an early founder.
               <br />
               Not just another user.
@@ -35,11 +35,14 @@ export function FoundingAccess() {
             <p className="t-body mt-5 max-w-md">
               Get lifetime founder benefits and help shape the future of TractionFlo.
             </p>
-            <QuizTrigger size="lg" className="mt-8" />
+            <QuizTrigger size="lg" className="btn-lime-mobile-full mt-6 sm:mt-8" />
             <p className="mt-3 text-[14px] text-[#888]">No credit card. It&apos;s free.</p>
           </div>
 
-          <div className="relative">
+          <div className="relative sm:pt-11">
+            <HandAnnotation className="mb-3 block text-right sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:whitespace-nowrap">
+              Limited spots only →
+            </HandAnnotation>
             <div className="grid gap-3 sm:grid-cols-2">
               {BENEFITS.map(({ Icon, text, custom }) => (
                 <div
@@ -53,9 +56,6 @@ export function FoundingAccess() {
                 </div>
               ))}
             </div>
-            <HandAnnotation className="mt-5 sm:absolute sm:-right-2 sm:top-0 sm:mt-0">
-              Limited spots only →
-            </HandAnnotation>
           </div>
         </div>
       </div>

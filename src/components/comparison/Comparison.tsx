@@ -15,17 +15,17 @@ const OLD = [
 
 export function Comparison() {
   return (
-    <section id="comparison" className="section-white">
+    <section id="comparison" className="section-white" aria-labelledby="comparison-heading">
       <div className="page-wrap">
-        <h2 className="t-section text-center">
+        <h2 id="comparison-heading" className="t-section text-center">
           Same outcomes.
           <br />
           <BrushHighlight>10× simpler.</BrushHighlight>
         </h2>
 
-        <div className="relative mt-12 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch lg:gap-5">
+        <div className="relative mt-8 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch lg:gap-5">
           {/* OLD */}
-          <div className="card p-6">
+          <div className="card p-4 sm:p-6">
             <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.14em] text-[#999]">
               The old way
             </p>

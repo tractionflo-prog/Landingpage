@@ -1,6 +1,7 @@
 import { Lock, Zap, MessageSquare, Sparkles, Headphones } from "lucide-react";
 import { HandAnnotation } from "@/components/ui/HandAnnotation";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
+import { foundingCopy } from "@/lib/founding";
 
 function IgIcon() {
   return (
@@ -27,7 +28,11 @@ export function FoundingAccess() {
       <div className="page-wrap">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 id="founding-heading" className="t-section">
+            <p className="inline-flex items-center gap-2 rounded-full border border-[#bef227]/60 bg-[#f4fce0] px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.08em] text-[#111]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#8ab800]" aria-hidden />
+              {foundingCopy.spotsLabel}
+            </p>
+            <h2 id="founding-heading" className="t-section mt-4">
               Be an early founder.
               <br />
               Not just another user.
@@ -35,13 +40,14 @@ export function FoundingAccess() {
             <p className="t-body mt-5 max-w-md">
               Get lifetime founder benefits and help shape the future of TractionFlo.
             </p>
+            <p className="mt-3 text-[15px] font-semibold text-[#111]">{foundingCopy.limited}</p>
             <QuizTrigger size="lg" className="btn-lime-mobile-full mt-6 sm:mt-8" />
             <p className="mt-3 text-[14px] text-[#888]">No credit card. It&apos;s free.</p>
           </div>
 
           <div className="relative sm:pt-11">
             <HandAnnotation className="mb-3 block text-right sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:whitespace-nowrap">
-              Limited spots only →
+              Only 100 spots — don&apos;t miss out →
             </HandAnnotation>
             <div className="grid gap-3 sm:grid-cols-2">
               {BENEFITS.map(({ Icon, text, custom }) => (

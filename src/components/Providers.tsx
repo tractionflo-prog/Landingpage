@@ -1,7 +1,12 @@
 "use client";
 
 import { QuizProvider } from "@/components/quiz/QuizProvider";
+import { MotionProvider } from "@/components/MotionProvider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <QuizProvider>{children}</QuizProvider>;
+  return (
+    <MotionProvider>
+      <QuizProvider>{children}</QuizProvider>
+    </MotionProvider>
+  );
 }

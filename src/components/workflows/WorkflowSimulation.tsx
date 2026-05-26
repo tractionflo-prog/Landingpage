@@ -2,17 +2,20 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { ArrowRight, FileText, Check, Loader2 } from "lucide-react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 type Tab = "comment" | "faq" | "broadcasts" | "followups";
 
 export function WorkflowSimulation({ tab }: { tab: Tab }) {
+  const isMobile = useIsMobile();
   const [step, setStep] = useState(0);
 
   useEffect(() => {
     setStep(0);
+    if (isMobile) return;
     const id = setInterval(() => setStep((s) => (s + 1) % 4), 2000);
     return () => clearInterval(id);
-  }, [tab]);
+  }, [tab, isMobile]);
 
   if (tab === "comment") return <CommentFlow step={step} />;
   if (tab === "faq") return <FaqFlow step={step} />;

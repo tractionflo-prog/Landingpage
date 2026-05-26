@@ -3,6 +3,7 @@ import { BrushHighlight } from "@/components/ui/BrushHighlight";
 import { HandAnnotation } from "@/components/ui/HandAnnotation";
 import { OldWayVisual } from "./OldWayVisual";
 import { ComparisonDemo } from "./ComparisonDemo";
+import { ComparisonDemoStatic } from "./ComparisonDemoStatic";
 
 const OLD = [
   "Open builder",
@@ -49,7 +50,12 @@ export function Comparison() {
           </div>
 
           {/* NEW */}
-          <ComparisonDemo />
+          <div className="md:hidden">
+            <ComparisonDemoStatic />
+          </div>
+          <div className="hidden md:block">
+            <ComparisonDemo />
+          </div>
         </div>
       </div>
     </section>

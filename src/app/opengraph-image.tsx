@@ -149,7 +149,7 @@ export default async function OgImage() {
                   background: "#bef227",
                 }}
               />
-              Join founding access — free
+              100 founder spots — limited availability
             </div>
           </div>
 

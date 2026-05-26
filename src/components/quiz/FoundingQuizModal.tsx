@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
 import { QUIZ_QUESTIONS } from "@/lib/quiz/questions";
+import { foundingCopy } from "@/lib/founding";
 import { WaitlistSuccessScreen } from "./WaitlistSuccessScreen";
 
 type FoundingQuizModalProps = {
@@ -129,11 +130,14 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                 isSuccess ? "bg-white" : ""
               }`}
             >
-              <div className="flex items-center gap-2">
-                <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#bef227] text-[11px] font-bold">
-                  TF
-                </span>
-                <span className="text-sm font-semibold">Founding access</span>
+              <div className="flex flex-col gap-0.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#bef227] text-[11px] font-bold">
+                    TF
+                  </span>
+                  <span className="text-sm font-semibold">{foundingCopy.spotsLabel}</span>
+                </div>
+                <span className="pl-10 text-[11px] font-medium text-[#888]">{foundingCopy.limited}</span>
               </div>
               <button
                 type="button"
@@ -204,9 +208,8 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                       </div>
                     </div>
                     {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
-                    <p className="mt-4 text-[13px] text-[#888]">
-                      No credit card. Free founding access.
-                    </p>
+                    <p className="mt-4 text-[13px] font-medium text-[#111]">{foundingCopy.limited}</p>
+                    <p className="mt-1 text-[13px] text-[#888]">No credit card. Free to join.</p>
                   </motion.div>
                 ) : (
                   <motion.div

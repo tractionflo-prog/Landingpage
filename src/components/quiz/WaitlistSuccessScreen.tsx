@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { foundingCopy } from "@/lib/founding";
 type WaitlistSuccessScreenProps = {
   name?: string;
   email?: string;
@@ -28,7 +29,7 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
       </motion.div>
 
       <span className="inline-flex items-center gap-1.5 rounded-full border border-[#bef227]/50 bg-[#f4fce0] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#111]">
-        Limited founding access ✓
+        {foundingCopy.spotsShort} ✓
       </span>
 
       <h2
@@ -49,7 +50,10 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
         )}
       </p>
 
-      <p className="mx-auto mt-2 max-w-[300px] text-[14px] text-[#999]">
+      <p className="mx-auto mt-2 max-w-[300px] text-[14px] font-medium text-[#666]">
+        {foundingCopy.limited}
+      </p>
+      <p className="mx-auto mt-1 max-w-[300px] text-[14px] text-[#999]">
         We&apos;ll reach out when your founding spot opens.
       </p>
 

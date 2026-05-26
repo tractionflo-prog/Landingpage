@@ -3,7 +3,7 @@ import { Inter, Caveat } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { JsonLd } from "@/components/JsonLd";
-import { absoluteUrl, siteConfig } from "@/lib/seo";
+import { absoluteUrl, ogImageUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,10 +51,11 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: absoluteUrl("/opengraph-image"),
+        url: ogImageUrl(),
         width: 1200,
         height: 630,
         alt: siteConfig.title,
+        type: "image/png",
       },
     ],
   },
@@ -62,7 +63,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [absoluteUrl("/opengraph-image")],
+    images: [
+      {
+        url: ogImageUrl(),
+        width: 1200,
+        height: 630,
+        alt: siteConfig.title,
+      },
+    ],
   },
   robots: {
     index: true,

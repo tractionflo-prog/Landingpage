@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "Intelligent workflows for business growth",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://tractionflo.com",
+    "https://www.tractionflo.com",
   keywords: [
     "TractionFlo",
     "Instagram automation",
@@ -25,4 +25,11 @@ export const siteConfig = {
 
 export function absoluteUrl(path = "") {
   return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+/** Bump when OG art changes so X/LinkedIn fetch a fresh preview URL. */
+export const OG_IMAGE_VERSION = "2";
+
+export function ogImageUrl() {
+  return `${absoluteUrl("/opengraph-image")}?v=${OG_IMAGE_VERSION}`;
 }

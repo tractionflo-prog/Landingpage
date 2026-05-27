@@ -5,6 +5,7 @@ const links = [
   { label: "Compare", href: "#comparison" },
   { label: "Workflows", href: "#workflows" },
   { label: "Benefits", href: "#growth" },
+  { label: "Who to message", href: "#who-to-message" },
   { label: "About", href: "#about" },
 ];
 

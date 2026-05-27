@@ -437,3 +437,22 @@ body {
   justify-content: center;
   color: #111;
 }
+
+/* —— Founder pricing card —— */
+.founder-pricing-card {
+  background: #fff;
+  border-radius: 28px;
+  padding: 44px 36px 40px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.07);
+  text-align: center;
+}
+
+.founder-pricing-hero {
+  font-size: clamp(2.25rem, 5.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #111;
+  background: linear-gradient(180deg, transparent 62%, rgba(190, 242, 39, 0.7) 62%);
+  display: inline-block;
+}

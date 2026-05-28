@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Stop missing customers in your Instagram DMs";
+export const alt = "TractionFlo — Never lose a buyer in your Instagram DMs again";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -112,7 +112,7 @@ export default async function OgImage() {
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
-              {["Warm leads", "Pricing DMs", "Follow up"].map((label) => (
+              {["Spot buyers", "Suggested reply", "Close faster"].map((label) => (
                 <div
                   key={label}
                   style={{
@@ -208,38 +208,48 @@ export default async function OgImage() {
               <div
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 12,
                   marginTop: 20,
                   padding: 14,
                   borderRadius: 14,
-                  background: "#f8f8f8",
+                  background: "#fafafa",
                   border: "1px solid rgba(0,0,0,0.05)",
                 }}
               >
-                <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <div
+                  style={{
+                    width: 38,
+                    height: 38,
+                    borderRadius: "50%",
+                    background: "#f9a8d4",
+                  }}
+                />
+                <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 5 }}>
                   <div
                     style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: "50%",
-                      background: "linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                     }}
-                  />
-                  <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                    <span style={{ fontSize: 12, fontWeight: 700, color: "#111" }}>jonahfit</span>
-                    <div
+                  >
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "#111" }}>@sarah.k</span>
+                    <span
                       style={{
-                        padding: "8px 12px",
-                        borderRadius: 12,
-                        background: "#f0f0f0",
-                        fontSize: 13,
-                        fontWeight: 600,
-                        color: "#333",
+                        padding: "3px 9px",
+                        borderRadius: 999,
+                        background: "#f4fce0",
+                        fontSize: 10,
+                        fontWeight: 700,
+                        color: "#4d7c0f",
                       }}
                     >
-                      GUIDE 👇
-                    </div>
+                      High intent
+                    </span>
                   </div>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: "#444" }}>
+                    “How much is your coaching?”
+                  </span>
                 </div>
               </div>
 
@@ -254,12 +264,20 @@ export default async function OgImage() {
                   border: "1px solid rgba(190,242,39,0.35)",
                 }}
               >
-                <div style={{ fontSize: 12, fontWeight: 700, color: "#111", marginBottom: 6 }}>
-                  TractionFlo
-                </div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#333" }}>
-                  Hi! Here&apos;s the guide 👋
-                </div>
+                <span
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    letterSpacing: 1,
+                    color: "#4d7c0f",
+                    marginBottom: 6,
+                  }}
+                >
+                  SUGGESTED REPLY
+                </span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: "#222" }}>
+                  Hey Sarah! Yes — spots are open. Want the link?
+                </span>
               </div>
 
               <div style={{ display: "flex", marginTop: 16, gap: 12 }}>
@@ -275,9 +293,7 @@ export default async function OgImage() {
                     gap: 2,
                   }}
                 >
-                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>
-                    Warm leads
-                  </span>
+                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Warm today</span>
                   <span style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>12</span>
                 </div>
                 <div
@@ -292,8 +308,8 @@ export default async function OgImage() {
                     gap: 2,
                   }}
                 >
-                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>High intent</span>
-                  <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>5</span>
+                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Message now</span>
+                  <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>4</span>
                 </div>
               </div>
             </div>

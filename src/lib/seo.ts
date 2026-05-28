@@ -9,14 +9,16 @@ export const siteConfig = {
     "https://www.tractionflo.com",
   keywords: [
     "TractionFlo",
-    "Instagram DMs",
-    "warm leads",
-    "lead generation",
-    "creator sales",
-    "comment to DM",
-    "business growth",
+    "close sales in Instagram DMs",
+    "Instagram DM sales tool",
+    "warm leads in DMs",
+    "convert followers into customers",
+    "social selling for creators",
+    "DM lead generation",
+    "Instagram sales for coaches",
+    "creator sales tool",
     "DM follow-up",
-    "Instagram sales",
+    "spot buyers in comments",
   ],
   creator: "TractionFlo",
   locale: "en_US",
@@ -27,7 +29,7 @@ export function absoluteUrl(path = "") {
 }
 
 /** Bump when OG art changes so X/LinkedIn fetch a fresh preview URL. */
-export const OG_IMAGE_VERSION = "5";
+export const OG_IMAGE_VERSION = "6";
 
 export function ogImageUrl() {
   return `${absoluteUrl("/opengraph-image")}?v=${OG_IMAGE_VERSION}`;

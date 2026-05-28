@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { conversionCopy } from "@/lib/conversion";
 import { useQuiz } from "./QuizProvider";
 
 type QuizTriggerProps = {
@@ -12,7 +13,7 @@ type QuizTriggerProps = {
 export function QuizTrigger({
   size = "md",
   className = "",
-  children = "Join Founding Access",
+  children = conversionCopy.primaryCta,
 }: QuizTriggerProps) {
   const { openQuiz } = useQuiz();
 

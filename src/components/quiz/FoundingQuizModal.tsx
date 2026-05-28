@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
 import { QUIZ_QUESTIONS } from "@/lib/quiz/questions";
+import { conversionCopy } from "@/lib/conversion";
 import { foundingCopy } from "@/lib/founding";
 import { WaitlistSuccessScreen } from "./WaitlistSuccessScreen";
 
@@ -14,6 +15,8 @@ type FoundingQuizModalProps = {
 
 type Step = number | "contact" | "success";
 
+const TOTAL = QUIZ_QUESTIONS.length + 1; // questions + contact
+
 export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
   const [step, setStep] = useState<Step>(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -23,11 +26,11 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
   const [loading, setLoading] = useState(false);
 
   const isSuccess = step === "success";
-  const totalSteps = QUIZ_QUESTIONS.length + 1;
-  const progress =
-    step === "contact"
-      ? ((QUIZ_QUESTIONS.length + 0.5) / totalSteps) * 100
-      : ((Number(step) + 0.5) / totalSteps) * 100;
+
+  const progress = (() => {
+    if (step === "contact") return ((QUIZ_QUESTIONS.length + 0.5) / TOTAL) * 100;
+    return ((Number(step) + 0.5) / TOTAL) * 100;
+  })();
 
   useEffect(() => {
     if (!open) return;
@@ -99,6 +102,9 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
     else if (typeof step === "number" && step > 0) setStep(step - 1);
   };
 
+  const headerTitle = step === "contact" ? foundingCopy.spotsLabel : "Join Founding Access";
+  const headerSub = step === "contact" ? foundingCopy.limited : "Takes 30 seconds · Free";
+
   return (
     <AnimatePresence>
       {open && (
@@ -125,19 +131,15 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
             exit={{ y: 40, opacity: 0 }}
             transition={{ type: "spring", damping: 28, stiffness: 320 }}
           >
-            <div
-              className={`flex items-center justify-between border-b border-black/[0.06] px-5 py-4 ${
-                isSuccess ? "bg-white" : ""
-              }`}
-            >
+            <div className="flex items-center justify-between border-b border-black/[0.06] px-5 py-4">
               <div className="flex flex-col gap-0.5">
                 <div className="flex items-center gap-2">
                   <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#bef227] text-[11px] font-bold">
                     TF
                   </span>
-                  <span className="text-sm font-semibold">{foundingCopy.spotsLabel}</span>
+                  <span className="text-sm font-semibold">{headerTitle}</span>
                 </div>
-                <span className="pl-10 text-[11px] font-medium text-[#888]">{foundingCopy.limited}</span>
+                <span className="pl-10 text-[11px] font-medium text-[#888]">{headerSub}</span>
               </div>
               <button
                 type="button"
@@ -171,14 +173,18 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                     exit={{ opacity: 0, x: -16 }}
                   >
                     <p className="text-[12px] font-semibold uppercase tracking-wide text-[#999]">
-                      Almost there
+                      Last step
                     </p>
                     <h2
                       id="quiz-title"
                       className="mt-2 text-[1.5rem] font-bold leading-tight tracking-tight"
                     >
-                      Where should we send your founding invite?
+                      Lock your founder spot
                     </h2>
+                    <p className="mt-2 text-[14px] leading-relaxed text-[#666]">
+                      We&apos;ll email you the moment your access opens — plus 90 days free and
+                      founder pricing for life.
+                    </p>
                     <div className="mt-6 space-y-4">
                       <div>
                         <label htmlFor="quiz-name" className="mb-1.5 block text-sm font-medium">
@@ -208,8 +214,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                       </div>
                     </div>
                     {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
-                    <p className="mt-4 text-[13px] font-medium text-[#111]">{foundingCopy.limited}</p>
-                    <p className="mt-1 text-[13px] text-[#888]">No credit card. Free to join.</p>
+                    <p className="mt-4 text-[13px] text-[#888]">{conversionCopy.riskReversal}</p>
                   </motion.div>
                 ) : (
                   <motion.div
@@ -219,23 +224,23 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                     exit={{ opacity: 0, x: -16 }}
                   >
                     <p className="text-[12px] font-semibold uppercase tracking-wide text-[#999]">
-                      Question {step + 1} of {QUIZ_QUESTIONS.length}
+                      Question {Number(step) + 1} of {QUIZ_QUESTIONS.length}
                     </p>
                     <h2
                       id="quiz-title"
                       className="mt-2 text-[1.35rem] font-bold leading-snug tracking-tight md:text-[1.5rem]"
                     >
-                      {QUIZ_QUESTIONS[step].question}
+                      {QUIZ_QUESTIONS[Number(step)].question}
                     </h2>
                     <ul className="mt-6 space-y-2.5">
-                      {QUIZ_QUESTIONS[step].options.map((opt) => {
-                        const selected = answers[QUIZ_QUESTIONS[step].id] === opt.value;
+                      {QUIZ_QUESTIONS[Number(step)].options.map((opt) => {
+                        const selected = answers[QUIZ_QUESTIONS[Number(step)].id] === opt.value;
                         return (
                           <li key={opt.value}>
                             <button
                               type="button"
                               onClick={() =>
-                                selectAnswer(QUIZ_QUESTIONS[step].id, opt.value)
+                                selectAnswer(QUIZ_QUESTIONS[Number(step)].id, opt.value)
                               }
                               className={`w-full rounded-[14px] border px-4 py-3.5 text-left text-[15px] font-medium transition-all ${
                                 selected
@@ -277,7 +282,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
                       <>
-                        Join founding access
+                        {foundingCopy.cta}
                         <ArrowRight size={16} />
                       </>
                     )}

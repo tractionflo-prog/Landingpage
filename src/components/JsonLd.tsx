@@ -1,4 +1,5 @@
 import { absoluteUrl, siteConfig } from "@/lib/seo";
+import { pageStory } from "@/lib/pageStory";
 
 export function JsonLd() {
   const organization = {
@@ -29,39 +30,21 @@ export function JsonLd() {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      description: "Founding access — free during early access",
+      description: "Founding access — 90 days free",
     },
   };
 
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is TractionFlo?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "TractionFlo helps businesses turn social conversations into leads, follow-ups and customers using intelligent workflows — without complex automation builders.",
-        },
+    mainEntity: pageStory.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
       },
-      {
-        "@type": "Question",
-        name: "Who is TractionFlo for?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Creators, coaches, agencies and businesses who get leads from comments and DMs and want more sales without manual follow-up work.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How is TractionFlo different from automation builders?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You describe your goal in plain language. TractionFlo builds the workflow for you — no drag-and-drop builders, arrows or conditions.",
-        },
-      },
-    ],
+    })),
   };
 
   return (

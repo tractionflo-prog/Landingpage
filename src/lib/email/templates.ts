@@ -124,7 +124,7 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
             </p>
 
             <p style="margin:0 0 12px 0;font-size:16px;line-height:1.65;color:${MUTED};">
-              You're joining early creators and businesses helping shape TractionFlo — intelligent workflows that turn conversations into customers, without complex builders.
+              You're joining early creators and businesses helping shape TractionFlo — spot warm leads in your DMs, follow up faster, and turn conversations into customers.
             </p>
             <p style="margin:0 0 28px 0;font-size:16px;line-height:1.65;color:${MUTED};">
               Your founding spot is reserved. We'll reach out personally when early access opens.

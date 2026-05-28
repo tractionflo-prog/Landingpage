@@ -1,34 +1,42 @@
 "use client";
 
 import {
-  MessageCircle,
-  Send,
   HelpCircle,
+  Heart,
   Clock,
-  User,
-  ArrowDown,
+  UserX,
+  TrendingDown,
+  TrendingUp,
 } from "lucide-react";
 import { BrushHighlight } from "@/components/ui/BrushHighlight";
+import { pageStory } from "@/lib/pageStory";
 
 const steps = [
-  { Icon: MessageCircle, label: "People comment" },
-  { Icon: Send, label: "People DM" },
-  { Icon: HelpCircle, label: "People ask pricing" },
-  { Icon: Clock, label: "You reply late" },
-  { Icon: User, label: "They disappear" },
-  { Icon: ArrowDown, label: "Revenue lost" },
+  { Icon: HelpCircle, label: "Question" },
+  { Icon: Heart, label: "Interest" },
+  { Icon: Clock, label: "Late reply" },
+  { Icon: UserX, label: "Competitor" },
+  { Icon: TrendingDown, label: "Revenue lost" },
 ];
 
 export function Problem() {
-  return (
-    <section id="problem" className="section-grey" aria-labelledby="problem-heading">
-      <div className="page-wrap">
-        <h2 id="problem-heading" className="t-section mx-auto max-w-[720px] text-center">
-          You&apos;re losing growth opportunities{" "}
-          <BrushHighlight>every day.</BrushHighlight>
-        </h2>
+  const { problem } = pageStory;
 
-        <div className="problem-flow mt-14">
+  return (
+    <section id="problem" className="section-white" aria-labelledby="problem-heading">
+      <div className="page-wrap">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#999]">
+          {problem.eyebrow}
+        </p>
+        <h2 id="problem-heading" className="t-section mx-auto mt-3 max-w-[720px] text-center">
+          Every missed DM is{" "}
+          <BrushHighlight>missed revenue.</BrushHighlight>
+        </h2>
+        <p className="mx-auto mt-4 max-w-[520px] text-center text-[1.0625rem] leading-relaxed text-[#666]">
+          {problem.subhead}
+        </p>
+
+        <div className="problem-flow mt-12 sm:mt-14">
           {steps.map(({ Icon, label }) => (
             <div key={label} className="problem-icon-box">
               <div className="problem-icon-inner">
@@ -41,10 +49,14 @@ export function Problem() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
-          <p className="t-body">Most businesses don&apos;t have a traffic problem.</p>
-          <p className="mt-2 text-[1.125rem] font-semibold text-[#111] md:text-[1.25rem]">
-            They have a <span className="text-highlight">follow-up and system</span> problem.
+        <p className="mx-auto mt-12 max-w-[560px] text-center text-[1.0625rem] font-semibold text-[#111] sm:mt-14">
+          {problem.close}
+        </p>
+
+        <div className="mx-auto mt-8 flex max-w-[640px] items-start gap-3 rounded-[16px] border border-[#bef227]/40 bg-[#f4fce0]/50 px-5 py-4 sm:items-center sm:justify-center sm:text-center">
+          <TrendingUp size={18} className="mt-0.5 shrink-0 text-[#4d7c0f] sm:mt-0" strokeWidth={2.2} />
+          <p className="text-[14px] font-medium leading-relaxed text-[#333] sm:text-[15px]">
+            {problem.roi}
           </p>
         </div>
       </div>

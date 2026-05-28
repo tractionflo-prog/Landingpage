@@ -2,31 +2,26 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Check, Users, MessageCircle, Flame } from "lucide-react";
+import { Flame, MessageCircle, Sparkles } from "lucide-react";
+import {
+  HERO_DEMO_HANDNOTE,
+  HERO_DEMO_STATS,
+  MESSAGE_PEOPLE,
+  SUGGESTED_REPLY,
+} from "@/lib/heroDemo";
 
-const MSG = "Help me sell more coaching";
-const ITEMS = [
-  "Capture GUIDE comments",
-  "Answer pricing questions instantly",
-  "Follow up tomorrow",
-  "Track warm leads",
-  "Re-engage silent leads",
-  "Suggest next actions to grow revenue",
-];
-const PCTS = [15, 40, 70, 100];
+type Phase = "reveal" | "focus" | "reply" | "stats";
 
 export function HeroDemo() {
-  const [phase, setPhase] = useState<"type" | "send" | "gen" | "list" | "stats">("type");
-  const [text, setText] = useState("");
-  const [pct, setPct] = useState(0);
-  const [checks, setChecks] = useState(0);
+  const [phase, setPhase] = useState<Phase>("reveal");
+  const [visible, setVisible] = useState(0);
+  const [reply, setReply] = useState("");
   const [key, setKey] = useState(0);
 
   const reset = useCallback(() => {
-    setPhase("type");
-    setText("");
-    setPct(0);
-    setChecks(0);
+    setPhase("reveal");
+    setVisible(0);
+    setReply("");
     setKey((k) => k + 1);
   }, []);
 
@@ -36,136 +31,133 @@ export function HeroDemo() {
   }, [key, reset]);
 
   useEffect(() => {
-    if (phase !== "type") return;
-    if (text.length >= MSG.length) {
-      return void setTimeout(() => setPhase("send"), 350);
+    if (phase !== "reveal") return;
+    if (visible >= MESSAGE_PEOPLE.length) {
+      return void setTimeout(() => setPhase("focus"), 400);
     }
-    const t = setTimeout(() => setText(MSG.slice(0, text.length + 1)), 42);
+    const t = setTimeout(() => setVisible((v) => v + 1), 280);
     return () => clearTimeout(t);
-  }, [phase, text]);
+  }, [phase, visible]);
 
   useEffect(() => {
-    if (phase !== "send") return;
-    const t = setTimeout(() => setPhase("gen"), 450);
+    if (phase !== "focus") return;
+    const t = setTimeout(() => setPhase("reply"), 600);
     return () => clearTimeout(t);
   }, [phase]);
 
   useEffect(() => {
-    if (phase !== "gen") return;
-    let i = 0;
-    const go = () => {
-      if (i >= PCTS.length) {
-        setPhase("list");
-        return;
-      }
-      setPct(PCTS[i++]);
-      setTimeout(go, 500);
-    };
-    const t = setTimeout(go, 200);
+    if (phase !== "reply") return;
+    if (reply.length >= SUGGESTED_REPLY.length) {
+      return void setTimeout(() => setPhase("stats"), 500);
+    }
+    const t = setTimeout(() => setReply(SUGGESTED_REPLY.slice(0, reply.length + 1)), 36);
     return () => clearTimeout(t);
-  }, [phase, key]);
-
-  useEffect(() => {
-    if (phase !== "list") return;
-    if (checks >= ITEMS.length) return void setTimeout(() => setPhase("stats"), 500);
-    const t = setTimeout(() => setChecks((c) => c + 1), 240);
-    return () => clearTimeout(t);
-  }, [phase, checks]);
+  }, [phase, reply]);
 
   return (
     <div className="relative">
       <div className="card p-6 md:p-7">
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-[#999]">You</p>
-        <div className="mb-5 flex items-center gap-3 rounded-[14px] border border-black/[0.07] bg-[#fafafa] px-4 py-3">
-          <span className="flex-1 text-[15px] text-[#111]">
-            {text}
-            {phase === "type" && (
-              <motion.span
-                className="ml-0.5 inline-block h-[1em] w-px bg-[#111]"
-                animate={{ opacity: [1, 0] }}
-                transition={{ repeat: Infinity, duration: 0.7 }}
-              />
-            )}
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#999]">
+              Today&apos;s opportunities
+            </p>
+            <p className="mt-1 text-[15px] font-bold text-[#111]">
+              People you should message
+            </p>
+          </div>
+          <span className="flex items-center gap-1 rounded-full bg-[#f4fce0] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#4d7c0f]">
+            <Flame size={12} />
+            {visible} warm
           </span>
-          <motion.div
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#111] text-white"
-            animate={phase === "send" ? { scale: [1, 0.9, 1] } : {}}
-          >
-            <Send size={16} />
-          </motion.div>
         </div>
 
-        {(phase === "gen" || phase === "list" || phase === "stats") && (
-          <div className="mb-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#bef227] text-[10px] font-bold">
-                TF
-              </span>
-              <span className="text-[14px] font-bold">TractionFlo</span>
-              <span className="text-[14px] text-[#888]">Generating your workflow...</span>
-            </div>
-            <div className="h-[10px] overflow-hidden rounded-full bg-black/[0.06]">
-              <motion.div
-                className="h-full rounded-full bg-[#bef227]"
-                animate={{ width: `${pct}%` }}
-                transition={{ duration: 0.4 }}
-              />
-            </div>
-            <div className="mt-2 flex justify-between text-[11px] text-[#aaa]">
-              {PCTS.map((p) => (
-                <span key={p} className={pct >= p ? "font-semibold text-[#111]" : ""}>
-                  {p}%
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {(phase === "list" || phase === "stats") && (
-          <ul className="mb-5 space-y-[10px]">
-            {ITEMS.map((item, i) => (
-              <li
-                key={item}
-                className="flex items-center gap-2.5 text-[14px]"
-                style={{ opacity: i < checks ? 1 : 0.25 }}
+        <ul className="space-y-2">
+          {MESSAGE_PEOPLE.map((person, i) => {
+            const shown = i < visible;
+            const focused = phase !== "reveal" && i === 0 && shown;
+            return (
+              <motion.li
+                key={person.handle}
+                className={`flex items-center gap-3 rounded-[12px] border px-3 py-2.5 transition-colors ${
+                  focused
+                    ? "border-[#bef227]/70 bg-[#f4fce0]/40"
+                    : "border-black/[0.06] bg-[#fafafa]"
+                }`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={shown ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                transition={{ duration: 0.3 }}
               >
-                <span
-                  className={`flex h-5 w-5 items-center justify-center rounded-full ${
-                    i < checks ? "bg-[#bef227]" : "bg-black/[0.06]"
-                  }`}
-                >
-                  {i < checks && <Check size={12} strokeWidth={3} />}
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
+                <div
+                  className="h-9 w-9 shrink-0 rounded-full border-2 border-white shadow-sm"
+                  style={{ background: person.avatar }}
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <p className="text-[13px] font-bold text-[#111]">@{person.handle}</p>
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide ${person.badgeClass}`}
+                    >
+                      {person.badge}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 flex items-center gap-1 text-[12px] text-[#666]">
+                    {person.badge === "High intent" ? (
+                      <Sparkles size={12} className="shrink-0 text-[#8ab800]" />
+                    ) : (
+                      <MessageCircle size={12} className="shrink-0 text-[#999]" />
+                    )}
+                    {person.signal}
+                  </p>
+                </div>
+              </motion.li>
+            );
+          })}
+        </ul>
+
+        {(phase === "focus" || phase === "reply" || phase === "stats") && (
+          <motion.div
+            className="mt-4 rounded-[14px] border border-black/[0.07] bg-white p-3"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#999]">
+              Suggested reply · @{MESSAGE_PEOPLE[0].handle}
+            </p>
+            <p className="mt-2 min-h-[2.5rem] text-[14px] leading-relaxed text-[#111]">
+              {reply}
+              {phase === "reply" && reply.length < SUGGESTED_REPLY.length && (
+                <motion.span
+                  className="ml-0.5 inline-block h-[1em] w-px bg-[#111]"
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ repeat: Infinity, duration: 0.7 }}
+                />
+              )}
+            </p>
+          </motion.div>
         )}
 
         {phase === "stats" && (
-          <div className="grid grid-cols-3 gap-2 rounded-[14px] bg-[#f7f7f7] px-2 py-4">
-            <Stat icon={<Users size={16} className="mx-auto text-[#8ab800]" />} n={43} label="Leads captured" />
-            <Stat icon={<MessageCircle size={16} className="mx-auto text-[#888]" />} n={12} label="Pricing conversations" />
-            <Stat icon={<Flame size={16} className="mx-auto text-[#f97316]" />} n={5} label="Warm leads today" />
-          </div>
+          <motion.div
+            className="mt-4 grid grid-cols-3 gap-2 rounded-[14px] bg-[#f7f7f7] px-2 py-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            {HERO_DEMO_STATS.map(({ n, label }) => (
+              <div key={label} className="text-center">
+                <p className="text-[22px] font-bold leading-none tracking-tight text-[#111]">{n}</p>
+                <p className="mt-1 text-[10px] leading-tight text-[#888] md:text-[11px]">{label}</p>
+              </div>
+            ))}
+          </motion.div>
         )}
       </div>
 
       {phase === "stats" && (
         <p className="font-hand absolute -bottom-8 right-0 text-right md:-bottom-6">
-          Real results. Every day. →
+          {HERO_DEMO_HANDNOTE}
         </p>
       )}
-    </div>
-  );
-}
-
-function Stat({ icon, n, label }: { icon: React.ReactNode; n: number; label: string }) {
-  return (
-    <div className="text-center">
-      {icon}
-      <p className="mt-1 text-[22px] font-bold leading-none tracking-tight">{n}</p>
-      <p className="mt-1 text-[10px] leading-tight text-[#888] md:text-[11px]">{label}</p>
     </div>
   );
 }

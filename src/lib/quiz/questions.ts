@@ -7,7 +7,7 @@ export type QuizQuestion = {
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: "business_type",
-    question: "What best describes your business?",
+    question: "What best describes you?",
     options: [
       { value: "creator", label: "Creator / influencer" },
       { value: "coach", label: "Coach or consultant" },
@@ -18,13 +18,13 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "biggest_challenge",
-    question: "What's your biggest growth bottleneck right now?",
+    question: "What's costing you the most sales right now?",
     options: [
-      { value: "slow_replies", label: "I reply to DMs too slowly" },
-      { value: "no_followup", label: "No follow-up system" },
-      { value: "losing_leads", label: "Leads go cold and disappear" },
-      { value: "manual_work", label: "Too much manual DM work" },
-      { value: "cant_scale", label: "Can't scale without hiring" },
+      { value: "slow_replies", label: "I reply too slow — buyers go cold" },
+      { value: "no_followup", label: "I don't know who to message first" },
+      { value: "losing_leads", label: "I miss DMs and lose ready buyers" },
+      { value: "manual_work", label: "I live in my inbox but still miss people" },
+      { value: "cant_scale", label: "I can't keep up as volume grows" },
     ],
   },
   {
@@ -39,7 +39,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "primary_platform",
-    question: "Where do most of your conversations happen?",
+    question: "Where do most buyers find you?",
     options: [
       { value: "instagram", label: "Instagram" },
       { value: "tiktok", label: "TikTok" },
@@ -49,11 +49,11 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: "primary_goal",
-    question: "What would help you most in the next 90 days?",
+    question: "If TractionFlo worked perfectly, what would change first?",
     options: [
-      { value: "more_leads", label: "Capture more leads" },
-      { value: "more_sales", label: "Close more sales" },
-      { value: "save_time", label: "Save hours every week" },
+      { value: "more_leads", label: "I'd catch every warm lead" },
+      { value: "more_sales", label: "I'd close more from my DMs" },
+      { value: "save_time", label: "I'd spend less time guessing who to message" },
       { value: "all", label: "All of the above" },
     ],
   },

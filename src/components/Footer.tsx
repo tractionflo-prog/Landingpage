@@ -1,12 +1,12 @@
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
+import { conversionCopy } from "@/lib/conversion";
 
 const links = [
   { label: "Problem", href: "#problem" },
+  { label: "Outcomes", href: "#growth" },
+  { label: "How it works", href: "#how-it-works" },
   { label: "Compare", href: "#comparison" },
-  { label: "Workflows", href: "#workflows" },
-  { label: "Benefits", href: "#growth" },
-  { label: "Who to message", href: "#who-to-message" },
-  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Footer() {
@@ -39,9 +39,9 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col gap-4 border-t border-black/[0.06] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[13px] text-[#888]">
-            © {new Date().getFullYear()} TractionFlo. Less setup. More conversations.
+            © {new Date().getFullYear()} TractionFlo
           </p>
-          <QuizTrigger size="md">Join Founding Access</QuizTrigger>
+          <QuizTrigger size="md">{conversionCopy.primaryCta}</QuizTrigger>
         </div>
       </div>
     </footer>

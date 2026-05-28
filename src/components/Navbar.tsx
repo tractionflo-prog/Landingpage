@@ -6,11 +6,10 @@ import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 
 const links = [
   { label: "Problem", href: "#problem" },
+  { label: "Outcomes", href: "#growth" },
+  { label: "How it works", href: "#how-it-works" },
   { label: "Compare", href: "#comparison" },
-  { label: "Workflows", href: "#workflows" },
-  { label: "Benefits", href: "#growth" },
-  { label: "Who to message", href: "#who-to-message" },
-  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {

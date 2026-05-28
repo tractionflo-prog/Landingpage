@@ -3,22 +3,20 @@
 import { Send, Check } from "lucide-react";
 import { HandAnnotation } from "@/components/ui/HandAnnotation";
 
-const INPUT = "When someone comments GUIDE send my PDF and follow up tomorrow";
+const INPUT = "Show me followers ready to buy";
 const STEPS = [
-  "Trigger connected",
-  "PDF attached",
-  "FAQ enabled",
-  "Follow-up scheduled",
-  "Lead tracking enabled",
-  "Done.",
+  "Describe your goal",
+  "Identify warm followers",
+  "Automated follow-up",
+  "Simple and fast",
 ];
 
 /** Static comparison demo for mobile — no typing animation. */
 export function ComparisonDemoStatic() {
   return (
-    <div id="tf-way" className="relative h-full">
+    <div className="relative h-full">
       <span className="mb-3 inline-block rounded-full bg-[#bef227] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#111]">
-        The TractionFlo way
+        TractionFlo
       </span>
       <div className="card h-full p-5">
         <div className="flex gap-3 rounded-[14px] border border-black/[0.07] bg-[#fafafa] px-4 py-3">
@@ -37,7 +35,7 @@ export function ComparisonDemoStatic() {
             </li>
           ))}
         </ul>
-        <HandAnnotation className="mt-6">That&apos;s it. →</HandAnnotation>
+        <HandAnnotation className="mt-6">Know who to message. Close faster. →</HandAnnotation>
       </div>
     </div>
   );

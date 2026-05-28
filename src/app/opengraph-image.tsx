@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Turn comments and DMs into customers";
+export const alt = "TractionFlo — Stop missing customers in your Instagram DMs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -88,13 +88,13 @@ export default async function OgImage() {
                 letterSpacing: "-0.035em",
               }}
             >
-              <span>Turn comments &amp; DMs into</span>
+              <span>Never lose a</span>
               <span
                 style={{
                   background: "linear-gradient(180deg, transparent 55%, rgba(190,242,39,0.85) 55%)",
                 }}
               >
-                customers
+                buyer in your DMs again.
               </span>
             </div>
 
@@ -108,11 +108,11 @@ export default async function OgImage() {
                 maxWidth: 520,
               }}
             >
-              Intelligent workflows for business growth — without complex builders.
+              Your followers are already asking to buy. See who&apos;s ready, what to say, and close before they go cold.
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
-              {["Comment → DM", "FAQ replies", "Follow-ups"].map((label) => (
+              {["Warm leads", "Pricing DMs", "Follow up"].map((label) => (
                 <div
                   key={label}
                   style={{
@@ -199,30 +199,10 @@ export default async function OgImage() {
                     TF
                   </div>
                   <span style={{ fontSize: 14, fontWeight: 700, color: "#111" }}>
-                    Workflow running
+                    People to message today
                   </span>
                 </div>
-                <span style={{ fontSize: 13, fontWeight: 700, color: "#8ab800" }}>70%</span>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  marginTop: 12,
-                  height: 6,
-                  borderRadius: 999,
-                  background: "#f0f0f0",
-                  overflow: "hidden",
-                }}
-              >
-                <div
-                  style={{
-                    width: "70%",
-                    height: "100%",
-                    background: "#bef227",
-                    borderRadius: 999,
-                  }}
-                />
+                <span style={{ fontSize: 13, fontWeight: 700, color: "#8ab800" }}>4 warm</span>
               </div>
 
               <div
@@ -296,9 +276,9 @@ export default async function OgImage() {
                   }}
                 >
                   <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>
-                    Leads captured
+                    Warm leads
                   </span>
-                  <span style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>2.4k</span>
+                  <span style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>12</span>
                 </div>
                 <div
                   style={{
@@ -312,8 +292,8 @@ export default async function OgImage() {
                     gap: 2,
                   }}
                 >
-                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Conversion</span>
-                  <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>68%</span>
+                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>High intent</span>
+                  <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>5</span>
                 </div>
               </div>
             </div>

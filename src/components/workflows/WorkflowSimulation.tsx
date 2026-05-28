@@ -158,16 +158,16 @@ function FaqFlow({ step }: { step: number }) {
       body: <p className="rounded-[12px] bg-[#f4f4f4] px-2.5 py-2 text-[13px]">How much is coaching?</p>,
     },
     {
-      title: "Thinking",
+      title: "Reply drafted",
       body: (
         <div className="flex items-center gap-2 text-[13px] text-[#888]">
           {step === 1 ? <Loader2 size={16} className="animate-spin" /> : "···"}
-          Processing...
+          Ready to send...
         </div>
       ),
     },
     {
-      title: "Answer generated",
+      title: "Reply sent",
       body: (
         <p className="rounded-[12px] bg-[#eef9c4] px-2.5 py-2 text-[13px]">
           Plans start at $297/mo.
@@ -175,7 +175,7 @@ function FaqFlow({ step }: { step: number }) {
       ),
     },
     {
-      title: "Lead tagged",
+      title: "Marked high intent",
       body: (
         <span className="inline-block rounded-full bg-[#eef9c4] px-2.5 py-1 text-[12px] font-medium">
           Pricing intent

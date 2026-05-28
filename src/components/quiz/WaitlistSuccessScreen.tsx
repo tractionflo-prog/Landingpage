@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { conversionCopy } from "@/lib/conversion";
 import { foundingCopy } from "@/lib/founding";
 type WaitlistSuccessScreenProps = {
   name?: string;
@@ -54,7 +55,7 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
         {foundingCopy.limited}
       </p>
       <p className="mx-auto mt-1 max-w-[300px] text-[14px] text-[#999]">
-        We&apos;ll reach out when your founding spot opens.
+        You&apos;re ahead of everyone still missing buyers in their DMs.
       </p>
 
       <p
@@ -68,7 +69,7 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
         Done
       </button>
 
-      <p className="mt-5 text-[12px] text-[#bbb]">Less setup. More conversations.</p>
+      <p className="mt-5 text-[12px] text-[#bbb]">{conversionCopy.riskReversal}</p>
     </motion.div>
   );
 }

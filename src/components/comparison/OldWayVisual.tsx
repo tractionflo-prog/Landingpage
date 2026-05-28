@@ -7,7 +7,7 @@ export function OldWayVisual() {
         <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
         <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
         <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-        <span className="ml-2 text-[10px] font-medium text-[#999]">Workflow builder</span>
+        <span className="ml-2 text-[10px] font-medium text-[#999]">Automation builder</span>
       </div>
 
       <div className="relative h-[200px] md:h-[220px]">

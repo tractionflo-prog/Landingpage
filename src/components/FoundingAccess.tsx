@@ -4,9 +4,7 @@ import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import {
   FOUNDER_BENEFITS,
   FOUNDER_DISCOUNT_PERCENT,
-  FOUNDER_PRO_PRICE_EXAMPLE,
   FOUNDER_SPOTS_TOTAL,
-  founderPriceExample,
   foundingCopy,
 } from "@/lib/founding";
 import { pageStory } from "@/lib/pageStory";
@@ -77,16 +75,9 @@ export function FoundingAccess() {
                 {FOUNDER_DISCOUNT_PERCENT}% of Pro pricing
               </p>
               <p className="mt-2 text-[16px] font-semibold text-[#111]">locked forever</p>
-
-              <div className="mt-8 rounded-[14px] bg-[#fafafa] px-5 py-4 text-left">
-                <p className="text-[14px] leading-relaxed text-[#666]">
-                  Example: Pro at{" "}
-                  <strong className="font-semibold text-[#111]">${FOUNDER_PRO_PRICE_EXAMPLE}/mo</strong>
-                  {" → "}
-                  you pay{" "}
-                  <strong className="font-semibold text-[#8ab800]">${founderPriceExample}/mo</strong>
-                </p>
-              </div>
+              <p className="mt-3 text-[14px] leading-relaxed text-[#666]">
+                Whatever Pro costs at launch, you stay at a tenth of it — for life.
+              </p>
 
               <p className="mt-8 text-[13px] font-bold uppercase tracking-[0.12em] text-[#111]">
                 {FOUNDER_SPOTS_TOTAL} spots only

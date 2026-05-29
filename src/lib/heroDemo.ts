@@ -1,5 +1,12 @@
 export const MESSAGE_PEOPLE = [
   {
+    handle: "jade.l",
+    signal: "Watched every story · never messaged",
+    badge: "High intent",
+    badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
+    avatar: "#fcd34d",
+  },
+  {
     handle: "sarah.k",
     signal: "“How much is your coaching?”",
     badge: "High intent",
@@ -14,15 +21,8 @@ export const MESSAGE_PEOPLE = [
     avatar: "#7dd3fc",
   },
   {
-    handle: "jade.l",
-    signal: "“Are you taking new clients?”",
-    badge: "High intent",
-    badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
-    avatar: "#fcd34d",
-  },
-  {
     handle: "alex.t",
-    signal: "Saved your post 3 times",
+    signal: "Bought before · back again",
     badge: "Warm",
     badgeClass: "bg-[#f4f4f5] text-[#555]",
     avatar: "#c4b5fd",
@@ -30,7 +30,7 @@ export const MESSAGE_PEOPLE = [
 ] as const;
 
 export const SUGGESTED_REPLY =
-  "Hey Sarah! Yes — spots are open. Want me to send the link?";
+  "Hey Jade! Saw you've been checking out the program — want me to send the details?";
 
 export const HERO_DEMO_STATS = [
   { n: 12, label: "Warm today" },
@@ -38,4 +38,4 @@ export const HERO_DEMO_STATS = [
   { n: "$2.4k", label: "Pipeline spotted" },
 ] as const;
 
-export const HERO_DEMO_HANDNOTE = "Reply to these first. →";
+export const HERO_DEMO_HANDNOTE = "She never messaged you. Now you can. →";

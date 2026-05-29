@@ -2,14 +2,8 @@ import { conversionCopy } from "./conversion";
 
 export const FOUNDER_SPOTS_TOTAL = 100;
 
-/** Example public Pro price for founder offer (Option B). Update when launch pricing is set. */
-export const FOUNDER_PRO_PRICE_EXAMPLE = 99;
+/** Founders pay this share of whatever the public Pro price is at launch. */
 export const FOUNDER_DISCOUNT_PERCENT = 10;
-
-export const founderPriceExample = (
-  (FOUNDER_PRO_PRICE_EXAMPLE * FOUNDER_DISCOUNT_PERCENT) /
-  100
-).toFixed(2);
 
 export const foundingCopy = {
   cta: conversionCopy.offerCta,

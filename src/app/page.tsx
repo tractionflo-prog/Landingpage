@@ -2,6 +2,7 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { Problem } from "@/components/Problem";
+import { DmPersonas } from "@/components/DmPersonas";
 import { WhoFor } from "@/components/WhoFor";
 import { Growth } from "@/components/Growth";
 import { HowItWorksSteps } from "@/components/HowItWorksSteps";
@@ -30,7 +31,9 @@ export default function Home() {
         <Hero />
         {/* 2. Agitate the pain */}
         <Problem />
-        {/* 3. How it works — the simple concept */}
+        {/* 3. Recognition — the buyers hiding in their DMs */}
+        <DmPersonas />
+        {/* 4. How it works — the simple concept */}
         <HowItWorksSteps />
         {/* 4. See it in action — live scenarios */}
         <Workflows />

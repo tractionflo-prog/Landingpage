@@ -38,6 +38,32 @@ export const pageStory = {
     close: "You don't need more followers. You need to catch buyers you're already losing.",
     roi: "Most creators lose 5–15 ready buyers a month to slow replies. Win back just one and TractionFlo more than pays for itself.",
   },
+  personas: {
+    eyebrow: "Sound familiar?",
+    headline: "The buyers already hiding in your DMs.",
+    subhead: "You get all of these every week. Most never get a reply in time.",
+    items: [
+      {
+        tag: "Ready to buy",
+        signal: "“How much? Do you have spots?”",
+      },
+      {
+        tag: "On the fence",
+        signal: "“Does this actually work for…?”",
+      },
+      {
+        tag: "Silent but hot",
+        signal: "Saves posts, watches every story — never messages",
+        star: true,
+        starLabel: "Most creators never see this one",
+      },
+      {
+        tag: "Past customer",
+        signal: "Bought before — ready to buy again",
+      },
+    ],
+    note: "TractionFlo surfaces every one — and hands you the message to send.",
+  },
   outcomes: {
     eyebrow: "What you get",
     headline: "Five outcomes. One inbox.",
@@ -123,7 +149,7 @@ export const pageStory = {
       },
       {
         q: "What does it cost after the 90 days?",
-        a: "Founders lock 10% of our public Pro price — forever. If Pro launches at $99/mo, you stay at $9.90/mo for life. No credit card to join.",
+        a: "Founders lock 10% of our public Pro price — for life. Whatever Pro costs at launch, you only ever pay a tenth of it. No credit card to join.",
       },
       {
         q: "Which platforms does it work with?",

@@ -3,14 +3,13 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { Problem } from "@/components/Problem";
 import { DmPersonas } from "@/components/DmPersonas";
-import { WhoFor } from "@/components/WhoFor";
-import { Growth } from "@/components/Growth";
-import { HowItWorksSteps } from "@/components/HowItWorksSteps";
-import { Workflows } from "@/components/workflows/Workflows";
+import { CustomerJourney } from "@/components/CustomerJourney";
+import { ProductShowcase } from "@/components/ProductShowcase";
 import { Comparison } from "@/components/comparison/Comparison";
 import { About } from "@/components/About";
 import { Faq } from "@/components/Faq";
 import { FoundingAccess } from "@/components/FoundingAccess";
+import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import type { Metadata } from "next";
@@ -27,28 +26,26 @@ export default function Home() {
       <AnnouncementBar />
       <Navbar />
       <main id="main-content">
-        {/* 1. Hook + live product preview */}
+        {/* 1. Hook — audience already trying to buy */}
         <Hero />
-        {/* 2. Agitate the pain */}
+        {/* 2. Real problem — traffic vs follow-up */}
         <Problem />
-        {/* 3. Recognition — the buyers hiding in their DMs */}
+        {/* 3. Personal attention — every interested follower */}
         <DmPersonas />
-        {/* 4. How it works — the simple concept */}
-        <HowItWorksSteps />
-        {/* 4. See it in action — live scenarios */}
-        <Workflows />
-        {/* 5. Why not the old way */}
+        {/* 4. Customer journey — follower to paid customer */}
+        <CustomerJourney />
+        {/* 5. Product showcase — inbox, opportunities, payments, customers */}
+        <ProductShowcase />
+        {/* 6. Old way vs TractionFlo — many tools vs one platform */}
         <Comparison />
-        {/* 6. What you get — outcomes strip */}
-        <Growth />
-        {/* 7. Qualify the visitor */}
-        <WhoFor />
-        {/* 8. Trust — founder's note */}
+        {/* 7. Trust — founder's note */}
         <About />
-        {/* 9. Handle objections */}
+        {/* 8. Handle objections */}
         <Faq />
-        {/* 10. The offer / close */}
+        {/* 9. The offer */}
         <FoundingAccess />
+        {/* 10. Final CTA — stop losing customers */}
+        <FinalCta />
       </main>
       <Footer />
       <StickyMobileCta />

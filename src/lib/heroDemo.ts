@@ -1,41 +1,60 @@
-export const MESSAGE_PEOPLE = [
+export type HeroOutcome = {
+  kind: "paid" | "booked" | "repeat";
+  label: string;
+  amount?: string;
+};
+
+export type HeroScenario = {
+  name: string;
+  handle: string;
+  avatar: string;
+  spotted: string;
+  incoming?: string;
+  reply: string;
+  /** The part of the reply that proves it's personalized to this person. */
+  highlight: string;
+  outcome: HeroOutcome;
+};
+
+export const HERO_SCENARIOS: HeroScenario[] = [
   {
-    handle: "jade.l",
-    signal: "Watched every story · never messaged",
-    badge: "High intent",
-    badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
-    avatar: "#fcd34d",
-  },
-  {
+    name: "Sarah",
     handle: "sarah.k",
-    signal: "“How much is your coaching?”",
-    badge: "High intent",
-    badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
     avatar: "#f9a8d4",
+    spotted: "Asked about pricing",
+    incoming: "How much is your coaching? 👀",
+    reply: "Hi Sarah! You asked about the coaching — it's $240 for 4 weeks, 1:1. Want the link?",
+    highlight: "You asked about the coaching",
+    outcome: { kind: "paid", label: "Paid in the chat", amount: "$240" },
   },
   {
-    handle: "mike.r",
-    signal: "“Do you have this in size M?”",
-    badge: "High intent",
-    badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
-    avatar: "#7dd3fc",
+    name: "Jade",
+    handle: "jade.l",
+    avatar: "#fcd34d",
+    spotted: "Watched every story · never messaged",
+    reply: "Hey Jade! I noticed you catch every story 🙌 want the details on the program?",
+    highlight: "I noticed you catch every story",
+    outcome: { kind: "booked", label: "Call booked" },
   },
   {
+    name: "Alex",
     handle: "alex.t",
-    signal: "Bought before · back again",
-    badge: "Warm",
-    badgeClass: "bg-[#f4f4f5] text-[#555]",
     avatar: "#c4b5fd",
+    spotted: "Bought before · back again",
+    incoming: "Is the new drop available?",
+    reply: "Welcome back Alex! Since you loved the last drop, want me to set you up again?",
+    highlight: "Since you loved the last drop",
+    outcome: { kind: "repeat", label: "Repeat order", amount: "$180" },
   },
-] as const;
+];
 
-export const SUGGESTED_REPLY =
-  "Hey Jade! Saw you've been checking out the program — want me to send the details?";
+// kept for any legacy reference
+export const MESSAGE_PEOPLE = HERO_SCENARIOS.map((s) => ({
+  handle: s.handle,
+  signal: s.spotted,
+  badge: "High intent",
+  badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
+  avatar: s.avatar,
+}));
 
-export const HERO_DEMO_STATS = [
-  { n: 12, label: "Warm today" },
-  { n: 4, label: "Message now" },
-  { n: "$2.4k", label: "Pipeline spotted" },
-] as const;
-
-export const HERO_DEMO_HANDNOTE = "She never messaged you. Now you can. →";
+export const SUGGESTED_REPLY = HERO_SCENARIOS[0].reply;

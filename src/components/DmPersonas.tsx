@@ -17,7 +17,7 @@ export function DmPersonas() {
   const { personas } = pageStory;
 
   return (
-    <section id="who-to-message" className="section-white" aria-labelledby="personas-heading">
+    <section id="who-to-message" className="section-grey" aria-labelledby="personas-heading">
       <div className="page-wrap">
         <Reveal>
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#999]">

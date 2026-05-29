@@ -13,7 +13,7 @@ export function FoundingAccess() {
   const { founding } = pageStory;
 
   return (
-    <section id="founding" className="offer-glow section-white" aria-labelledby="founding-heading">
+    <section id="founding" className="offer-glow section-grey" aria-labelledby="founding-heading">
       <div className="page-wrap">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <div className="min-w-0">

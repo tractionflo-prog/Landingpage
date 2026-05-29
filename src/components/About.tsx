@@ -9,7 +9,7 @@ export function About() {
   const { founderNote } = pageStory;
 
   return (
-    <section id="about" className="section-white" aria-labelledby="about-heading">
+    <section id="about" className="section-grey" aria-labelledby="about-heading">
       <div className="page-wrap max-w-[760px]">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -22,7 +22,7 @@ export function About() {
           </p>
           <h2 id="about-heading" className="t-section mt-3">
             We&apos;re building this with our{" "}
-            <BrushHighlight>first 100 users.</BrushHighlight>
+            <BrushHighlight>first 25 users.</BrushHighlight>
           </h2>
 
           <div className="mt-6 space-y-4">

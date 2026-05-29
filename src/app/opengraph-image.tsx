@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Never lose a buyer in your Instagram DMs again";
+export const alt = "TractionFlo — Turn your Instagram DMs into paying customers";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -88,13 +88,13 @@ export default async function OgImage() {
                 letterSpacing: "-0.035em",
               }}
             >
-              <span>Never lose a</span>
+              <span>Turn your DMs into</span>
               <span
                 style={{
                   background: "linear-gradient(180deg, transparent 55%, rgba(190,242,39,0.85) 55%)",
                 }}
               >
-                buyer in your DMs again.
+                paying customers.
               </span>
             </div>
 
@@ -108,11 +108,11 @@ export default async function OgImage() {
                 maxWidth: 520,
               }}
             >
-              Your followers are already asking to buy. See who&apos;s ready, what to say, and close before they go cold.
+              Your audience is already trying to buy. Spot who&apos;s ready, auto-reply with a message personalized to each — and get paid.
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
-              {["Spot buyers", "Suggested reply", "Close faster"].map((label) => (
+              {["Spot buyers", "Personalize & auto-send", "Get paid"].map((label) => (
                 <div
                   key={label}
                   style={{
@@ -149,7 +149,7 @@ export default async function OgImage() {
                   background: "#bef227",
                 }}
               />
-              100 founder spots — limited availability
+              25 founder spots — limited availability
             </div>
           </div>
 
@@ -199,7 +199,7 @@ export default async function OgImage() {
                     TF
                   </div>
                   <span style={{ fontSize: 14, fontWeight: 700, color: "#111" }}>
-                    People to message today
+                    Buyers spotted today
                   </span>
                 </div>
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#8ab800" }}>4 warm</span>
@@ -273,7 +273,7 @@ export default async function OgImage() {
                     marginBottom: 6,
                   }}
                 >
-                  SUGGESTED REPLY
+                  PERSONALIZED · AUTO-SENT
                 </span>
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#222" }}>
                   Hey Sarah! Yes — spots are open. Want the link?
@@ -308,7 +308,7 @@ export default async function OgImage() {
                     gap: 2,
                   }}
                 >
-                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Message now</span>
+                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Auto-sent</span>
                   <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>4</span>
                 </div>
               </div>

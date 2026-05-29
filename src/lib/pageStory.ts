@@ -4,44 +4,29 @@
  */
 export const pageStory = {
   hero: {
-    eyebrow: "For creators who sell in the DMs",
-    headline: "Never lose a buyer in your DMs again.",
+    eyebrow: "Turn DMs into paying customers",
+    headline: "Your audience is already trying to buy from you.",
     subhead:
-      "Your followers are already asking to buy. TractionFlo shows you who's ready, what to say, and helps you reply — before they buy from someone else.",
+      "TractionFlo turns your Instagram DMs and comments into paying customers — spot who's ready, reply with a message personalized to each one, and get paid. All on autopilot.",
     bullets: [
-      "See exactly who's ready to buy",
-      "Get a reply written for each person",
-      "Close them before they go cold",
+      "Spot every follower ready to buy",
+      "Personalized to each person — sent automatically",
+      "Take the offer to payment and get paid",
     ],
     roi: "One recovered sale can pay for a whole year.",
   },
-  whatIsIt: {
-    eyebrow: "In plain English",
-    headline: "It's a buyer radar for your DMs.",
-    body:
-      "Connect your Instagram. TractionFlo watches your comments, DMs and engagement — then hands you a daily shortlist of followers who are ready to buy, with a reply ready to send. You just hit send.",
-    contrast: {
-      label: "Isn't this just another DM tool?",
-      text: "Traditional DM tools bot every message — even the ones that should close a sale. TractionFlo automates the hello, then points you to the real people ready to buy so you close them personally. Automate the hello. Humanize the close.",
-    },
-    isNot: [
-      "Not a spammy bot blasting auto-replies",
-      "Not a flowchart automation builder",
-      "Not one more inbox to babysit",
-    ],
-  },
   problem: {
-    eyebrow: "The problem",
-    headline: "Every missed DM is missed revenue.",
+    eyebrow: "The real problem",
+    headline: "You don't have a traffic problem. You have a follow-up problem.",
     subhead:
-      "They asked. They engaged. You replied late — or never. That sale went to whoever answered first.",
-    close: "You don't need more followers. You need to catch buyers you're already losing.",
-    roi: "Most creators lose 5–15 ready buyers a month to slow replies. Win back just one and TractionFlo more than pays for itself.",
+      "You're getting DMs, comments and story replies. The money leaks out between “interested” and “paid” — because nobody follows up in time.",
+    close: "More reach won't fix it. Catching and closing the buyers you already have will.",
+    roi: "Most creators lose 5–15 ready buyers a month to slow follow-up. Win back just one and TractionFlo more than pays for itself.",
   },
   personas: {
-    eyebrow: "Sound familiar?",
-    headline: "The buyers already hiding in your DMs.",
-    subhead: "You get all of these every week. Most never get a reply in time.",
+    eyebrow: "Personal, at scale",
+    headline: "Every interested follower gets personal attention.",
+    subhead: "No mass blasts. Each person gets the right message at the right moment — in your voice.",
     items: [
       {
         tag: "Ready to buy",
@@ -62,67 +47,63 @@ export const pageStory = {
         signal: "Bought before — ready to buy again",
       },
     ],
-    note: "TractionFlo surfaces every one — and hands you the message to send.",
+    note: "TractionFlo surfaces every one — and sends each a personal message, automatically.",
   },
-  outcomes: {
-    eyebrow: "What you get",
-    headline: "Five outcomes. One inbox.",
-    subhead: "Everything you care about — without complex tools or setup.",
+  journey: {
+    eyebrow: "How a sale happens",
+    headline: "From follower to paying customer.",
+    subhead: "TractionFlo carries each person through the whole journey — without you juggling tools.",
+    steps: [
+      { label: "Follower", text: "Someone shows interest — a comment, a save, a story reply." },
+      { label: "Conversation", text: "You reply personally, with the right message at the right time." },
+      { label: "Offer", text: "Send your offer right inside the chat." },
+      { label: "Payment", text: "They pay in the same conversation — no clunky links." },
+      { label: "Customer", text: "Now a customer you can re-engage and resell." },
+    ],
   },
-  howItWorks: {
-    eyebrow: "See it in action",
-    headline: "From first comment to real conversation.",
-    subhead: "Pick a real scenario. TractionFlo handles the busywork — you close the sale.",
+  showcase: {
+    eyebrow: "The platform",
+    headline: "Everything you need to sell in the DMs. One place.",
+    subhead: "Your inbox, your hottest opportunities, payments and customers — together, not scattered across five tools.",
+    tabs: [
+      {
+        id: "inbox",
+        label: "Inbox",
+        title: "A smart inbox",
+        text: "Every conversation in one place, sorted by who's most ready to buy.",
+      },
+      {
+        id: "opportunities",
+        label: "Opportunities",
+        title: "Live opportunities",
+        text: "Followers showing buying signals, surfaced daily — each with a reply ready to send.",
+      },
+      {
+        id: "payments",
+        label: "Payments",
+        title: "Get paid in the chat",
+        text: "Send your offer and collect payment without ever leaving the conversation.",
+      },
+      {
+        id: "customers",
+        label: "Customers",
+        title: "Your customer list",
+        text: "Everyone who bought, in one list — ready to re-engage and resell to.",
+      },
+    ],
   },
   comparison: {
     eyebrow: "Why switch",
-    headline: "Same revenue. 10× simpler.",
-    subhead: "Stop fighting automation builders. Start closing from your DMs.",
-    note: "You stay in control of every message. TractionFlo tells you who to message and what to say — you hit send. Never a bot pretending to be you.",
-  },
-  steps: {
-    eyebrow: "How it works",
-    headline: "Three steps. That's it.",
-    subhead: "No builders. No flowcharts. Just buyers surfaced and replies ready.",
-    items: [
-      {
-        step: "1",
-        title: "Spot warm followers",
-        text: "TractionFlo flags people asking about pricing, replying to stories, saving posts, and more.",
-      },
-      {
-        step: "2",
-        title: "Know what to say",
-        text: "Get a suggested reply for each person — so you never stare at a blank message box.",
-      },
-      {
-        step: "3",
-        title: "Close while intent is hot",
-        text: "Message the right people first. Win the sale before they buy from someone else.",
-      },
-    ],
-  },
-  whoFor: {
-    eyebrow: "Is this you?",
-    headline: "Built for people who sell in the DMs.",
-    forYou: [
-      "Coaches & consultants closing in conversations",
-      "Creators selling products, courses or services",
-      "Agencies & freelancers booking calls from DMs",
-      "Brands drowning in comments and questions",
-    ],
-    notForYou: [
-      "You don't sell anything (yet)",
-      "You want a generic auto-reply bot",
-      "You enjoy building complex automations",
-    ],
+    headline: "Five tools. Or one platform.",
+    subhead: "Stop duct-taping a DM app, a bot builder, a spreadsheet, a link and a checkout. TractionFlo does it all — and keeps it personal.",
+    note: "Bots blast everyone the same canned reply. TractionFlo writes a different message for each person — their name, what they asked, what they did — and sends it automatically. Automatic, but never generic.",
   },
   founderNote: {
     eyebrow: "From the founder",
-    headline: "We're building this with our first 100 users.",
+    headline: "We're building this with our first 25 users.",
     body: [
       "I kept watching creators lose real money — not because their content was bad, but because a ready buyer sat unanswered in their inbox for days.",
-      "TractionFlo does one thing well: surface the people worth messaging, and hand you the reply. No bots pretending to be you. No automation maze.",
+      "TractionFlo brings the whole sale into one place: spot the people worth messaging, send each a message personalized to them, take it to payment, and get paid. No generic bot blasts. No five-tool maze.",
       "Founders get in early, lock the lowest price we'll ever offer, and shape what we build next. That's the deal.",
     ],
     signoff: "— The TractionFlo team",
@@ -133,15 +114,19 @@ export const pageStory = {
     items: [
       {
         q: "Is this just another auto-reply bot?",
-        a: "No. TractionFlo doesn't pretend to be you or spam your followers. It surfaces people showing real buying signals and suggests a reply — you stay in control of every message.",
+        a: "It auto-replies, but not like a bot. A bot sends everyone the same canned message. TractionFlo writes a unique message for each person — using their name, their question, and what they did — so it reads like you actually wrote it. You set the voice and rules; it personalizes and sends.",
       },
       {
-        q: "How is this different from DM automation tools?",
-        a: "It's the opposite approach. Traditional automation tools bot every message — even the ones that should close a sale. TractionFlo automates the hello, then tells you which real people are ready to buy so you close them personally. Automate the hello, humanize the close.",
+        q: "Why one platform instead of the tools I already use?",
+        a: "Most creators duct-tape a DM app, a bot builder, a spreadsheet of leads, a payment link and manual follow-ups. TractionFlo replaces all of it: spot buyers, reply personally, send the offer and get paid — in one place, without the busywork.",
+      },
+      {
+        q: "Do you really handle payments?",
+        a: "Yes. You can send your offer and collect payment right inside the conversation — no clunky links or separate checkout. Buyers pay where they're already talking to you.",
       },
       {
         q: "Can it still auto-send my lead magnet or freebie?",
-        a: "Yes. When someone comments for your freebie, TractionFlo can deliver it instantly — that part should be automated. The difference is what happens next: instead of botting the whole conversation, it flags the people showing real buying signals so you close them yourself.",
+        a: "Yes. When someone comments for your freebie, TractionFlo delivers it instantly — then follows up with a message personalized to that person, automatically. Same speed as a bot, without the canned, copy-paste feel.",
       },
       {
         q: "Do I need any technical skills or setup?",
@@ -157,11 +142,11 @@ export const pageStory = {
       },
       {
         q: "When do I get access?",
-        a: "We're onboarding the first 100 founders in waves as we build. Join now to hold your spot and your pricing before public launch.",
+        a: "We're onboarding the first 25 founders in waves as we build. Join now to hold your spot and your pricing before public launch.",
       },
       {
         q: "Is my data safe?",
-        a: "Yes. We only access what's needed to spot warm leads, never post or message without your action, and you can disconnect anytime.",
+        a: "Yes. We only access what's needed to spot warm leads and process payments you choose to send, never message without your action, and you can disconnect anytime.",
       },
     ],
   },
@@ -170,5 +155,11 @@ export const pageStory = {
     headline: "Be an early founder. Not just another user.",
     subhead:
       "Join before public launch. Shape the product. Lock founder pricing while spots last.",
+  },
+  finalCta: {
+    eyebrow: "Last thing",
+    headline: "Stop losing customers in your DMs.",
+    subhead:
+      "Your next customer already follows you. Start turning conversations into revenue today.",
   },
 } as const;

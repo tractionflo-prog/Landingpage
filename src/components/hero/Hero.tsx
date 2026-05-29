@@ -6,8 +6,7 @@ import { BrushHighlight } from "@/components/ui/BrushHighlight";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
 import { pageStory } from "@/lib/pageStory";
-import { HeroDemo } from "./HeroDemo";
-import { HeroDemoStatic } from "./HeroDemoStatic";
+import { HeroPhone } from "./HeroPhone";
 
 const AVATARS = ["#f9a8d4", "#7dd3fc", "#fcd34d", "#c4b5fd", "#6ee7b7"];
 
@@ -56,7 +55,7 @@ export function Hero() {
             variants={fade}
             custom={1}
           >
-            Never lose a <BrushHighlight>buyer</BrushHighlight> in your DMs again.
+            Your audience is already <BrushHighlight>trying to buy</BrushHighlight> from you.
           </motion.h1>
 
           <motion.p className="t-body mt-5 max-w-[480px]" variants={fade} custom={2}>
@@ -84,7 +83,7 @@ export function Hero() {
               <TrendingUp size={14} /> {hero.roi}
             </p>
             <p className="mt-1.5 text-[13px] font-medium text-[#888]">
-              90 days free · No credit card · 100 founder spots
+              90 days free · No credit card · 25 founder spots
             </p>
           </motion.div>
 
@@ -110,24 +109,19 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="demo-stage"
+          className="demo-stage flex justify-center"
           initial={{ opacity: 0, y: 30, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="float-badge floaty left-[-8px] top-6 hidden md:inline-flex">
+          <span className="float-badge floaty left-[-4px] top-16 z-20 hidden lg:inline-flex">
             <Flame size={13} className="text-[#f97316]" /> New warm lead
           </span>
-          <span className="float-badge floaty-slow right-[-6px] bottom-12 hidden md:inline-flex">
-            <TrendingUp size={13} className="text-[#6fa800]" /> Ready to buy
+          <span className="float-badge floaty-slow right-[-4px] bottom-28 z-20 hidden lg:inline-flex">
+            <TrendingUp size={13} className="text-[#6fa800]" /> Paid in chat
           </span>
 
-          <div className="md:hidden">
-            <HeroDemoStatic />
-          </div>
-          <div className="demo-card-elevated hidden rounded-[20px] md:block">
-            <HeroDemo />
-          </div>
+          <HeroPhone />
         </motion.div>
       </div>
     </section>

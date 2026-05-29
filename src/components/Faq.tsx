@@ -13,7 +13,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-grey" aria-labelledby="faq-heading">
+    <section id="faq" className="section-white" aria-labelledby="faq-heading">
       <div className="page-wrap max-w-[760px]">
         <p className="text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#999]">
           {faq.eyebrow}

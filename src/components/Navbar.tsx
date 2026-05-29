@@ -6,8 +6,7 @@ import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 
 const links = [
   { label: "Problem", href: "#problem" },
-  { label: "Outcomes", href: "#growth" },
-  { label: "How it works", href: "#how-it-works" },
+  { label: "Platform", href: "#product" },
   { label: "Compare", href: "#comparison" },
   { label: "FAQ", href: "#faq" },
 ];

@@ -30,7 +30,7 @@ export function absoluteUrl(path = "") {
 }
 
 /** Bump when OG art changes so X/LinkedIn fetch a fresh preview URL. */
-export const OG_IMAGE_VERSION = "9";
+export const OG_IMAGE_VERSION = "10";
 
 export function ogImageUrl() {
   return `${absoluteUrl("/opengraph-image")}?v=${OG_IMAGE_VERSION}`;

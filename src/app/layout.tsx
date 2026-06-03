@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Caveat } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { MetaPixel } from "@/components/MetaPixel";
 import { JsonLd } from "@/components/JsonLd";
 import { absoluteUrl, ogImageUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
@@ -99,6 +100,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-white font-sans text-foreground antialiased">
         <JsonLd />
         <GoogleAnalytics />
+        <MetaPixel />
         <Providers>{children}</Providers>
       </body>
     </html>

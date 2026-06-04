@@ -14,6 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import { HERO_SCENARIOS, type HeroOutcome, type HeroScenario } from "@/lib/heroDemo";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 type Phase = "spot" | "compose" | "send" | "outcome";
 
@@ -75,45 +76,55 @@ function OutcomeBanner({ outcome }: { outcome: HeroOutcome }) {
 }
 
 export function HeroPhone() {
+  const isMobile = useIsMobile();
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<Phase>("spot");
   const [typed, setTyped] = useState("");
 
   const s = HERO_SCENARIOS[idx];
 
+  // On mobile, skip the looping animation entirely and show a static finished
+  // scene. The perpetual timers/re-renders below otherwise freeze low-end phones.
   useEffect(() => {
-    if (phase !== "spot") return;
+    if (!isMobile) return;
+    setIdx(0);
+    setPhase("outcome");
+    setTyped(HERO_SCENARIOS[0].reply);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile || phase !== "spot") return;
     const t = setTimeout(() => setPhase("compose"), s.incoming ? 1700 : 1300);
     return () => clearTimeout(t);
-  }, [phase, s.incoming]);
+  }, [isMobile, phase, s.incoming]);
 
   // TractionFlo writes a message personalized to this person
   useEffect(() => {
-    if (phase !== "compose") return;
+    if (isMobile || phase !== "compose") return;
     if (typed.length >= s.reply.length) {
       const t = setTimeout(() => setPhase("send"), 700);
       return () => clearTimeout(t);
     }
     const t = setTimeout(() => setTyped(s.reply.slice(0, typed.length + 1)), 26);
     return () => clearTimeout(t);
-  }, [phase, typed, s.reply]);
+  }, [isMobile, phase, typed, s.reply]);
 
   // sent automatically
   useEffect(() => {
-    if (phase !== "send") return;
+    if (isMobile || phase !== "send") return;
     const t = setTimeout(() => setPhase("outcome"), 900);
     return () => clearTimeout(t);
-  }, [phase]);
+  }, [isMobile, phase]);
 
   useEffect(() => {
-    if (phase !== "outcome") return;
+    if (isMobile || phase !== "outcome") return;
     const t = setTimeout(() => {
       setIdx((i) => (i + 1) % HERO_SCENARIOS.length);
       setTyped("");
       setPhase("spot");
     }, 2600);
     return () => clearTimeout(t);
-  }, [phase]);
+  }, [isMobile, phase]);
 
   const activeStep = stepOf[phase];
 

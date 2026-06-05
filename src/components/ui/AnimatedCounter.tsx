@@ -20,6 +20,11 @@ export function AnimatedCounter({
 
   useEffect(() => {
     if (!isInView) return;
+    // No count-up animation on phones — show the final value immediately.
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      setDisplay(value);
+      return;
+    }
     const controls = animate(0, value, {
       duration,
       ease: "easeOut",

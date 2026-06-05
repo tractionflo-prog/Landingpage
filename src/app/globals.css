@@ -868,6 +868,18 @@ body {
   .announce-dot {
     animation: none !important;
   }
+
+  /* Turn off all CSS animations/transitions on phones to stop flicker.
+     framer-motion JS animations are skipped via MotionGlobalConfig. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

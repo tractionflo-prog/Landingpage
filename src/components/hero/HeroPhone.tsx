@@ -14,7 +14,6 @@ import {
   Zap,
 } from "lucide-react";
 import { HERO_SCENARIOS, type HeroOutcome, type HeroScenario } from "@/lib/heroDemo";
-import { useIsMobile } from "@/hooks/useIsMobile";
 
 type Phase = "spot" | "compose" | "send" | "outcome";
 
@@ -76,55 +75,59 @@ function OutcomeBanner({ outcome }: { outcome: HeroOutcome }) {
 }
 
 export function HeroPhone() {
-  const isMobile = useIsMobile();
+  // Start on a fully-finished scene so the first paint is identical on server
+  // and client (no flicker). Desktop then advances the loop from here; mobile
+  // stays static to avoid the perpetual re-render that freezes low-end phones.
   const [idx, setIdx] = useState(0);
-  const [phase, setPhase] = useState<Phase>("spot");
-  const [typed, setTyped] = useState("");
+  const [phase, setPhase] = useState<Phase>("outcome");
+  const [typed, setTyped] = useState(HERO_SCENARIOS[0].reply);
+  const [animate, setAnimate] = useState(false);
 
   const s = HERO_SCENARIOS[idx];
 
-  // On mobile, skip the looping animation entirely and show a static finished
-  // scene. The perpetual timers/re-renders below otherwise freeze low-end phones.
+  // Enable the looping animation on non-mobile viewports only. Read the media
+  // query synchronously so we never briefly render the wrong state.
   useEffect(() => {
-    if (!isMobile) return;
-    setIdx(0);
-    setPhase("outcome");
-    setTyped(HERO_SCENARIOS[0].reply);
-  }, [isMobile]);
+    const mq = window.matchMedia("(max-width: 767px)");
+    const apply = () => setAnimate(!mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
 
   useEffect(() => {
-    if (isMobile || phase !== "spot") return;
+    if (!animate || phase !== "spot") return;
     const t = setTimeout(() => setPhase("compose"), s.incoming ? 1700 : 1300);
     return () => clearTimeout(t);
-  }, [isMobile, phase, s.incoming]);
+  }, [animate, phase, s.incoming]);
 
   // TractionFlo writes a message personalized to this person
   useEffect(() => {
-    if (isMobile || phase !== "compose") return;
+    if (!animate || phase !== "compose") return;
     if (typed.length >= s.reply.length) {
       const t = setTimeout(() => setPhase("send"), 700);
       return () => clearTimeout(t);
     }
     const t = setTimeout(() => setTyped(s.reply.slice(0, typed.length + 1)), 26);
     return () => clearTimeout(t);
-  }, [isMobile, phase, typed, s.reply]);
+  }, [animate, phase, typed, s.reply]);
 
   // sent automatically
   useEffect(() => {
-    if (isMobile || phase !== "send") return;
+    if (!animate || phase !== "send") return;
     const t = setTimeout(() => setPhase("outcome"), 900);
     return () => clearTimeout(t);
-  }, [isMobile, phase]);
+  }, [animate, phase]);
 
   useEffect(() => {
-    if (isMobile || phase !== "outcome") return;
+    if (!animate || phase !== "outcome") return;
     const t = setTimeout(() => {
       setIdx((i) => (i + 1) % HERO_SCENARIOS.length);
       setTyped("");
       setPhase("spot");
     }, 2600);
     return () => clearTimeout(t);
-  }, [isMobile, phase]);
+  }, [animate, phase]);
 
   const activeStep = stepOf[phase];
 

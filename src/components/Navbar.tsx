@@ -16,7 +16,7 @@ export function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-black/[0.06] bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/90"
+      className="sticky top-0 z-50 border-b border-black/[0.06] bg-white md:bg-white/95 md:backdrop-blur-md md:supports-[backdrop-filter]:bg-white/90"
       role="banner"
     >
       <div className="page-wrap hidden h-[68px] items-center md:grid md:grid-cols-[1fr_auto_1fr]">

@@ -31,7 +31,7 @@ export function StickyMobileCta() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ type: "spring", damping: 26, stiffness: 320 }}
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-black/[0.08] bg-white/95 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-black/[0.08] bg-white px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
         >
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">

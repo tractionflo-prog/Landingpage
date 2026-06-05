@@ -849,6 +849,16 @@ body {
   .demo-stage::before {
     display: none;
   }
+
+  /* Heavy blur filters cause repaint flicker while scrolling on mobile.
+     The radial gradients are already soft, so drop the blur layer. */
+  .hero-aura::before,
+  .hero-aura::after,
+  .showcase-stage::before,
+  .final-cta-band::before,
+  .offer-glow::before {
+    filter: none;
+  }
 }
 
 /* Disable decorative motion / floating on mobile + reduced-motion */

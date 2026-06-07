@@ -19,7 +19,7 @@ export function Faq() {
           {faq.eyebrow}
         </p>
         <h2 id="faq-heading" className="t-section mt-3 text-center">
-          Questions founders <BrushHighlight>ask us.</BrushHighlight>
+          What Creators Ask <BrushHighlight>Before Switching</BrushHighlight>
         </h2>
 
         <ul className="mx-auto mt-10 space-y-3">

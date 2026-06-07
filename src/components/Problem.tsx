@@ -27,8 +27,9 @@ export function Problem() {
             {problem.eyebrow}
           </p>
           <h2 id="problem-heading" className="t-section mx-auto mt-3 max-w-[760px] text-center">
-            You don&apos;t have a traffic problem. You have a{" "}
-            <BrushHighlight>follow-up problem.</BrushHighlight>
+            This Is Why The Top 1% Make More.
+            <br />
+            They Don&apos;t Let Buyers <BrushHighlight>Slip Away.</BrushHighlight>
           </h2>
           <p className="mx-auto mt-4 max-w-[520px] text-center text-[1.0625rem] leading-relaxed text-[#666]">
             {problem.subhead}
@@ -44,7 +45,7 @@ export function Problem() {
                 <Check size={11} strokeWidth={3} /> Healthy
               </span>
             </div>
-            <p className="mt-2 text-[17px] font-bold tracking-[-0.01em] text-[#111]">You&apos;re winning here</p>
+            <p className="mt-2 text-[17px] font-bold tracking-[-0.01em] text-[#111]">You already have attention</p>
 
             <ul className="mt-5 space-y-2.5">
               {TRAFFIC.map((r) => (
@@ -70,7 +71,7 @@ export function Problem() {
                 <span className="h-1.5 w-1.5 rounded-full bg-[#ef4444]" /> Leaking
               </span>
             </div>
-            <p className="mt-2 text-[17px] font-bold tracking-[-0.01em] text-[#111]">Where the money leaks</p>
+            <p className="mt-2 text-[17px] font-bold tracking-[-0.01em] text-[#111]">You&apos;re losing buyers after they show interest</p>
 
             <ul className="mt-5 space-y-3">
               {LEAK.map((r, i) => (

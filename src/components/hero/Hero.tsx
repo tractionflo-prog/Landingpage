@@ -55,7 +55,9 @@ export function Hero() {
             variants={fade}
             custom={1}
           >
-            Your audience is already <BrushHighlight>trying to buy</BrushHighlight> from you.
+            Most Creators Build Audiences.
+            <br />
+            The Top 1% Build <BrushHighlight>Revenue Systems.</BrushHighlight>
           </motion.h1>
 
           <motion.p className="t-body mt-5 max-w-[480px]" variants={fade} custom={2}>
@@ -83,7 +85,7 @@ export function Hero() {
               <TrendingUp size={14} /> {hero.roi}
             </p>
             <p className="mt-1.5 text-[13px] font-medium text-[#888]">
-              90 days free · No credit card · 25 founder spots
+              90 days free · No credit card · Limited founder spots
             </p>
           </motion.div>
 

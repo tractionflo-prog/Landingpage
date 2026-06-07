@@ -156,7 +156,7 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
               <tr>
                 <td style="padding:18px 20px;text-align:center;">
                   <p style="margin:0;font-size:15px;color:${MUTED};">
-                    <strong style="color:${BLACK};font-size:16px;">Only 25</strong> founder spots — and they're filling fast
+                    <strong style="color:${BLACK};font-size:16px;">Limited</strong> founder spots — and they're filling fast
                   </p>
                   <p style="margin:8px 0 0 0;font-size:13px;color:${MUTED};">
                     Instagram first &nbsp;·&nbsp; TikTok + YouTube coming next
@@ -254,7 +254,7 @@ Your TractionFlo founding access is reserved.
 What's unlocked:
 ${PERKS.map((p) => `✓ ${p}`).join("\n")}
 
-Only 25 founder spots — and they're filling fast. Instagram first — TikTok + YouTube coming next.
+Limited founder spots — and they're filling fast. Instagram first — TikTok + YouTube coming next.
 
 We'll email you when early access opens.
 

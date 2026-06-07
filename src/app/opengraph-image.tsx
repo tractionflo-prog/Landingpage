@@ -149,7 +149,7 @@ export default async function OgImage() {
                   background: "#bef227",
                 }}
               />
-              25 founder spots — limited availability
+              Limited founder spots — limited availability
             </div>
           </div>
 

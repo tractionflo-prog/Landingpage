@@ -1,12 +1,7 @@
 import { Check } from "lucide-react";
 import { HandAnnotation } from "@/components/ui/HandAnnotation";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
-import {
-  FOUNDER_BENEFITS,
-  FOUNDER_DISCOUNT_PERCENT,
-  FOUNDER_SPOTS_TOTAL,
-  foundingCopy,
-} from "@/lib/founding";
+import { FOUNDER_BENEFITS, foundingCopy } from "@/lib/founding";
 import { pageStory } from "@/lib/pageStory";
 
 export function FoundingAccess() {
@@ -42,7 +37,7 @@ export function FoundingAccess() {
               {foundingCopy.cta}
             </QuizTrigger>
             <p className="mt-3 text-[13px] font-medium text-[#888]">
-              90 days free · No credit card · {FOUNDER_SPOTS_TOTAL} spots only
+              90 days free · No credit card · {foundingCopy.limitedShort}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
@@ -70,17 +65,18 @@ export function FoundingAccess() {
                 Full access while we build with you
               </p>
 
-              <p className="mt-8 text-[15px] font-medium text-[#666]">Then only</p>
-              <p className="mt-2 text-[2.25rem] font-bold leading-none tracking-[-0.04em] text-[#111] md:text-[2.75rem]">
-                {FOUNDER_DISCOUNT_PERCENT}% of Pro pricing
+              <p className="mt-8 text-[1.75rem] font-bold leading-tight tracking-[-0.03em] text-[#111]">
+                Founder pricing,
+                <br />
+                locked for life
               </p>
-              <p className="mt-2 text-[16px] font-semibold text-[#111]">locked forever</p>
               <p className="mt-3 text-[14px] leading-relaxed text-[#666]">
-                Whatever Pro costs at launch, you stay at a tenth of it — for life.
+                Lock the lowest price we&apos;ll ever offer — before public launch. You&apos;ll
+                always pay less than everyone after you.
               </p>
 
               <p className="mt-8 text-[13px] font-bold uppercase tracking-[0.12em] text-[#111]">
-                {FOUNDER_SPOTS_TOTAL} spots only
+                {foundingCopy.limitedShort}
               </p>
             </div>
           </div>

@@ -21,8 +21,9 @@ export function About() {
             {founderNote.eyebrow}
           </p>
           <h2 id="about-heading" className="t-section mt-3">
-            We&apos;re building this with our{" "}
-            <BrushHighlight>first 25 users.</BrushHighlight>
+            The Gap Between Creators And The Top 1% Isn&apos;t Content.
+            <br />
+            <BrushHighlight>It&apos;s Systems.</BrushHighlight>
           </h2>
 
           <div className="mt-6 space-y-4">

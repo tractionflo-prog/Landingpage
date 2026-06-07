@@ -16,7 +16,9 @@ export function Comparison() {
             {comparison.eyebrow}
           </p>
           <h2 id="comparison-heading" className="t-section mx-auto mt-3 max-w-[720px] text-center">
-            Five tools. <BrushHighlight>Or one platform.</BrushHighlight>
+            More Tools. More Leaks.
+            <br />
+            One System. <BrushHighlight>More Revenue.</BrushHighlight>
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-center text-[1.0625rem] text-[#666]">
             {comparison.subhead}

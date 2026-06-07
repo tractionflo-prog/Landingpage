@@ -213,7 +213,6 @@ const PANELS: Record<string, () => React.ReactElement> = {
 export function ProductShowcase() {
   const { showcase } = pageStory;
   const [tab, setTab] = useState<string>(showcase.tabs[0].id);
-  const active = showcase.tabs.find((t) => t.id === tab) ?? showcase.tabs[0];
   const Panel = PANELS[tab] ?? InboxPanel;
 
   return (
@@ -290,7 +289,7 @@ export function ProductShowcase() {
         </div>
 
         <p className="mx-auto mt-6 max-w-[480px] text-center text-[14px] leading-relaxed text-[#777]">
-          <span className="font-semibold text-[#111]">{active.title}.</span> {active.text}
+          Your highest-intent buyers rise to the top—so you always know who to talk to next.
         </p>
       </div>
     </section>

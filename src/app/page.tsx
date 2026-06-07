@@ -8,7 +8,6 @@ import { ProductShowcase } from "@/components/ProductShowcase";
 import { Comparison } from "@/components/comparison/Comparison";
 import { About } from "@/components/About";
 import { Faq } from "@/components/Faq";
-import { FoundingAccess } from "@/components/FoundingAccess";
 import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
@@ -42,9 +41,7 @@ export default function Home() {
         <About />
         {/* 8. Handle objections */}
         <Faq />
-        {/* 9. The offer */}
-        <FoundingAccess />
-        {/* 10. Final CTA — stop losing customers */}
+        {/* 9. Final CTA — stop losing customers */}
         <FinalCta />
       </main>
       <Footer />

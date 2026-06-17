@@ -2,10 +2,10 @@ import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
 
 const links = [
-  { label: "Problem", href: "#problem" },
-  { label: "Platform", href: "#product" },
-  { label: "Compare", href: "#comparison" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Why TractionFlo", href: "#compare" },
+  { label: "Demo", href: "#example" },
+  { label: "How It Works", href: "#journey" },
+  { label: "Pricing", href: "#founding" },
 ];
 
 export function Footer() {
@@ -14,7 +14,7 @@ export function Footer() {
       <div className="page-wrap">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#bef227] text-[11px] font-bold">
+            <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#0a0a0a] text-[11px] font-bold text-white">
               TF
             </span>
             <span className="font-semibold">TractionFlo</span>

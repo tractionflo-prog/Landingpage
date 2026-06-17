@@ -30,7 +30,7 @@ export function Button({
     </>
   );
 
-  const baseClasses = `group inline-flex items-center justify-center gap-2 rounded-full bg-lime font-semibold text-black transition-colors hover:bg-lime-dark ${sizeClasses} ${className}`;
+  const baseClasses = `group inline-flex items-center justify-center gap-2 rounded-full bg-lime font-semibold text-white transition-colors hover:bg-lime-dark ${sizeClasses} ${className}`;
 
   if (onClick) {
     return (

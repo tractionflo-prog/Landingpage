@@ -47,11 +47,11 @@ export function Comparison() {
 
           <div className="card flex flex-col p-4 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
-              <span className="inline-block rounded-full bg-[#bef227] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#111]">
+              <span className="inline-block rounded-full bg-[#0073EA] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#111]">
                 TractionFlo
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f4fce0] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#4d7c0f]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#8ab800]" /> Connected
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#0060C7]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0073EA]" /> Connected
               </span>
             </div>
             <OnePlatform />

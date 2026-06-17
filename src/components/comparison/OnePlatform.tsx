@@ -10,15 +10,15 @@ const MODULES = [
 export function OnePlatform() {
   return (
     <div className="h-[280px] w-full sm:h-[300px]">
-      <div className="flex h-full flex-col rounded-[16px] border border-[#bef227]/60 bg-white p-4 shadow-[0_10px_30px_-12px_rgba(155,207,31,0.5)]">
+      <div className="flex h-full flex-col rounded-[12px] border border-[#0073EA]/30 bg-white p-4 shadow-[0_4px_16px_rgba(0,115,234,0.12)]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#bef227] text-[11px] font-bold text-[#111]">
+            <span className="flex h-7 w-7 items-center justify-center rounded-[8px] bg-[#0073EA] text-[11px] font-bold text-white">
               TF
             </span>
             <span className="text-[13px] font-bold tracking-[-0.01em] text-[#111]">TractionFlo</span>
           </div>
-          <span className="rounded-full bg-[#f4fce0] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#4d7c0f]">
+          <span className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#0060C7]">
             1 login
           </span>
         </div>
@@ -30,14 +30,14 @@ export function OnePlatform() {
             const { Icon } = m;
             return (
               <li key={m.name} className="relative flex items-center gap-3 py-[7px]">
-                <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f4fce0] text-[#5a8a00] ring-4 ring-white">
+                <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#EFF6FF] text-[#0060C7] ring-4 ring-white">
                   <Icon size={15} strokeWidth={2} />
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="text-[13px] font-bold leading-tight text-[#111]">{m.name}</p>
                   <p className="truncate text-[11px] text-[#888]">{m.note}</p>
                 </div>
-                <Check size={15} className="shrink-0 text-[#6fa800]" strokeWidth={3} />
+                <Check size={15} className="shrink-0 text-[#0060C7]" strokeWidth={3} />
               </li>
             );
           })}

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Turn your Instagram DMs into paying customers";
+export const alt = "TractionFlo — Turn social media engagement into paying customers";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,14 +52,14 @@ export default async function OgImage() {
                 style={{
                   width: 52,
                   height: 52,
-                  background: "#bef227",
+                  background: "#0a0a0a",
                   borderRadius: 14,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: 20,
                   fontWeight: 700,
-                  color: "#111",
+                  color: "#fff",
                 }}
               >
                 TF
@@ -88,10 +88,10 @@ export default async function OgImage() {
                 letterSpacing: "-0.035em",
               }}
             >
-              <span>Turn your DMs into</span>
+              <span>Turn social media into</span>
               <span
                 style={{
-                  background: "linear-gradient(180deg, transparent 55%, rgba(190,242,39,0.85) 55%)",
+                  background: "linear-gradient(180deg, transparent 55%, rgba(236,72,153,0.45) 55%)",
                 }}
               >
                 paying customers.
@@ -108,11 +108,11 @@ export default async function OgImage() {
                 maxWidth: 520,
               }}
             >
-              Your audience is already trying to buy. Spot who&apos;s ready, auto-reply with a message personalized to each — and get paid.
+              Comments, DMs, story replies and followers are full of buyers. Spot who&apos;s ready, start the right conversation — and get paid.
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
-              {["Spot buyers", "Personalize & auto-send", "Get paid"].map((label) => (
+              {["Capture intent", "Start conversations", "Get paid"].map((label) => (
                 <div
                   key={label}
                   style={{
@@ -138,7 +138,7 @@ export default async function OgImage() {
                 gap: 10,
                 fontSize: 16,
                 fontWeight: 600,
-                color: "#6fa800",
+                color: "#BE185D",
               }}
             >
               <div
@@ -146,7 +146,7 @@ export default async function OgImage() {
                   width: 8,
                   height: 8,
                   borderRadius: "50%",
-                  background: "#bef227",
+                  background: "#EC4899",
                 }}
               />
               Limited founder spots — limited availability
@@ -187,13 +187,13 @@ export default async function OgImage() {
                       width: 28,
                       height: 28,
                       borderRadius: 8,
-                      background: "#bef227",
+                      background: "#0a0a0a",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 10,
                       fontWeight: 700,
-                      color: "#111",
+                      color: "#fff",
                     }}
                   >
                     TF
@@ -202,7 +202,7 @@ export default async function OgImage() {
                     Buyers spotted today
                   </span>
                 </div>
-                <span style={{ fontSize: 13, fontWeight: 700, color: "#8ab800" }}>4 warm</span>
+                <span style={{ fontSize: 13, fontWeight: 700, color: "#EC4899" }}>4 warm</span>
               </div>
 
               <div
@@ -236,15 +236,15 @@ export default async function OgImage() {
                     <span style={{ fontSize: 13, fontWeight: 700, color: "#111" }}>@sarah.k</span>
                     <span
                       style={{
-                        padding: "3px 9px",
-                        borderRadius: 999,
-                        background: "#f4fce0",
-                        fontSize: 10,
-                        fontWeight: 700,
-                        color: "#4d7c0f",
-                      }}
-                    >
-                      High intent
+                      padding: "3px 9px",
+                      borderRadius: 999,
+                      background: "#FDF2F8",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: "#BE185D",
+                    }}
+                  >
+                    High intent
                     </span>
                   </div>
                   <span style={{ fontSize: 13, fontWeight: 600, color: "#444" }}>
@@ -260,8 +260,8 @@ export default async function OgImage() {
                   marginTop: 12,
                   padding: 14,
                   borderRadius: 14,
-                  background: "#f4fce0",
-                  border: "1px solid rgba(190,242,39,0.35)",
+                  background: "#FDF2F8",
+                  border: "1px solid rgba(236,72,153,0.35)",
                 }}
               >
                 <span
@@ -269,7 +269,7 @@ export default async function OgImage() {
                     fontSize: 10,
                     fontWeight: 700,
                     letterSpacing: 1,
-                    color: "#4d7c0f",
+                    color: "#BE185D",
                     marginBottom: 6,
                   }}
                 >
@@ -309,7 +309,7 @@ export default async function OgImage() {
                   }}
                 >
                   <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Auto-sent</span>
-                  <span style={{ fontSize: 22, fontWeight: 700, color: "#8ab800" }}>4</span>
+                  <span style={{ fontSize: 22, fontWeight: 700, color: "#EC4899" }}>4</span>
                 </div>
               </div>
             </div>
@@ -320,7 +320,7 @@ export default async function OgImage() {
           style={{
             display: "flex",
             height: 6,
-            background: "linear-gradient(90deg, #bef227 0%, #d4ff4d 50%, #bef227 100%)",
+            background: "linear-gradient(90deg, #F97316 0%, #EC4899 100%)",
           }}
         />
       </div>

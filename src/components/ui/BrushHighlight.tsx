@@ -10,8 +10,8 @@ export function BrushHighlight({ children }: { children: React.ReactNode }) {
       >
         <path
           d="M2 18 C30 8, 50 22, 80 14 S130 6, 198 16 L198 22 L2 22 Z"
-          fill="#bef227"
-          opacity="0.95"
+          fill="#0a0a0a"
+          opacity="0.08"
         />
       </svg>
     </span>

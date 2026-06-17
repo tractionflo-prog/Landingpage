@@ -6,6 +6,7 @@ import { X, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
 import { QUIZ_QUESTIONS } from "@/lib/quiz/questions";
 import { conversionCopy } from "@/lib/conversion";
 import { foundingCopy } from "@/lib/founding";
+import { trackFoundingAccessSignup } from "@/lib/analytics";
 import { WaitlistSuccessScreen } from "./WaitlistSuccessScreen";
 
 type FoundingQuizModalProps = {
@@ -89,6 +90,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
         setError(json.error ?? "Something went wrong. Please try again.");
         return;
       }
+      trackFoundingAccessSignup();
       setStep("success");
     } catch {
       setError("Network error. Please try again.");
@@ -134,7 +136,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
             <div className="flex items-center justify-between border-b border-black/[0.06] px-5 py-4">
               <div className="flex flex-col gap-0.5">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#bef227] text-[11px] font-bold">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#0a0a0a] text-[11px] font-bold text-white">
                     TF
                   </span>
                   <span className="text-sm font-semibold">{headerTitle}</span>
@@ -154,7 +156,8 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
             {!isSuccess && (
               <div className="h-1 bg-[#f0f0f0]">
                 <motion.div
-                  className="h-full bg-[#bef227]"
+                  className="h-full"
+                  style={{ background: "linear-gradient(90deg,#F97316,#EC4899)" }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.3 }}
                 />
@@ -172,7 +175,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -16 }}
                   >
-                    <p className="text-[12px] font-semibold uppercase tracking-wide text-[#999]">
+                    <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#EC4899]">
                       Last step
                     </p>
                     <h2
@@ -196,7 +199,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Your name"
-                          className="w-full rounded-[12px] border border-black/[0.1] px-4 py-3 text-[15px] outline-none focus:border-[#bef227] focus:ring-2 focus:ring-[#bef227]/30"
+                          className="w-full rounded-[12px] border border-black/[0.1] px-4 py-3 text-[15px] outline-none focus:border-[#0a0a0a] focus:ring-2 focus:ring-[#0a0a0a]/10"
                         />
                       </div>
                       <div>
@@ -209,7 +212,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="you@business.com"
-                          className="w-full rounded-[12px] border border-black/[0.1] px-4 py-3 text-[15px] outline-none focus:border-[#bef227] focus:ring-2 focus:ring-[#bef227]/30"
+                          className="w-full rounded-[12px] border border-black/[0.1] px-4 py-3 text-[15px] outline-none focus:border-[#0a0a0a] focus:ring-2 focus:ring-[#0a0a0a]/10"
                         />
                       </div>
                     </div>
@@ -223,7 +226,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -16 }}
                   >
-                    <p className="text-[12px] font-semibold uppercase tracking-wide text-[#999]">
+                    <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#EC4899]">
                       Question {Number(step) + 1} of {QUIZ_QUESTIONS.length}
                     </p>
                     <h2
@@ -244,7 +247,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                               }
                               className={`w-full rounded-[14px] border px-4 py-3.5 text-left text-[15px] font-medium transition-all ${
                                 selected
-                                  ? "border-[#bef227] bg-[#f4fce0] ring-2 ring-[#bef227]/40"
+                                  ? "border-[#0a0a0a] bg-[#FAFAFA] ring-2 ring-[#0a0a0a]/10"
                                   : "border-black/[0.08] bg-white hover:border-black/20 hover:bg-[#fafafa]"
                               }`}
                             >

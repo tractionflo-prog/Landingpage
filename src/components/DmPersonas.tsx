@@ -39,18 +39,18 @@ export function DmPersonas() {
                 key={item.tag}
                 className={`card-lift relative flex flex-col gap-3 rounded-[16px] border p-5 ${
                   item.star
-                    ? "border-[#bef227] bg-[#f4fce0]/50 ring-1 ring-[#bef227]/40"
+                    ? "border-[#0073EA] bg-[#EFF6FF]/50 ring-1 ring-[#0073EA]/40"
                     : "border-black/[0.07] bg-white"
                 }`}
               >
                 {item.star && item.starLabel && (
-                  <span className="absolute -top-2.5 left-4 rounded-full bg-[#bef227] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#1a1a1a]">
+                  <span className="absolute -top-2.5 left-4 rounded-full bg-[#0073EA] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
                     {item.starLabel}
                   </span>
                 )}
                 <span
                   className={`flex h-9 w-9 items-center justify-center rounded-[10px] ${
-                    item.star ? "bg-[#bef227] text-[#111]" : "bg-[#f4fce0] text-[#6fa800]"
+                    item.star ? "bg-[#0073EA] text-white" : "bg-[#EFF6FF] text-[#0060C7]"
                   }`}
                 >
                   <Icon size={18} strokeWidth={1.8} />

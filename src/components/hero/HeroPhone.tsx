@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
-  Flame,
   Check,
   CalendarCheck,
   RefreshCw,
@@ -17,7 +16,7 @@ import { HERO_SCENARIOS, type HeroOutcome, type HeroScenario } from "@/lib/heroD
 
 type Phase = "spot" | "compose" | "send" | "outcome";
 
-const STEPS = ["Spot", "Personalize", "Close"] as const;
+const STEPS = ["Buying Signal", "Personalized DM", "Customer Converted"] as const;
 const stepOf: Record<Phase, number> = { spot: 0, compose: 1, send: 1, outcome: 2 };
 
 function StatusBar() {
@@ -46,7 +45,7 @@ function PersonalizedText({ s, dark }: { s: HeroScenario; dark?: boolean }) {
       {before}
       <span
         className={`rounded px-0.5 font-semibold ${
-          dark ? "bg-[#bef227]/30 text-[#eaffb0]" : "bg-[#bef227]/45 text-[#111]"
+          dark ? "bg-[#0073EA]/30 text-[#DBEAFE]" : "bg-[#0073EA]/45 text-[#111]"
         }`}
       >
         {s.highlight}
@@ -65,7 +64,7 @@ function OutcomeBanner({ outcome }: { outcome: HeroOutcome }) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ type: "spring", stiffness: 280, damping: 22 }}
     >
-      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#bef227] text-[#111]">
+      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0073EA] text-white">
         <Icon size={15} strokeWidth={2.6} />
       </span>
       <p className="flex-1 text-[12.5px] font-bold leading-tight">{outcome.label}</p>
@@ -145,8 +144,8 @@ export function HeroPhone() {
             <p className="text-[13.5px] font-bold leading-tight text-[#111]">@{s.handle}</p>
             <p className="text-[10.5px] text-[#9a9a9a]">Instagram · Active now</p>
           </div>
-          <span className="flex items-center gap-1 rounded-full bg-[#f4fce0] px-2 py-1 text-[9.5px] font-bold uppercase tracking-wide text-[#4d7c0f]">
-            <span className="h-1 w-1 rounded-full bg-[#8ab800]" /> TractionFlo
+          <span className="flex items-center gap-1 rounded-full bg-[#EFF6FF] px-2 py-1 text-[9.5px] font-bold uppercase tracking-wide text-[#0060C7]">
+            <span className="h-1 w-1 rounded-full bg-[#0073EA]" /> TractionFlo
           </span>
         </div>
 
@@ -156,7 +155,7 @@ export function HeroPhone() {
             <div key={label} className="flex flex-1 items-center gap-1.5">
               <span
                 className={`flex h-5 items-center gap-1 rounded-full px-2 text-[10px] font-bold uppercase tracking-wide transition-colors ${
-                  i <= activeStep ? "bg-[#bef227] text-[#111]" : "bg-black/[0.05] text-[#bbb]"
+                  i <= activeStep ? "bg-[#0073EA] text-white" : "bg-black/[0.05] text-[#bbb]"
                 }`}
               >
                 {i < activeStep ? <Check size={10} strokeWidth={3.5} /> : `${i + 1}`}
@@ -168,11 +167,11 @@ export function HeroPhone() {
 
         {/* chat body */}
         <div className="flex min-h-0 flex-1 flex-col gap-2.5 overflow-hidden px-4 pb-2">
-          {/* spotted banner */}
-          <div className="flex items-center gap-2 rounded-[12px] border border-[#bef227]/50 bg-[#f4fce0]/60 px-3 py-2">
-            <Flame size={13} className="shrink-0 text-[#f97316]" />
-            <p className="text-[11.5px] font-semibold leading-tight text-[#3d5a00]">
-              <span className="font-bold">TractionFlo spotted a buyer</span> · {s.spotted}
+          {/* qualified lead banner */}
+          <div className="flex items-center gap-2 rounded-[12px] border border-[rgba(0,115,234,0.15)] bg-[#EFF6FF] px-3 py-2">
+            <Sparkles size={13} className="shrink-0 text-[#0073EA]" />
+            <p className="text-[11.5px] font-semibold leading-tight text-[#0060C7]">
+              <span className="font-bold">Qualified Lead</span> · {s.spotted}
             </p>
           </div>
 
@@ -194,13 +193,13 @@ export function HeroPhone() {
             {phase === "compose" && (
               <motion.div
                 key={`sug-${idx}`}
-                className="rounded-[14px] border border-[#bef227]/60 bg-white p-2.5 shadow-sm"
+                className="rounded-[14px] border border-[#0073EA]/60 bg-white p-2.5 shadow-sm"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
               >
-                <p className="mb-1 flex items-center gap-1 text-[9.5px] font-bold uppercase tracking-[0.08em] text-[#5a8a00]">
-                  <Sparkles size={11} /> Personalizing for @{s.handle}
+                <p className="mb-1 flex items-center gap-1 text-[9.5px] font-bold uppercase tracking-[0.08em] text-[#0060C7]">
+                  <Sparkles size={11} /> Personalized DM
                 </p>
                 <p className="text-[12.5px] leading-snug text-[#111]">
                   <PersonalizedText s={s} />
@@ -227,8 +226,8 @@ export function HeroPhone() {
                 <p className="text-[12.5px] leading-snug text-white">
                   <PersonalizedText s={s} dark />
                 </p>
-                <p className="mt-1 flex items-center justify-end gap-0.5 text-[9px] text-[#bef227]">
-                  <Zap size={9} className="fill-[#bef227]" /> Sent automatically
+                <p className="mt-1 flex items-center justify-end gap-0.5 text-[9px] text-[#3B9EFF]">
+                  <Zap size={9} className="fill-[#3B9EFF]" /> Sent automatically
                 </p>
               </motion.div>
             )}
@@ -245,14 +244,14 @@ export function HeroPhone() {
         {/* reassurance + scenario dots */}
         <div className="shrink-0 border-t border-black/[0.05]">
           <p className="flex items-center justify-center gap-1.5 pt-2.5 text-[10px] font-medium text-[#9a9a9a]">
-            <Sparkles size={12} className="text-[#8ab800]" /> Personalized to each person — never a generic blast
+            <Sparkles size={12} className="text-[#0073EA]" /> Personalized to each person — never a generic blast
           </p>
           <div className="flex items-center justify-center gap-1.5 py-2.5">
             {HERO_SCENARIOS.map((sc, i) => (
               <span
                 key={sc.handle}
                 className={`h-1.5 rounded-full transition-all ${
-                  i === idx ? "w-5 bg-[#9bcf1f]" : "w-1.5 bg-black/15"
+                  i === idx ? "w-5 bg-[#0073EA]" : "w-1.5 bg-black/15"
                 }`}
               />
             ))}

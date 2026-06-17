@@ -24,12 +24,12 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.4 }}
-        className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#bef227]"
+        className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#16A34A]"
       >
-        <Check size={32} strokeWidth={2.5} className="text-[#111]" />
+        <Check size={32} strokeWidth={2.5} className="text-white" />
       </motion.div>
 
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-[#bef227]/50 bg-[#f4fce0] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#111]">
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(22,163,74,0.18)] bg-[#F0FDF4] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#15803D]">
         {foundingCopy.spotsShort} ✓
       </span>
 
@@ -59,7 +59,7 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
       </p>
 
       <p
-        className="font-hand mx-auto mt-6 text-[1.2rem] text-[#6fa800]"
+        className="font-hand mx-auto mt-6 text-[1.2rem] text-[#EC4899]"
         style={{ transform: "rotate(-2deg)" }}
       >
         Founders get more →

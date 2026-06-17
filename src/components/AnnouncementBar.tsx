@@ -18,7 +18,7 @@ export function AnnouncementBar() {
           <strong className="font-semibold">Founder access is open</strong> — 90 days free,
           limited spots
         </span>
-        <span className="inline-flex items-center gap-0.5 font-semibold text-[#bef227]">
+        <span className="inline-flex items-center gap-0.5 font-semibold text-white/90 underline-offset-2 hover:underline">
           Get yours <ArrowRight size={13} />
         </span>
       </button>

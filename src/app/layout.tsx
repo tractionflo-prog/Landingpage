@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Caveat } from "next/font/google";
+import { Figtree, Caveat } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { MetaPixel } from "@/components/MetaPixel";
@@ -7,8 +7,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { absoluteUrl, ogImageUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   display: "swap",
 });
@@ -23,7 +23,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#bef227",
+  themeColor: "#0a0a0a",
   colorScheme: "light",
 };
 
@@ -96,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${caveat.variable} scroll-smooth`}>
+    <html lang="en" className={`${figtree.variable} ${caveat.variable} scroll-smooth`}>
       <body className="min-h-screen bg-white font-sans text-foreground antialiased">
         <JsonLd />
         <GoogleAnalytics />

@@ -35,7 +35,7 @@ export function AnimatedCounter({
 
   return (
     <span ref={ref} className={className}>
-      {display}
+      {display.toLocaleString("en-US")}
     </span>
   );
 }

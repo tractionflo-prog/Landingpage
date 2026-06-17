@@ -5,6 +5,6 @@ export const conversionCopy = {
   /** Used at the offer/close, where the founder framing fits. */
   offerCta: "Claim My Founder Spot",
   riskReversal: "Free · No credit card · Takes 30 seconds",
-  scarcityLine: "Limited founder spots — filling fast",
-  identityEyebrow: "For creators who sell in the DMs",
+  scarcityLine: "Founding access — limited early spots",
+  identityEyebrow: "Built for social media managers",
 } as const;

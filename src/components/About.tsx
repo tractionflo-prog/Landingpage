@@ -35,7 +35,7 @@ export function About() {
           </div>
 
           <div className="mt-8 flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#bef227] text-[14px] font-bold text-[#111]">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0073EA] text-[14px] font-bold text-white">
               TF
             </span>
             <HandAnnotation className="!mt-0">{founderNote.signoff}</HandAnnotation>

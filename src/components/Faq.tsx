@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { BrushHighlight } from "@/components/ui/BrushHighlight";
+import { GradientText } from "@/components/ui/GradientText";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
 import { pageStory } from "@/lib/pageStory";
@@ -15,11 +15,11 @@ export function Faq() {
   return (
     <section id="faq" className="section-white" aria-labelledby="faq-heading">
       <div className="page-wrap max-w-[760px]">
-        <p className="text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#999]">
+        <p className="text-center text-[12px] font-bold uppercase tracking-[0.16em] text-[#EC4899]">
           {faq.eyebrow}
         </p>
-        <h2 id="faq-heading" className="t-section mt-3 text-center">
-          What Creators Ask <BrushHighlight>Before Switching</BrushHighlight>
+        <h2 id="faq-heading" className="t-section mt-4 text-center">
+          {faq.headline} <GradientText>{faq.headlineAccent}</GradientText>
         </h2>
 
         <ul className="mx-auto mt-10 space-y-3">
@@ -35,7 +35,7 @@ export function Faq() {
                 >
                   <span className="text-[15px] font-bold text-[#111] sm:text-[16px]">{item.q}</span>
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f4fce0] text-[#4d7c0f] transition-transform duration-200 ${
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EFF6FF] text-[#0060C7] transition-transform duration-200 ${
                       isOpen ? "rotate-45" : ""
                     }`}
                   >

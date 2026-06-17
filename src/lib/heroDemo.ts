@@ -25,7 +25,7 @@ export const HERO_SCENARIOS: HeroScenario[] = [
     incoming: "How much is your coaching? 👀",
     reply: "Hi Sarah! You asked about the coaching — it's $240 for 4 weeks, 1:1. Want the link?",
     highlight: "You asked about the coaching",
-    outcome: { kind: "paid", label: "Paid in the chat", amount: "$240" },
+    outcome: { kind: "paid", label: "Customer Converted", amount: "$240" },
   },
   {
     name: "Jade",
@@ -44,7 +44,7 @@ export const HERO_SCENARIOS: HeroScenario[] = [
     incoming: "Is the new drop available?",
     reply: "Welcome back Alex! Since you loved the last drop, want me to set you up again?",
     highlight: "Since you loved the last drop",
-    outcome: { kind: "repeat", label: "Repeat order", amount: "$180" },
+    outcome: { kind: "repeat", label: "Customer Converted", amount: "$180" },
   },
 ];
 
@@ -53,7 +53,7 @@ export const MESSAGE_PEOPLE = HERO_SCENARIOS.map((s) => ({
   handle: s.handle,
   signal: s.spotted,
   badge: "High intent",
-  badgeClass: "bg-[#f4fce0] text-[#4d7c0f]",
+  badgeClass: "bg-[#EFF6FF] text-[#0060C7]",
   avatar: s.avatar,
 }));
 

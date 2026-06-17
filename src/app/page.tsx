@@ -1,14 +1,12 @@
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { Problem } from "@/components/Problem";
-import { DmPersonas } from "@/components/DmPersonas";
+import { Comparison } from "@/components/Comparison";
+import { LiveExample } from "@/components/LiveExample";
 import { CustomerJourney } from "@/components/CustomerJourney";
-import { ProductShowcase } from "@/components/ProductShowcase";
-import { Comparison } from "@/components/comparison/Comparison";
-import { About } from "@/components/About";
+import { Results } from "@/components/Results";
 import { Faq } from "@/components/Faq";
-import { FinalCta } from "@/components/FinalCta";
+import { FoundingAccess } from "@/components/FoundingAccess";
 import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import type { Metadata } from "next";
@@ -22,27 +20,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <AnnouncementBar />
       <Navbar />
       <main id="main-content">
-        {/* 1. Hook — audience already trying to buy */}
         <Hero />
-        {/* 2. Real problem — traffic vs follow-up */}
         <Problem />
-        {/* 3. Personal attention — every interested follower */}
-        <DmPersonas />
-        {/* 4. Customer journey — follower to paid customer */}
         <CustomerJourney />
-        {/* 5. Product showcase — inbox, opportunities, payments, customers */}
-        <ProductShowcase />
-        {/* 6. Old way vs TractionFlo — many tools vs one platform */}
+        <LiveExample />
         <Comparison />
-        {/* 7. Trust — founder's note */}
-        <About />
-        {/* 8. Handle objections */}
+        <Results />
         <Faq />
-        {/* 9. Final CTA — stop losing customers */}
-        <FinalCta />
+        <FoundingAccess />
       </main>
       <Footer />
       <StickyMobileCta />

@@ -1,86 +1,96 @@
 import { Check } from "lucide-react";
-import { HandAnnotation } from "@/components/ui/HandAnnotation";
+import { Reveal } from "@/components/ui/Reveal";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
-import { FOUNDER_BENEFITS, foundingCopy } from "@/lib/founding";
 import { pageStory } from "@/lib/pageStory";
 
 export function FoundingAccess() {
   const { founding } = pageStory;
 
   return (
-    <section id="founding" className="offer-glow section-grey" aria-labelledby="founding-heading">
+    <section id="founding" className="section-grey" aria-labelledby="founding-heading">
       <div className="page-wrap">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
-          <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#999]">
-              {founding.eyebrow}
-            </p>
-            <h2 id="founding-heading" className="t-section mt-3">
-              Be an early founder.
-              <br />
-              Not just another user.
-            </h2>
-            <p className="t-body mt-5 max-w-md">{founding.subhead}</p>
+        <Reveal>
+          <p className="text-center text-[12px] font-bold uppercase tracking-[0.16em] text-[#EC4899]">
+            {founding.eyebrow}
+          </p>
+          <h2 id="founding-heading" className="t-section mx-auto mt-4 max-w-[620px] text-center">
+            {founding.headline}
+          </h2>
+          <p className="t-body mx-auto mt-4 max-w-[560px] text-center">{founding.subhead}</p>
+        </Reveal>
 
-            <ul className="mt-8 space-y-4">
-              {FOUNDER_BENEFITS.map((benefit) => (
-                <li key={benefit} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#eef9c4]">
-                    <Check size={14} className="text-[#6fa800]" strokeWidth={2.5} />
+        <Reveal>
+          <div
+            className="tf-soft mx-auto mt-12 max-w-[680px] rounded-[24px] p-[2px]"
+            style={{ background: "linear-gradient(120deg, #FDBA74, #F472B6, #FB7185)" }}
+          >
+            <div className="rounded-[23px] bg-white px-7 py-9 sm:px-10 sm:py-10">
+              {/* Plan + price */}
+              <div className="flex flex-col items-center text-center">
+                <div className="flex items-center gap-3">
+                  <p className="text-[15px] font-bold text-[#0a0a0a]">{founding.planName}</p>
+                  <span className="rounded-full bg-[#FCEBD8] px-3 py-1 text-[11px] font-bold text-[#C2620E]">
+                    {founding.publicPrice}
                   </span>
-                  <span className="text-[15px] font-medium leading-snug text-[#111]">{benefit}</span>
-                </li>
-              ))}
-            </ul>
+                </div>
+                <div className="mt-5 flex items-baseline justify-center gap-1">
+                  <span className="text-[56px] font-extrabold leading-none tracking-[-0.03em] text-[#0a0a0a]">
+                    {founding.price}
+                  </span>
+                  <span className="text-[16px] font-semibold text-[#6b6b6b]">{founding.period}</span>
+                </div>
+                <p className="mt-3 text-[14px] font-medium text-[#6b6b6b]">{founding.priceNote}</p>
 
-            <QuizTrigger size="lg" className="btn-lime-mobile-full mt-10">
-              {foundingCopy.cta}
-            </QuizTrigger>
-            <p className="mt-3 text-[13px] font-medium text-[#888]">
-              90 days free · No credit card · {foundingCopy.limitedShort}
-            </p>
+                <QuizTrigger size="lg" className="btn-lime-mobile-full mt-7 w-full sm:w-auto">
+                  {founding.cta}
+                </QuizTrigger>
 
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-              {[
-                "Cancel anytime",
-                "No card to join",
-                "Price locked for life",
-              ].map((item) => (
-                <span key={item} className="flex items-center gap-1.5 text-[13px] font-medium text-[#555]">
-                  <Check size={14} className="text-[#6fa800]" strokeWidth={2.5} />
-                  {item}
-                </span>
-              ))}
+                <p className="mt-4 flex items-center gap-2 text-[13px] font-semibold text-[#0a0a0a]">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EC4899]" aria-hidden />
+                  {founding.scarcity}
+                </p>
+                <p className="mt-1 text-[12.5px] text-[#9a9a9a]">{founding.fineprint}</p>
+              </div>
+
+              <div className="my-8 h-px bg-[#ECECEC]" />
+
+              {/* Features + founder benefits */}
+              <div className="grid gap-8 sm:grid-cols-2">
+                <div>
+                  <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9a9a9a]">
+                    Everything included
+                  </p>
+                  <ul className="mt-4 space-y-3">
+                    {founding.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-[14px] text-[#0a0a0a]">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#22C55E] text-white">
+                          <Check size={12} strokeWidth={3} />
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9a9a9a]">
+                    Founder benefits
+                  </p>
+                  <ul className="mt-4 space-y-3">
+                    {founding.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-[14px] text-[#0a0a0a]">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#EC4899] text-white">
+                          <Check size={12} strokeWidth={3} />
+                        </span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="relative min-w-0 lg:pt-2">
-            <HandAnnotation className="mb-4 block text-right lg:absolute lg:right-0 lg:-top-1 lg:mb-0">
-              {foundingCopy.limitedShort} →
-            </HandAnnotation>
-
-            <div className="founder-pricing-card mt-2 lg:mt-8">
-              <p className="founder-pricing-hero">90 days free</p>
-              <p className="mt-3 text-[15px] font-medium text-[#666]">
-                Full access while we build with you
-              </p>
-
-              <p className="mt-8 text-[1.75rem] font-bold leading-tight tracking-[-0.03em] text-[#111]">
-                Founder pricing,
-                <br />
-                locked for life
-              </p>
-              <p className="mt-3 text-[14px] leading-relaxed text-[#666]">
-                Lock the lowest price we&apos;ll ever offer — before public launch. You&apos;ll
-                always pay less than everyone after you.
-              </p>
-
-              <p className="mt-8 text-[13px] font-bold uppercase tracking-[0.12em] text-[#111]">
-                {foundingCopy.limitedShort}
-              </p>
-            </div>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

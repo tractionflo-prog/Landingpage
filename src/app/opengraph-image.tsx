@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Turn social media engagement into paying customers";
+export const alt = "TractionFlo — Turn Social Media Engagement Into Paying Customers";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,7 +26,7 @@ export default async function OgImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "linear-gradient(135deg, #f7f8f4 0%, #ffffff 45%, #f0fae0 100%)",
+          background: "#ffffff",
           fontFamily: "Inter",
         }}
       >
@@ -37,7 +37,6 @@ export default async function OgImage() {
             position: "relative",
           }}
         >
-          {/* Left: copy */}
           <div
             style={{
               display: "flex",
@@ -81,46 +80,47 @@ export default async function OgImage() {
                 display: "flex",
                 flexDirection: "column",
                 marginTop: 36,
-                fontSize: 52,
+                fontSize: 48,
                 fontWeight: 700,
                 color: "#111",
                 lineHeight: 1.08,
                 letterSpacing: "-0.035em",
               }}
             >
-              <span>Turn social media into</span>
+              <span>Turn Social Media Engagement</span>
+              <span>Into </span>
               <span
                 style={{
-                  background: "linear-gradient(180deg, transparent 55%, rgba(236,72,153,0.45) 55%)",
+                  background: "linear-gradient(180deg, transparent 55%, rgba(236,72,153,0.4) 55%)",
                 }}
               >
-                paying customers.
+                Paying Customers
               </span>
             </div>
 
             <div
               style={{
                 marginTop: 22,
-                fontSize: 22,
+                fontSize: 21,
                 fontWeight: 600,
                 color: "#555",
                 lineHeight: 1.45,
-                maxWidth: 520,
+                maxWidth: 540,
               }}
             >
-              Comments, DMs, story replies and followers are full of buyers. Spot who&apos;s ready, start the right conversation — and get paid.
+              Capture opportunities from comments, DMs and story replies — then convert them into revenue.
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
-              {["Capture intent", "Start conversations", "Get paid"].map((label) => (
+              {["90 Days Free", "Founder Pricing", "No Credit Card"].map((label) => (
                 <div
                   key={label}
                   style={{
                     padding: "8px 16px",
                     borderRadius: 999,
-                    background: "#fff",
+                    background: "#fafafa",
                     border: "1px solid rgba(0,0,0,0.08)",
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: 600,
                     color: "#333",
                   }}
@@ -129,31 +129,8 @@ export default async function OgImage() {
                 </div>
               ))}
             </div>
-
-            <div
-              style={{
-                marginTop: 32,
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                fontSize: 16,
-                fontWeight: 600,
-                color: "#BE185D",
-              }}
-            >
-              <div
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  background: "#EC4899",
-                }}
-              />
-              Limited founder spots — limited availability
-            </div>
           </div>
 
-          {/* Right: product mock */}
           <div
             style={{
               display: "flex",
@@ -169,149 +146,46 @@ export default async function OgImage() {
                 flexDirection: "column",
                 width: 380,
                 background: "#fff",
-                borderRadius: 20,
-                border: "1px solid rgba(0,0,0,0.07)",
+                borderRadius: 22,
+                border: "1px solid rgba(0,0,0,0.08)",
                 padding: 24,
+                boxShadow: "0 20px 60px rgba(0,0,0,0.06)",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <div
-                    style={{
-                      width: 28,
-                      height: 28,
-                      borderRadius: 8,
-                      background: "#0a0a0a",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 10,
-                      fontWeight: 700,
-                      color: "#fff",
-                    }}
-                  >
-                    TF
-                  </div>
-                  <span style={{ fontSize: 14, fontWeight: 700, color: "#111" }}>
-                    Buyers spotted today
-                  </span>
-                </div>
-                <span style={{ fontSize: 13, fontWeight: 700, color: "#EC4899" }}>4 warm</span>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  marginTop: 20,
-                  padding: 14,
-                  borderRadius: 14,
-                  background: "#fafafa",
-                  border: "1px solid rgba(0,0,0,0.05)",
-                }}
-              >
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.2, color: "#EC4899" }}>
+                REVENUE FLOW
+              </span>
+              {[
+                { label: "Comment", value: "47" },
+                { label: "Conversation", value: "31" },
+                { label: "Qualified", value: "12" },
+                { label: "Customer", value: "4" },
+              ].map((row, i) => (
                 <div
-                  style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: "50%",
-                    background: "#f9a8d4",
-                  }}
-                />
-                <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 5 }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <span style={{ fontSize: 13, fontWeight: 700, color: "#111" }}>@sarah.k</span>
-                    <span
-                      style={{
-                      padding: "3px 9px",
-                      borderRadius: 999,
-                      background: "#FDF2F8",
-                      fontSize: 10,
-                      fontWeight: 700,
-                      color: "#BE185D",
-                    }}
-                  >
-                    High intent
-                    </span>
-                  </div>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: "#444" }}>
-                    “How much is your coaching?”
-                  </span>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  marginTop: 12,
-                  padding: 14,
-                  borderRadius: 14,
-                  background: "#FDF2F8",
-                  border: "1px solid rgba(236,72,153,0.35)",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 700,
-                    letterSpacing: 1,
-                    color: "#BE185D",
-                    marginBottom: 6,
-                  }}
-                >
-                  PERSONALIZED · AUTO-SENT
-                </span>
-                <span style={{ fontSize: 13, fontWeight: 600, color: "#222" }}>
-                  Hey Sarah! Yes — spots are open. Want the link?
-                </span>
-              </div>
-
-              <div style={{ display: "flex", marginTop: 16, gap: 12 }}>
-                <div
+                  key={row.label}
                   style={{
                     display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginTop: i === 0 ? 16 : 10,
                     padding: "12px 14px",
-                    borderRadius: 12,
-                    background: "#fafafa",
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    gap: 2,
+                    borderRadius: 14,
+                    background: i === 3 ? "#FDF2F8" : "#fafafa",
+                    border: i === 3 ? "1px solid rgba(236,72,153,0.25)" : "1px solid rgba(0,0,0,0.05)",
                   }}
                 >
-                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Warm today</span>
-                  <span style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>12</span>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: "#333" }}>{row.label}</span>
+                  <span
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 700,
+                      color: i === 3 ? "#EC4899" : "#111",
+                    }}
+                  >
+                    {row.value}
+                  </span>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                    padding: "12px 14px",
-                    borderRadius: 12,
-                    background: "#fafafa",
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    gap: 2,
-                  }}
-                >
-                  <span style={{ fontSize: 11, color: "#888", fontWeight: 600 }}>Auto-sent</span>
-                  <span style={{ fontSize: 22, fontWeight: 700, color: "#EC4899" }}>4</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

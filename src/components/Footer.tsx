@@ -1,11 +1,13 @@
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
+import { siteConfig } from "@/lib/seo";
 
 const links = [
   { label: "Why TractionFlo", href: "#compare" },
   { label: "Demo", href: "#example" },
   { label: "How It Works", href: "#journey" },
   { label: "Pricing", href: "#founding" },
+  { label: "Support", href: `mailto:${siteConfig.supportEmail}` },
 ];
 
 export function Footer() {
@@ -38,7 +40,13 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col gap-4 border-t border-black/[0.06] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[13px] text-[#888]">
-            © {new Date().getFullYear()} TractionFlo
+            © {new Date().getFullYear()} TractionFlo ·{" "}
+            <a
+              href={`mailto:${siteConfig.supportEmail}`}
+              className="font-medium text-[#666] no-underline hover:text-[#111]"
+            >
+              {siteConfig.supportEmail}
+            </a>
           </p>
           <QuizTrigger size="md">{conversionCopy.primaryCta}</QuizTrigger>
         </div>

@@ -7,6 +7,7 @@ import { GradientText } from "@/components/ui/GradientText";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
 import { pageStory } from "@/lib/pageStory";
+import { siteConfig } from "@/lib/seo";
 
 export function Faq() {
   const { faq } = pageStory;
@@ -66,6 +67,15 @@ export function Faq() {
           <p className="text-[15px] font-semibold text-[#111]">Still on the fence?</p>
           <p className="mt-1 text-[14px] text-[#666]">
             It&apos;s free for 90 days. The only risk is losing your founder spot.
+          </p>
+          <p className="mt-3 text-[14px] text-[#666]">
+            Questions?{" "}
+            <a
+              href={`mailto:${siteConfig.supportEmail}`}
+              className="font-medium text-[#111] underline-offset-2 hover:underline"
+            >
+              {siteConfig.supportEmail}
+            </a>
           </p>
           <QuizTrigger size="lg" className="btn-lime-mobile-full mt-6">
             {conversionCopy.primaryCta}

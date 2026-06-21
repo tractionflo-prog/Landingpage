@@ -23,6 +23,7 @@ export const siteConfig = {
   ],
   creator: "TractionFlo",
   locale: "en_US",
+  supportEmail: "support@tractionflo.com",
 };
 
 export function absoluteUrl(path = "") {

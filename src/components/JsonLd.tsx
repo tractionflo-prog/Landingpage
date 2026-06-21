@@ -9,6 +9,11 @@ export function JsonLd() {
     url: siteConfig.url,
     description: siteConfig.description,
     logo: absoluteUrl("/icon"),
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: siteConfig.supportEmail,
+      contactType: "customer support",
+    },
   };
 
   const website = {

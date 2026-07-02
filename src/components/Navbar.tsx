@@ -5,10 +5,10 @@ import { Menu, X } from "lucide-react";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 
 const links = [
-  { label: "Why TractionFlo", href: "#compare" },
-  { label: "Demo", href: "#example" },
+  { label: "The Opportunity", href: "#opportunity" },
   { label: "How It Works", href: "#journey" },
   { label: "Pricing", href: "#founding" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {

@@ -3,10 +3,10 @@ import { conversionCopy } from "@/lib/conversion";
 import { siteConfig } from "@/lib/seo";
 
 const links = [
-  { label: "Why TractionFlo", href: "#compare" },
-  { label: "Demo", href: "#example" },
+  { label: "The Opportunity", href: "#opportunity" },
   { label: "How It Works", href: "#journey" },
   { label: "Pricing", href: "#founding" },
+  { label: "FAQ", href: "#faq" },
   { label: "Support", href: `mailto:${siteConfig.supportEmail}` },
 ];
 

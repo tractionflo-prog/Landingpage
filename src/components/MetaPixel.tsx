@@ -3,6 +3,9 @@ import Script from "next/script";
 const PIXEL_ID = "1430078632488529";
 
 export function MetaPixel() {
+  // Don't load or fire the pixel in local development — keeps dev traffic out of Meta.
+  if (process.env.NODE_ENV !== "production") return null;
+
   return (
     <>
       <Script id="meta-pixel" strategy="afterInteractive">

@@ -3,6 +3,9 @@ import Script from "next/script";
 const GA_ID = "G-DCBRC0PLTM";
 
 export function GoogleAnalytics() {
+  // Don't load or fire GA in local development — keeps dev traffic out of analytics.
+  if (process.env.NODE_ENV !== "production") return null;
+
   return (
     <>
       <Script

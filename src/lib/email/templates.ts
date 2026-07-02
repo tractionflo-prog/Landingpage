@@ -1,14 +1,15 @@
-import { formatAnswerLabel, QUIZ_QUESTIONS } from "@/lib/quiz/questions";
 import type { LeadSubmission } from "@/lib/validations/lead";
 
 const BLACK = "#0a0a0a";
 const MUTED = "#6b6b6b";
 const BORDER = "#ECECEC";
 const GREEN = "#22C55E";
-const ACCENT = "#EC4899";
-const ACCENT_SOFT = "#FDF2F8";
-// Instagram-style accent gradient (orange → pink). Falls back to ACCENT in Outlook.
-const GRADIENT = "linear-gradient(90deg,#F97316 0%,#EC4899 100%)";
+// Notion-style pastel green accent (matches Founder Access section + success screen).
+const ACCENT = "#3f7d5c";
+const ACCENT_SOFT = "#eef4ef";
+// Soft multi-pastel top strip that nods to the per-section palette. Falls back to ACCENT in Outlook.
+const GRADIENT =
+  "linear-gradient(90deg,#c9b8f0 0%,#a6d3ea 30%,#f4c496 55%,#f3bcd6 78%,#a9d3ba 100%)";
 
 function esc(text: string) {
   return text
@@ -36,19 +37,6 @@ function perkRows() {
       <td style="padding:0 0 10px 0;font-size:14px;color:${BLACK};line-height:1.4;">${p}</td>
     </tr>`
   ).join("");
-}
-
-function quizAnswerRows(answers: Record<string, string>) {
-  return QUIZ_QUESTIONS.map((q) => {
-    const label = answers[q.id]
-      ? esc(formatAnswerLabel(q.id, answers[q.id]))
-      : "—";
-    return `
-    <tr>
-      <td style="padding:12px 0;border-bottom:1px solid ${BORDER};font-size:13px;color:${MUTED};line-height:1.4;width:55%;">${esc(q.question)}</td>
-      <td style="padding:12px 0;border-bottom:1px solid ${BORDER};font-size:14px;font-weight:600;color:${BLACK};text-align:right;line-height:1.4;">${label}</td>
-    </tr>`;
-  }).join("");
 }
 
 function emailShell(content: string) {
@@ -142,7 +130,7 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
                       <td style="font-size:36px;font-weight:800;letter-spacing:-0.03em;color:${BLACK};vertical-align:baseline;">$79</td>
                       <td style="padding-left:4px;font-size:15px;font-weight:600;color:${MUTED};vertical-align:baseline;">/month</td>
                       <td style="padding-left:12px;vertical-align:middle;">
-                        <span style="background:#FCEBD8;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;color:#C2620E;">Public price: $99/month</span>
+                        <span style="background:#f4f4f5;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;color:#6b6b6b;">Public price: $99/month</span>
                       </td>
                     </tr>
                   </table>
@@ -237,15 +225,6 @@ export function buildFounderNotificationHtml(data: LeadSubmission) {
 
         <tr>
           <td style="padding-top:20px;">
-            <p style="margin:0 0 12px 0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#999;">Quiz responses</p>
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-              ${quizAnswerRows(data.answers)}
-            </table>
-          </td>
-        </tr>
-
-        <tr>
-          <td style="padding-top:20px;">
             <a href="mailto:${email}?subject=Welcome%20to%20TractionFlo%20Founding%20Access" style="display:inline-block;background:${BLACK};color:#fff;font-size:13px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">
               Reply to ${name.split(" ")[0]} →
             </a>
@@ -279,15 +258,5 @@ Turn social media engagement into paying customers.`;
 }
 
 export function buildFounderNotificationText(data: LeadSubmission) {
-  const lines = QUIZ_QUESTIONS.map((q) => {
-    const label = data.answers[q.id]
-      ? formatAnswerLabel(q.id, data.answers[q.id])
-      : "—";
-    return `${q.question}\n→ ${label}`;
-  }).join("\n\n");
-
-  return `New founding lead: ${data.name} (${data.email})
-
-Quiz responses:
-${lines}`;
+  return `New founding lead: ${data.name} (${data.email})`;
 }

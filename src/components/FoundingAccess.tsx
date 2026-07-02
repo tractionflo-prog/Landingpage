@@ -7,13 +7,16 @@ export function FoundingAccess() {
   const { founding } = pageStory;
 
   return (
-    <section id="founding" className="section-grey" aria-labelledby="founding-heading">
+    <section id="founding" className="section-white sec-green" aria-labelledby="founding-heading">
       <div className="page-wrap">
         <Reveal>
-          <p className="text-center text-[12px] font-bold uppercase tracking-[0.16em] text-[#EC4899]">
-            {founding.eyebrow}
-          </p>
-          <h2 id="founding-heading" className="t-section mx-auto mt-4 max-w-[620px] text-center">
+          <div className="flex justify-center">
+            <span className="cv-eyebrow">
+              <span className="cv-idx">{founding.index}</span>
+              <span className="cv-label">{founding.eyebrow}</span>
+            </span>
+          </div>
+          <h2 id="founding-heading" className="t-section mx-auto mt-5 max-w-[620px] text-center">
             {founding.headline}
           </h2>
           <p className="t-body mx-auto mt-4 max-w-[560px] text-center">{founding.subhead}</p>
@@ -21,15 +24,18 @@ export function FoundingAccess() {
 
         <Reveal>
           <div
-            className="tf-soft mx-auto mt-12 max-w-[680px] rounded-[24px] p-[2px]"
-            style={{ background: "linear-gradient(120deg, #FDBA74, #F472B6, #FB7185)" }}
+            className="tf-soft mx-auto mt-12 max-w-[680px] rounded-[24px] border p-[1px]"
+            style={{ borderColor: "var(--sec-accent)", background: "var(--sec-accent-soft)" }}
           >
             <div className="rounded-[23px] bg-white px-7 py-9 sm:px-10 sm:py-10">
               {/* Plan + price */}
               <div className="flex flex-col items-center text-center">
                 <div className="flex items-center gap-3">
                   <p className="text-[15px] font-bold text-[#0a0a0a]">{founding.planName}</p>
-                  <span className="rounded-full bg-[#FCEBD8] px-3 py-1 text-[11px] font-bold text-[#C2620E]">
+                  <span
+                    className="rounded-full px-3 py-1 text-[11px] font-bold"
+                    style={{ background: "var(--sec-accent-soft)", color: "var(--sec-accent-ink)" }}
+                  >
                     {founding.publicPrice}
                   </span>
                 </div>
@@ -46,7 +52,11 @@ export function FoundingAccess() {
                 </QuizTrigger>
 
                 <p className="mt-4 flex items-center gap-2 text-[13px] font-semibold text-[#0a0a0a]">
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EC4899]" aria-hidden />
+                  <span
+                    className="h-1.5 w-1.5 shrink-0 rounded-full"
+                    style={{ background: "var(--sec-accent-ink)" }}
+                    aria-hidden
+                  />
                   {founding.scarcity}
                 </p>
                 <p className="mt-1 text-[12.5px] text-[#9a9a9a]">{founding.fineprint}</p>
@@ -79,7 +89,10 @@ export function FoundingAccess() {
                   <ul className="mt-4 space-y-3">
                     {founding.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-[14px] text-[#0a0a0a]">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#EC4899] text-white">
+                        <span
+                          className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
+                          style={{ background: "var(--sec-accent-ink)" }}
+                        >
                           <Check size={12} strokeWidth={3} />
                         </span>
                         {b}

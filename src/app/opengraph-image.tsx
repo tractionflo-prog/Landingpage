@@ -91,7 +91,7 @@ export default async function OgImage() {
               <span>Into </span>
               <span
                 style={{
-                  background: "linear-gradient(180deg, transparent 55%, rgba(236,72,153,0.4) 55%)",
+                  background: "linear-gradient(180deg, transparent 55%, rgba(201,184,240,0.6) 55%)",
                 }}
               >
                 Paying Customers
@@ -152,7 +152,7 @@ export default async function OgImage() {
                 boxShadow: "0 20px 60px rgba(0,0,0,0.06)",
               }}
             >
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.2, color: "#EC4899" }}>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.2, color: "#6d4aa8" }}>
                 REVENUE FLOW
               </span>
               {[
@@ -170,8 +170,8 @@ export default async function OgImage() {
                     marginTop: i === 0 ? 16 : 10,
                     padding: "12px 14px",
                     borderRadius: 14,
-                    background: i === 3 ? "#FDF2F8" : "#fafafa",
-                    border: i === 3 ? "1px solid rgba(236,72,153,0.25)" : "1px solid rgba(0,0,0,0.05)",
+                    background: i === 3 ? "#f2effb" : "#fafafa",
+                    border: i === 3 ? "1px solid rgba(201,184,240,0.6)" : "1px solid rgba(0,0,0,0.05)",
                   }}
                 >
                   <span style={{ fontSize: 14, fontWeight: 600, color: "#333" }}>{row.label}</span>
@@ -179,7 +179,7 @@ export default async function OgImage() {
                     style={{
                       fontSize: 18,
                       fontWeight: 700,
-                      color: i === 3 ? "#EC4899" : "#111",
+                      color: i === 3 ? "#6d4aa8" : "#111",
                     }}
                   >
                     {row.value}
@@ -194,7 +194,8 @@ export default async function OgImage() {
           style={{
             display: "flex",
             height: 6,
-            background: "linear-gradient(90deg, #F97316 0%, #EC4899 100%)",
+            background:
+              "linear-gradient(90deg, #c9b8f0 0%, #a6d3ea 25%, #f4c496 50%, #f3bcd6 75%, #a9d3ba 100%)",
           }}
         />
       </div>

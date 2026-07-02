@@ -1,10 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/hero/Hero";
-import { Problem } from "@/components/Problem";
-import { Comparison } from "@/components/Comparison";
-import { LiveExample } from "@/components/LiveExample";
-import { CustomerJourney } from "@/components/CustomerJourney";
-import { Results } from "@/components/Results";
+import { Opportunity } from "@/components/Opportunity";
+import { CustomerView } from "@/components/CustomerView";
+import { HowItWorks } from "@/components/HowItWorks";
+import { Vision } from "@/components/Vision";
 import { Faq } from "@/components/Faq";
 import { FoundingAccess } from "@/components/FoundingAccess";
 import { Footer } from "@/components/Footer";
@@ -23,13 +22,12 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <Problem />
-        <CustomerJourney />
-        <LiveExample />
-        <Comparison />
-        <Results />
-        <Faq />
+        <Opportunity />
+        <CustomerView />
+        <HowItWorks />
+        <Vision />
         <FoundingAccess />
+        <Faq />
       </main>
       <Footer />
       <StickyMobileCta />

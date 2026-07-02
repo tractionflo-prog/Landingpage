@@ -59,7 +59,7 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
       </p>
 
       <p
-        className="font-hand mx-auto mt-6 text-[1.2rem] text-[#EC4899]"
+        className="font-hand mx-auto mt-6 text-[1.2rem] text-[#3f7d5c]"
         style={{ transform: "rotate(-2deg)" }}
       >
         Founders get more →

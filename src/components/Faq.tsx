@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { OutcomeStats } from "@/components/ui/OutcomeStats";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
 import { pageStory } from "@/lib/pageStory";
@@ -65,6 +66,8 @@ export function Faq() {
             );
           })}
         </ul>
+
+        <OutcomeStats stats={faq.stats} className="mt-10" />
 
         <div className="mt-10 text-center">
           <p className="text-[15px] font-semibold text-[#111]">Still on the fence?</p>

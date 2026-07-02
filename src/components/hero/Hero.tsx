@@ -2,9 +2,17 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Check, ArrowDown } from "lucide-react";
+import { Check, ArrowDown, Clock, Zap, Inbox, Target } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { conversionCopy } from "@/lib/conversion";
+
+const OUTCOME_ICONS: Record<string, LucideIcon> = {
+  clock: Clock,
+  zap: Zap,
+  inbox: Inbox,
+  target: Target,
+};
 import { pageStory } from "@/lib/pageStory";
 
 const HeroBoard = dynamic(() => import("./HeroBoard").then((m) => ({ default: m.HeroBoard })), {
@@ -122,6 +130,28 @@ export function Hero() {
           <div className="hero-board-wrap hero-board-float">
             <HeroBoard />
           </div>
+        </motion.div>
+
+        <motion.div
+          className="mx-auto mt-12 grid max-w-[920px] grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {hero.outcomes.map((o) => {
+            const Icon = OUTCOME_ICONS[o.icon] ?? Clock;
+            return (
+              <div key={o.label} className="hero-outcome">
+                <span className="hero-outcome-icon">
+                  <Icon size={17} strokeWidth={2.2} />
+                </span>
+                <p className="hero-outcome-value">{o.value}</p>
+                <p className="hero-outcome-label">{o.label}</p>
+                <p className="hero-outcome-sub">{o.sub}</p>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

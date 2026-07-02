@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { OutcomeStats } from "@/components/ui/OutcomeStats";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { pageStory } from "@/lib/pageStory";
 
@@ -22,9 +23,11 @@ export function FoundingAccess() {
           <p className="t-body mx-auto mt-4 max-w-[560px] text-center">{founding.subhead}</p>
         </Reveal>
 
+        <OutcomeStats stats={founding.stats} className="mx-auto mt-10 max-w-[680px]" />
+
         <Reveal>
           <div
-            className="tf-soft mx-auto mt-12 max-w-[680px] rounded-[24px] border p-[1px]"
+            className="tf-soft mx-auto mt-8 max-w-[680px] rounded-[24px] border p-[1px]"
             style={{ borderColor: "var(--sec-accent)", background: "var(--sec-accent-soft)" }}
           >
             <div className="rounded-[23px] bg-white px-7 py-9 sm:px-10 sm:py-10">

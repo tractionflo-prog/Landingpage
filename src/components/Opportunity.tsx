@@ -4,6 +4,7 @@ import { AtSign, Heart, MessageCircle, Send, UserPlus, ArrowUpRight, CircleDot }
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
+import { OutcomeStats } from "@/components/ui/OutcomeStats";
 import { pageStory } from "@/lib/pageStory";
 
 function IgGlyph({ size = 40 }: { size?: number }) {
@@ -256,6 +257,8 @@ export function Opportunity() {
             </span>
           </p>
         </Reveal>
+
+        <OutcomeStats stats={o.stats} className="mt-12" />
       </div>
     </section>
   );

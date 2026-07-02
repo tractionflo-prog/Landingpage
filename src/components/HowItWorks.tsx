@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowRight, BarChart3, Check, MessageSquare, Shield, Star, User } from "lucide-react";
+import { ArrowRight, BarChart3, Check, MessageSquare, Shield, TrendingUp, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
+import { OutcomeStats } from "@/components/ui/OutcomeStats";
 import { pageStory } from "@/lib/pageStory";
 import { ACCENTS, type AccentKey } from "@/lib/accents";
 
@@ -38,13 +39,6 @@ function StepIcon({ s }: { s: Step }) {
     </span>
   );
 }
-
-const AVATARS = [
-  "linear-gradient(135deg,#f472b6,#db2777)",
-  "linear-gradient(135deg,#60a5fa,#2563eb)",
-  "linear-gradient(135deg,#86efac,#22c55e)",
-  "linear-gradient(135deg,#fcd34d,#f59e0b)",
-];
 
 export function HowItWorks() {
   const { howItWorks: h } = pageStory;
@@ -103,19 +97,13 @@ export function HowItWorks() {
 
             <div className="hidden h-12 w-px bg-[var(--sec-accent)] md:block" aria-hidden />
 
-            <div className="flex items-center gap-3.5">
-              <div className="flex -space-x-2.5">
-                {AVATARS.map((g, i) => (
-                  <span key={i} className="h-8 w-8 rounded-full border-2 border-white" style={{ background: g }} />
-                ))}
-              </div>
+            <div className="flex items-start gap-3.5">
+              <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-white shadow-sm" style={{ color: "var(--sec-accent-ink)" }}>
+                <TrendingUp size={20} strokeWidth={2.2} />
+              </span>
               <div>
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={13} style={{ color: "var(--sec-accent-ink)" }} fill="currentColor" strokeWidth={0} />
-                  ))}
-                </div>
-                <p className="mt-1 text-[12.5px] leading-snug text-[var(--text-muted)]">
+                <p className="text-[14px] font-bold text-[#0a0a0a]">More customers, less busywork.</p>
+                <p className="mt-0.5 text-[12.5px] leading-relaxed text-[var(--text-muted)]">
                   <span className="font-bold text-[#0a0a0a]">{proofBold}</span>
                   {proofRest ? ` who ${proofRest}` : ""}
                 </p>
@@ -123,6 +111,8 @@ export function HowItWorks() {
             </div>
           </div>
         </Reveal>
+
+        <OutcomeStats stats={h.stats} className="mt-8" />
       </div>
     </section>
   );

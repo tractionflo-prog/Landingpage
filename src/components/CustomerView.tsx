@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { OutcomeStats } from "@/components/ui/OutcomeStats";
 import { pageStory } from "@/lib/pageStory";
 
 const FEATURE_ICONS: Record<string, LucideIcon> = {
@@ -50,12 +51,6 @@ const QUESTIONS = [
   "How much is the program?",
   "What’s included in the 1:1 coaching?",
   "Do you offer payment plans?",
-];
-
-const PROOF = [
-  "linear-gradient(135deg,#f472b6,#db2777)",
-  "linear-gradient(135deg,#60a5fa,#2563eb)",
-  "linear-gradient(135deg,#86efac,#22c55e)",
 ];
 
 export function CustomerView() {
@@ -96,16 +91,11 @@ export function CustomerView() {
               })}
             </div>
 
-            <div className="mt-9 flex items-center gap-3">
-              <div className="flex -space-x-2.5">
-                {PROOF.map((g, i) => (
-                  <span key={i} className="h-8 w-8 rounded-full border-2 border-white" style={{ background: g }} />
-                ))}
-                <span className="flex h-8 items-center rounded-full border-2 border-white bg-[#0a0a0a] px-2.5 text-[11px] font-bold text-white">
-                  +12k
-                </span>
-              </div>
-              <p className="max-w-[220px] text-[12.5px] leading-snug text-[var(--text-muted)]">{cv.socialProof}</p>
+            <div className="mt-9 flex items-start gap-3">
+              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full" style={{ background: "var(--sec-accent-soft)", color: "var(--sec-accent-ink)" }}>
+                <Zap size={15} strokeWidth={2.4} fill="currentColor" />
+              </span>
+              <p className="max-w-[260px] text-[13px] font-medium leading-snug text-[#0a0a0a]">{cv.socialProof}</p>
             </div>
           </Reveal>
 
@@ -249,6 +239,8 @@ export function CustomerView() {
             </div>
           </Reveal>
         </div>
+
+        <OutcomeStats stats={cv.stats} className="mt-12" />
       </div>
     </section>
   );

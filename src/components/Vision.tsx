@@ -15,6 +15,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
+import { OutcomeStats } from "@/components/ui/OutcomeStats";
 import { pageStory } from "@/lib/pageStory";
 import { ACCENTS, type AccentKey } from "@/lib/accents";
 
@@ -206,6 +207,8 @@ export function Vision() {
             </div>
           </div>
         </Reveal>
+
+        <OutcomeStats stats={v.stats} className="mt-12" />
 
         <p className="mt-8 flex items-center justify-center gap-2 text-center text-[13px] text-[var(--text-muted)]">
           <Heart size={14} style={{ color: "var(--sec-accent-ink)" }} fill="currentColor" strokeWidth={0} />

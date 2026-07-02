@@ -992,6 +992,97 @@ body {
   }
 }
 
+/* ===== Hero — outcome metrics band ===== */
+.hero-outcome {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  text-align: left;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.hero-outcome:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+.hero-outcome-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #fff3ea;
+  color: #f97316;
+}
+.hero-outcome-value {
+  margin-top: 12px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #0a0a0a;
+}
+.hero-outcome-label {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a0a0a;
+}
+.hero-outcome-sub {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+@media (max-width: 640px) {
+  .hero-outcome-value {
+    font-size: 22px;
+  }
+}
+
+/* ===== Reusable section outcome stats (themed by section accent) ===== */
+.outcome-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.outcome-stat {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.outcome-stat:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+.outcome-stat-value {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--sec-accent-ink);
+}
+.outcome-stat-label {
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+@media (max-width: 640px) {
+  .outcome-stat {
+    padding: 14px 16px;
+  }
+  .outcome-stat-value {
+    font-size: 21px;
+  }
+}
+
 /* ===== Hero — board stage ===== */
 .hero-board-stage {
   position: relative;

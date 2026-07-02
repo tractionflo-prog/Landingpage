@@ -8,7 +8,7 @@ export const pageStory = {
     headlinePre: "Turn every conversation into a ",
     headlineAccent: "customer",
     subhead:
-      "TractionFlo gives your business a repeatable system to follow up automatically, move customers to the next step, and turn more conversations into paying customers, repeat buyers, and referrals.",
+      "TractionFlo is the revenue operating system for your DMs. Capture every interested buyer, follow up automatically, and move each conversation toward a sale—so you win more customers and stop leaving money in your inbox.",
     trust: [
       "90 Days Free",
       "No Credit Card Required",
@@ -17,6 +17,12 @@ export const pageStory = {
     ],
     secondaryTrust: "No credit card required • Limited founding spots",
     socialProof: "Loved by 600+ business owners",
+    outcomes: [
+      { icon: "clock", value: "24/7", label: "Always working", sub: "Captures and replies even while you sleep." },
+      { icon: "zap", value: "Seconds", label: "Reply time", sub: "Never keep an interested buyer waiting." },
+      { icon: "inbox", value: "Unlimited", label: "Conversations at once", sub: "Handle every DM and comment—no extra staff, no backlog." },
+      { icon: "target", value: "Zero", label: "Cold leads", sub: "Automatic follow-up until they’re ready to buy." },
+    ],
   },
   opportunity: {
     index: "02",
@@ -24,10 +30,15 @@ export const pageStory = {
     headlinePre: "Your next customer",
     headlineAccent: "is already on Instagram.",
     subhead:
-      "Every comment, DM, story reply, mention, and new follower is someone showing interest. The challenge isn’t getting attention—it’s knowing who to engage, when to engage, and what to do next.",
+      "Every comment, DM, story reply, and new follower is a buying signal. Miss it and that revenue goes to a competitor. TractionFlo surfaces who’s interested and exactly what to do next—so no opportunity slips away.",
     kicker: "Most businesses see notifications.",
     kickerAccentPre: "TractionFlo sees ",
     kickerAccent: "opportunities.",
+    stats: [
+      { value: "100%", label: "of comments, DMs & story replies captured" },
+      { value: "0", label: "buying signals left unseen" },
+      { value: "Instant", label: "alerts on high-intent buyers" },
+    ],
   },
   customerView: {
     index: "03",
@@ -35,13 +46,18 @@ export const pageStory = {
     headlinePre: "One customer.",
     headlineAccent: "Everything that matters.",
     subhead:
-      "TractionFlo connects every interaction across Instagram and builds a complete picture of each person—automatically.",
+      "TractionFlo unifies every interaction into one clear profile, so you always know what each person wants and reply with the right offer at the right time—and close more of the conversations you already have.",
     features: [
-      { icon: "profile", title: "Unified Profile", text: "All interactions. One timeline. Never lose context." },
-      { icon: "intent", title: "Intent & Context", text: "We understand what they want, where they are in their journey, and what to do next." },
-      { icon: "action", title: "Next Best Action", text: "AI recommends the step most likely to convert." },
+      { icon: "profile", title: "Know every customer instantly", text: "Every comment, DM, and reply in one timeline—so you never lose context or make a buyer repeat themselves." },
+      { icon: "intent", title: "See who’s ready to buy", text: "TractionFlo reads intent and budget, so you spend your time on the people most likely to pay." },
+      { icon: "action", title: "Always know the next step", text: "Get the exact move most likely to close the sale—no guessing, no leads going cold." },
     ],
-    socialProof: "Loved by creators and teams who never miss an opportunity.",
+    socialProof: "Know exactly what each person wants—and turn more conversations into paying customers.",
+    stats: [
+      { value: "360°", label: "view of every customer’s history" },
+      { value: "Seconds", label: "to know what a buyer wants" },
+      { value: "1-click", label: "next best action to close" },
+    ],
   },
   compare: {
     eyebrow: "Why TractionFlo",
@@ -163,18 +179,23 @@ export const pageStory = {
     index: "04",
     eyebrow: "How It Works",
     headline: "Get started in minutes.",
-    subhead: "Four simple steps to turn Instagram interactions into loyal customers—on autopilot.",
+    subhead: "Connect your account and TractionFlo starts turning Instagram conversations into paying customers—working around the clock so you don’t have to.",
     steps: [
-      { icon: "instagram", title: "Connect Instagram", text: "Securely connect your Instagram Business account in under a minute.", color: "pink", check: true },
-      { icon: "capture", title: "We capture every interaction", text: "Comments, DMs, story replies, mentions, and new followers appear automatically.", color: "blue", check: true },
-      { icon: "forward", title: "Every customer moves forward", text: "AI conversations qualify, answer questions, book, follow up and nurture—so no opportunity is lost.", color: "purple", check: true },
-      { icon: "grow", title: "You focus on growing", text: "Spend more time creating and serving while TractionFlo turns conversations into revenue.", color: "green", check: false },
+      { icon: "instagram", title: "Connect Instagram", text: "Connect your Instagram Business account in under a minute—no setup headaches.", color: "pink", check: true },
+      { icon: "capture", title: "Never miss a buyer", text: "Every comment, DM, story reply, and new follower is captured automatically—so no interested customer is ever missed.", color: "blue", check: true },
+      { icon: "forward", title: "Convert on autopilot", text: "TractionFlo replies instantly, answers questions, books calls, and follows up—turning more conversations into sales without you lifting a finger.", color: "purple", check: true },
+      { icon: "grow", title: "You focus on growing", text: "Spend your time creating and serving while TractionFlo works your inbox and grows revenue in the background.", color: "green", check: false },
     ],
     control: {
       title: "You’re always in control.",
-      text: "Take over any conversation, update your knowledge, and manage everything from one simple dashboard.",
+      text: "Jump into any conversation, update what TractionFlo knows, and run everything from one simple dashboard.",
     },
-    proof: "Built for creators, coaches, and businesses who want more customers without more chaos.",
+    proof: "Built for creators, coaches, and businesses who want more customers without more manual work.",
+    stats: [
+      { value: "< 1 min", label: "to connect and go live" },
+      { value: "24/7", label: "capturing & converting for you" },
+      { value: "Hands-free", label: "qualifying, booking & follow-up" },
+    ],
   },
   intelligence: {
     index: "04",
@@ -234,10 +255,10 @@ export const pageStory = {
     headlinePre: "Starts with Instagram. Built for every customer ",
     headlineAccent: "everywhere.",
     subhead:
-      "Your customers don’t just message you on Instagram. They reach out everywhere. TractionFlo brings every conversation into one intelligent system.",
+      "Your customers reach out everywhere—Instagram today, more channels soon. TractionFlo keeps every conversation and customer in one place, so you never drop a lead or lose context as you grow.",
     callout: {
       title: "One customer. One history. Everywhere.",
-      text: "No matter where the conversation starts, TractionFlo keeps the full context and continues the journey—seamlessly.",
+      text: "Wherever a conversation starts, TractionFlo remembers the full history and picks up right where it left off—so every customer feels known and no revenue falls through the cracks.",
     },
     platforms: [
       { name: "WhatsApp", desc: "DMs & Conversations", status: "soon", brand: "whatsapp", top: 13, left: 50 },
@@ -252,13 +273,18 @@ export const pageStory = {
     roadHeadlinePost: "More possibilities.",
     roadText: "We’re building the operating system for customer conversations across the social web.",
     roadItems: [
-      { icon: "comment", title: "More Channels", text: "Adding the platforms your customers love.", color: "purple" },
-      { icon: "brain", title: "Smarter AI", text: "Better understanding, better decisions, better outcomes.", color: "blue" },
-      { icon: "zap", title: "More Automations", text: "End-to-end journeys from lead to loyalty.", color: "orange" },
-      { icon: "chart", title: "Deeper Insights", text: "See what works, predict what’s next, grow faster.", color: "green" },
-      { icon: "heart", title: "Stronger Relationships", text: "Build trust, delight customers, earn more referrals.", color: "rose" },
+      { icon: "comment", title: "More Channels", text: "Capture opportunities on every platform your customers use.", color: "purple" },
+      { icon: "brain", title: "Smarter AI", text: "Better decisions on every conversation, so more of them turn into revenue.", color: "blue" },
+      { icon: "zap", title: "More Automations", text: "Automate the full journey from first message to repeat sale—and reclaim your time.", color: "orange" },
+      { icon: "chart", title: "Deeper Insights", text: "See exactly what drives revenue so you can do more of it.", color: "green" },
+      { icon: "heart", title: "Stronger Relationships", text: "Turn happy customers into repeat buyers and referrals.", color: "rose" },
     ],
     mission: "Our mission is simple: help creators and businesses turn every conversation into lasting customers.",
+    stats: [
+      { value: "1 inbox", label: "for every channel your customers use" },
+      { value: "One profile", label: "that follows them everywhere" },
+      { value: "Zero", label: "context lost as you scale" },
+    ],
   },
   showcase: {
     eyebrow: "Product",
@@ -326,10 +352,15 @@ export const pageStory = {
     eyebrow: "FAQ",
     headline: "Questions",
     headlineAccent: "before you join",
+    stats: [
+      { value: "30 sec", label: "to start your free trial" },
+      { value: "90 days", label: "to try everything, free" },
+      { value: "Anytime", label: "cancel — no contracts" },
+    ],
     items: [
       {
         q: "Is this just another chatbot?",
-        a: "No. TractionFlo is a full revenue system that captures intent, qualifies leads, takes action, and collects payment — not a single auto-reply bot.",
+        a: "No. TractionFlo is a revenue operating system for your conversations — it captures every buying signal, qualifies leads, moves each one toward a sale, and collects payment. A chatbot sends replies; TractionFlo grows revenue.",
       },
       {
         q: "Do I have to switch tools?",
@@ -365,7 +396,7 @@ export const pageStory = {
     index: "06",
     eyebrow: "Founder Access",
     headline: "One system. One simple plan.",
-    subhead: "Everything you need to turn every Instagram conversation into paying customers—with founder pricing locked in for life.",
+    subhead: "Everything you need to capture every opportunity, convert more conversations, and grow revenue—at founder pricing locked in for life.",
     planName: "Founding Access",
     price: "$79",
     period: "/month",
@@ -390,6 +421,11 @@ export const pageStory = {
     cta: "Reserve Your Founding Spot",
     scarcity: "Limited founding spots available.",
     fineprint: "No contracts. Cancel anytime.",
+    stats: [
+      { value: "90 days", label: "free — full access" },
+      { value: "$0", label: "to start, no credit card" },
+      { value: "For life", label: "founder pricing locked in" },
+    ],
   },
   finalCta: {
     eyebrow: "",

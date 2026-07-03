@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
+import { Logo } from "@/components/ui/Logo";
 
 const links = [
   { label: "The Opportunity", href: "#opportunity" },
@@ -21,10 +22,10 @@ export function Navbar() {
     >
       <div className="page-wrap hidden h-[68px] items-center md:grid md:grid-cols-[1fr_auto_1fr]">
         <a href="/" className="flex items-center gap-2.5 no-underline text-[#111827]">
-          <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-[#0a0a0a] text-[13px] font-bold text-white">
-            TF
+          <Logo size={34} />
+          <span className="text-[17px] font-bold tracking-[-0.02em]">
+            Traction<span className="text-[#FF5A1F]">Flo</span>
           </span>
-          <span className="text-[17px] font-bold tracking-[-0.02em]">TractionFlo</span>
         </a>
 
         <nav className="flex items-center justify-center gap-5 lg:gap-6" aria-label="Main navigation">
@@ -46,10 +47,10 @@ export function Navbar() {
 
       <div className="page-wrap flex h-[60px] items-center justify-between md:hidden">
         <a href="/" className="flex items-center gap-2 no-underline text-[#111827]">
-          <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#0a0a0a] text-[11px] font-bold text-white">
-            TF
+          <Logo size={30} />
+          <span className="font-bold">
+            Traction<span className="text-[#FF5A1F]">Flo</span>
           </span>
-          <span className="font-bold">TractionFlo</span>
         </a>
         <button
           type="button"

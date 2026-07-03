@@ -1,9 +1,14 @@
 import type { LeadSubmission } from "@/lib/validations/lead";
+import { siteConfig } from "@/lib/seo";
 
 const BLACK = "#0a0a0a";
 const MUTED = "#6b6b6b";
 const BORDER = "#ECECEC";
 const GREEN = "#22C55E";
+// Brand mark (solid dark square, white "T", orange dot) served by the app-icon route.
+const LOGO_URL = `${siteConfig.url}/apple-icon?v=3`;
+// Logo accent orange — matches the mark's dot and the "Flo" in the wordmark on the site.
+const LOGO_ORANGE = "#FF5A1F";
 // Notion-style pastel green accent (matches Founder Access section + success screen).
 const ACCENT = "#3f7d5c";
 const ACCENT_SOFT = "#eef4ef";
@@ -73,8 +78,10 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
           <td>
             <table role="presentation" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="background:${BLACK};border-radius:9px;width:36px;height:36px;text-align:center;vertical-align:middle;font-size:13px;font-weight:800;color:#ffffff;">TF</td>
-                <td style="padding-left:10px;font-size:17px;font-weight:700;color:${BLACK};letter-spacing:-0.02em;">TractionFlo</td>
+                <td style="vertical-align:middle;font-size:0;line-height:0;">
+                  <img src="${LOGO_URL}" width="36" height="36" alt="TractionFlo" style="display:block;border-radius:9px;" />
+                </td>
+                <td style="padding-left:10px;font-size:17px;font-weight:700;color:${BLACK};letter-spacing:-0.02em;vertical-align:middle;">Traction<span style="color:${LOGO_ORANGE};">Flo</span></td>
               </tr>
             </table>
           </td>
@@ -201,8 +208,10 @@ export function buildFounderNotificationHtml(data: LeadSubmission) {
     <td style="padding:0 0 16px 0;">
       <table role="presentation" cellpadding="0" cellspacing="0">
         <tr>
-          <td style="background:${BLACK};border-radius:8px;width:32px;height:32px;text-align:center;vertical-align:middle;font-size:11px;font-weight:800;color:#ffffff;">TF</td>
-          <td style="padding-left:10px;font-size:15px;font-weight:700;color:${BLACK};">New founding lead</td>
+          <td style="vertical-align:middle;font-size:0;line-height:0;">
+            <img src="${LOGO_URL}" width="32" height="32" alt="TractionFlo" style="display:block;border-radius:8px;" />
+          </td>
+          <td style="padding-left:10px;font-size:15px;font-weight:700;color:${BLACK};vertical-align:middle;">New founding lead</td>
         </tr>
       </table>
     </td>

@@ -1,4 +1,5 @@
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
+import { Logo } from "@/components/ui/Logo";
 import { conversionCopy } from "@/lib/conversion";
 import { siteConfig } from "@/lib/seo";
 
@@ -16,10 +17,10 @@ export function Footer() {
       <div className="page-wrap">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#0a0a0a] text-[11px] font-bold text-white">
-              TF
+            <Logo size={30} />
+            <span className="font-semibold">
+              Traction<span className="text-[#FF5A1F]">Flo</span>
             </span>
-            <span className="font-semibold">TractionFlo</span>
           </div>
 
           <nav aria-label="Footer navigation">

@@ -13,8 +13,22 @@ function getResend() {
   return new Resend(key);
 }
 
+// The inbox "display name" is the single biggest lever on open rates, so we
+// control the name explicitly and keep the address configurable separately.
+// Override the name per-environment with RESEND_FROM_NAME (e.g. a founder name).
 function getFromEmail() {
-  return process.env.RESEND_FROM_EMAIL ?? "TractionFlo <onboarding@resend.dev>";
+  const name = process.env.RESEND_FROM_NAME ?? "TractionFlo";
+
+  // Address precedence: explicit RESEND_FROM_ADDRESS → parsed from the legacy
+  // RESEND_FROM_EMAIL ("Name <addr>") → Resend sandbox fallback.
+  const legacy = process.env.RESEND_FROM_EMAIL;
+  const address =
+    process.env.RESEND_FROM_ADDRESS ??
+    legacy?.match(/<([^>]+)>/)?.[1] ??
+    (legacy && legacy.includes("@") && !legacy.includes("<") ? legacy : undefined) ??
+    "onboarding@resend.dev";
+
+  return `${name} <${address}>`;
 }
 
 export async function sendWelcomeEmail(data: LeadSubmission) {

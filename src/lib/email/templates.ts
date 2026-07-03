@@ -44,7 +44,15 @@ function perkRows() {
   ).join("");
 }
 
-function emailShell(content: string) {
+function emailShell(content: string, preheader?: string) {
+  // Hidden preheader controls the inbox preview snippet. The trailing
+  // zero-width spaces stop Gmail from pulling following body copy into it.
+  const preheaderBlock = preheader
+    ? `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#f5f5f5;opacity:0;">${esc(
+        preheader
+      )}${"&#8199;&#65279;&nbsp;".repeat(30)}</div>`
+    : "";
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +61,7 @@ function emailShell(content: string) {
   <title>TractionFlo</title>
 </head>
 <body style="margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;">
+  ${preheaderBlock}
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:32px 16px;">
     <tr>
       <td align="center">
@@ -192,7 +201,10 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
     </td>
   </tr>`;
 
-  return emailShell(body);
+  return emailShell(
+    body,
+    `${firstName}, your founder price ($79/mo) is locked in for life. Here's what happens next.`
+  );
 }
 
 export function buildFounderNotificationHtml(data: LeadSubmission) {

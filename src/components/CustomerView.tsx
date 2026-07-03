@@ -61,7 +61,7 @@ export function CustomerView() {
       <div className="page-wrap">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,360px)_1fr] lg:items-center lg:gap-12">
           {/* Left narrative */}
-          <Reveal>
+          <Reveal className="min-w-0">
             <span className="cv-eyebrow">
               <span className="cv-idx">{cv.index}</span>
               <span className="cv-label">{cv.eyebrow}</span>
@@ -100,7 +100,7 @@ export function CustomerView() {
           </Reveal>
 
           {/* Right — app window */}
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="min-w-0">
             <div className="cv-window">
               {/* top bar */}
               <div className="cv-topbar">

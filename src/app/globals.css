@@ -2311,6 +2311,8 @@ body {
 
 /* App window */
 .cv-window {
+  max-width: 100%;
+  min-width: 0;
   border-radius: 20px;
   border: 1px solid #ececec;
   background: #fff;

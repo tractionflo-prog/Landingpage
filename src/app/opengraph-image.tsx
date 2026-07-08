@@ -18,6 +18,7 @@ async function loadFonts() {
 
 export default async function OgImage() {
   const { interBold, interSemi } = await loadFonts();
+  const subtitle = `${agentBrand.name} re-engages the sign-ups who weren't ready and books discovery calls for you.`;
 
   return new ImageResponse(
     (
@@ -35,7 +36,6 @@ export default async function OgImage() {
           style={{
             display: "flex",
             flex: 1,
-            position: "relative",
           }}
         >
           <div
@@ -62,7 +62,7 @@ export default async function OgImage() {
                   color: "#fff",
                 }}
               >
-                TF
+                <span>TF</span>
               </div>
               <span
                 style={{
@@ -89,18 +89,21 @@ export default async function OgImage() {
               }}
             >
               <span>Turn masterclass sign-ups</span>
-              <span>into </span>
-              <span
-                style={{
-                  background: "linear-gradient(180deg, transparent 55%, rgba(255,90,31,0.18) 55%)",
-                }}
-              >
-                booked discovery calls
+              <span>
+                into{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(180deg, transparent 55%, rgba(255,90,31,0.18) 55%)",
+                  }}
+                >
+                  booked discovery calls
+                </span>
               </span>
             </div>
 
             <div
               style={{
+                display: "flex",
                 marginTop: 22,
                 fontSize: 21,
                 fontWeight: 600,
@@ -109,7 +112,7 @@ export default async function OgImage() {
                 maxWidth: 540,
               }}
             >
-{agentBrand.name} re-engages the sign-ups who weren&rsquo;t ready and books discovery calls for you.
+              <span>{subtitle}</span>
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
@@ -117,6 +120,7 @@ export default async function OgImage() {
                 <div
                   key={label}
                   style={{
+                    display: "flex",
                     padding: "8px 16px",
                     borderRadius: 999,
                     background: "#fafafa",
@@ -126,7 +130,7 @@ export default async function OgImage() {
                     color: "#333",
                   }}
                 >
-                  {label}
+                  <span>{label}</span>
                 </div>
               ))}
             </div>

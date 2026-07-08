@@ -40,7 +40,9 @@ export function Footer() {
             © {new Date().getFullYear()} TractionFlo ·{" "}
             <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
           </p>
-          <QuizTrigger size="md">{conversionCopy.primaryCta}</QuizTrigger>
+          <QuizTrigger size="md" variant="pillDark" showArrow={false}>
+            {conversionCopy.primaryCta}
+          </QuizTrigger>
         </div>
       </div>
     </footer>

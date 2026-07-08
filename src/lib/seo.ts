@@ -27,6 +27,9 @@ export const siteConfig = {
   creator: "TractionFlo",
   locale: "en_US",
   supportEmail: "support@tractionflo.com",
+  appLoginUrl:
+    process.env.NEXT_PUBLIC_APP_LOGIN_URL?.replace(/\/$/, "") ??
+    "https://app.tractionflo.com",
 };
 
 export function absoluteUrl(path = "") {
@@ -34,7 +37,7 @@ export function absoluteUrl(path = "") {
 }
 
 /** Bump when OG art changes so X/LinkedIn fetch a fresh preview URL. */
-export const OG_IMAGE_VERSION = "15";
+export const OG_IMAGE_VERSION = "16";
 
 export function ogImageUrl() {
   return `${absoluteUrl("/opengraph-image")}?v=${OG_IMAGE_VERSION}`;

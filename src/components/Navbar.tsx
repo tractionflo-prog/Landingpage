@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { Logo } from "@/components/ui/Logo";
 import { conversionCopy } from "@/lib/conversion";
+import { siteConfig } from "@/lib/seo";
 
 const links = [
   { label: "Results", href: "#funnel" },
@@ -12,9 +13,8 @@ const links = [
   { label: "FAQ", href: "#faq" },
 ];
 
-// No auth route ships with this landing page. Point Login at the app via
-// NEXT_PUBLIC_APP_LOGIN_URL when available; falls back to /login.
-const LOGIN_URL = process.env.NEXT_PUBLIC_APP_LOGIN_URL || "/login";
+// Point Login at the product app — never a dead /login route on this landing site.
+const LOGIN_URL = siteConfig.appLoginUrl;
 
 export function Navbar() {
   const [open, setOpen] = useState(false);

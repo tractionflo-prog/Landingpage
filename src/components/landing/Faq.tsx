@@ -6,33 +6,7 @@ import { Plus } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SignupBlock } from "./SignupBlock";
 import { agentBrand } from "@/lib/agent";
-
-const FAQS = [
-  {
-    q: "Will it sound like a robot?",
-    a: `No. ${agentBrand.name} sounds natural — pauses, listens, and responds to what your lead actually says. Prospects hear a real conversation, not a rigid script or a robocall.`,
-  },
-  {
-    q: "Which leads can it call?",
-    a: "Anyone who showed interest but didn't enroll — masterclass sign-ups, webinar attendees, waitlist contacts, past clients who went quiet. It works best on warm leads who already know your work.",
-  },
-  {
-    q: "Will this annoy my audience or get me in trouble?",
-    a: `You control who gets called, when, and how often. ${agentBrand.name} respects your calling windows and consent settings, and honors opt-outs immediately — so outreach stays on your terms.`,
-  },
-  {
-    q: "What happens when someone is ready to enroll?",
-    a: `${agentBrand.name} books a discovery call on your calendar and sends the invite. Leads who aren't ready yet are remembered and followed up with automatically — with the right context each time.`,
-  },
-  {
-    q: "How long does it take to set up?",
-    a: `Most coaches are live the same afternoon. Upload your lead list, link your calendar, and ${agentBrand.name} starts calling — no scripts to write and no VA to manage.`,
-  },
-  {
-    q: "What does it cost?",
-    a: `Get free access — no credit card required. You only grow your usage once ${agentBrand.name} is actually booking discovery calls for you.`,
-  },
-];
+import { landingFaqs as FAQS } from "@/lib/landing/faq";
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);

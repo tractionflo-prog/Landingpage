@@ -1,5 +1,5 @@
 import { absoluteUrl, siteConfig } from "@/lib/seo";
-import { pageStory } from "@/lib/pageStory";
+import { landingFaqs } from "@/lib/landing/faq";
 
 export function JsonLd() {
   const organization = {
@@ -42,7 +42,7 @@ export function JsonLd() {
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: pageStory.faq.items.map((item) => ({
+    mainEntity: landingFaqs.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: {

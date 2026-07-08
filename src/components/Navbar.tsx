@@ -5,16 +5,11 @@ import { Menu, X } from "lucide-react";
 import { QuizTrigger } from "@/components/quiz/QuizTrigger";
 import { Logo } from "@/components/ui/Logo";
 import { conversionCopy } from "@/lib/conversion";
-import { siteConfig } from "@/lib/seo";
 
 const links = [
-  { label: "Results", href: "#funnel" },
   { label: "How it works", href: "#how-it-works" },
   { label: "FAQ", href: "#faq" },
 ];
-
-// Point Login at the product app — never a dead /login route on this landing site.
-const LOGIN_URL = siteConfig.appLoginUrl;
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -38,9 +33,6 @@ export function Navbar() {
         </nav>
 
         <div className="lp-nav-actions">
-          <a href={LOGIN_URL} className="lp-nav-login">
-            Login
-          </a>
           <QuizTrigger variant="pillDark" className="lp-btn--sm" showArrow={false}>
             {conversionCopy.stickyCta}
           </QuizTrigger>
@@ -65,9 +57,6 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href={LOGIN_URL} onClick={() => setOpen(false)} className="lp-nav-mobile-login">
-            Login
-          </a>
           <div onClick={() => setOpen(false)} className="mt-2">
             <QuizTrigger variant="pillDark" className="w-full" showArrow={false}>
               {conversionCopy.primaryCta}

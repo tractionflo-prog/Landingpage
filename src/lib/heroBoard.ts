@@ -41,7 +41,7 @@ export const BOARD_COLUMNS: BoardColumn[] = [
   {
     id: "engaged",
     title: "Engaged",
-    accent: "#F97316",
+    accent: "#FF5A1F",
     tint: "#FFF7ED",
     value: "$7,900",
     count: 18,

@@ -1,19 +1,13 @@
 import type { LeadSubmission } from "@/lib/validations/lead";
 import { agentBrand } from "@/lib/agent";
+import { conversionCopy } from "@/lib/conversion";
 import { siteConfig } from "@/lib/seo";
 
 const BLACK = "#0a0a0a";
 const MUTED = "#6b6b6b";
 const BORDER = "#ECECEC";
-const GREEN = "#22C55E";
-// Brand mark (solid dark square, white "T", orange dot) served by the app-icon route.
 const LOGO_URL = `${siteConfig.url}/apple-icon?v=3`;
-// Logo accent orange — matches the mark's dot and the "Flo" in the wordmark on the site.
 const LOGO_ORANGE = "#FF5A1F";
-// Notion-style pastel green accent (matches Founder Access section + success screen).
-const ACCENT = "#3f7d5c";
-const ACCENT_SOFT = "#eef4ef";
-// Soft multi-pastel top strip that nods to the per-section palette. Falls back to ACCENT in Outlook.
 const GRADIENT =
   "linear-gradient(90deg,#c9b8f0 0%,#a6d3ea 30%,#f4c496 55%,#f3bcd6 78%,#a9d3ba 100%)";
 
@@ -25,29 +19,7 @@ function esc(text: string) {
     .replace(/"/g, "&quot;");
 }
 
-const PERKS = [
-  "Founding access reserved",
-  "Founder pricing locked forever",
-  "Early feature access enabled",
-  "Direct access to the founders",
-  "Influence the product roadmap",
-];
-
-function perkRows() {
-  return PERKS.map(
-    (p) => `
-    <tr>
-      <td style="padding:0 0 10px 0;vertical-align:top;width:28px;">
-        <div style="width:22px;height:22px;background:${GREEN};border-radius:50%;text-align:center;line-height:22px;font-size:12px;color:#ffffff;font-weight:700;">✓</div>
-      </td>
-      <td style="padding:0 0 10px 0;font-size:14px;color:${BLACK};line-height:1.4;">${p}</td>
-    </tr>`
-  ).join("");
-}
-
 function emailShell(content: string, preheader?: string) {
-  // Hidden preheader controls the inbox preview snippet. The trailing
-  // zero-width spaces stop Gmail from pulling following body copy into it.
   const preheaderBlock = preheader
     ? `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#f5f5f5;opacity:0;">${esc(
         preheader
@@ -80,131 +52,72 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
   const firstName = esc(data.name.split(" ")[0]);
 
   const body = `
-  <!-- Logo bar -->
   <tr>
     <td style="padding:0 0 20px 0;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <table role="presentation" cellpadding="0" cellspacing="0">
         <tr>
-          <td>
-            <table role="presentation" cellpadding="0" cellspacing="0">
-              <tr>
-                <td style="vertical-align:middle;font-size:0;line-height:0;">
-                  <img src="${LOGO_URL}" width="36" height="36" alt="TractionFlo" style="display:block;border-radius:9px;" />
-                </td>
-                <td style="padding-left:10px;font-size:17px;font-weight:700;color:${BLACK};letter-spacing:-0.02em;vertical-align:middle;">Traction<span style="color:${LOGO_ORANGE};">Flo</span></td>
-              </tr>
-            </table>
+          <td style="vertical-align:middle;font-size:0;line-height:0;">
+            <img src="${LOGO_URL}" width="36" height="36" alt="TractionFlo" style="display:block;border-radius:9px;" />
           </td>
+          <td style="padding-left:10px;font-size:17px;font-weight:700;color:${BLACK};letter-spacing:-0.02em;vertical-align:middle;">Traction<span style="color:${LOGO_ORANGE};">Flo</span></td>
         </tr>
       </table>
     </td>
   </tr>
 
-  <!-- Main card -->
   <tr>
     <td style="background:#ffffff;border-radius:20px;border:1px solid ${BORDER};overflow:hidden;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-        <!-- Gradient top strip -->
         <tr>
-          <td style="height:4px;background:${ACCENT};background:${GRADIENT};font-size:0;line-height:0;">&nbsp;</td>
+          <td style="height:4px;background:${GRADIENT};font-size:0;line-height:0;">&nbsp;</td>
         </tr>
-
         <tr>
-          <td style="padding:36px 32px 28px 32px;">
-
-            <!-- Badge -->
-            <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
-              <tr>
-                <td style="background:${ACCENT_SOFT};border:1px solid ${ACCENT};border-radius:999px;padding:7px 15px;">
-                  <span style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:${ACCENT};">Founding access reserved</span>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Headline -->
-            <h1 style="margin:0 0 8px 0;font-size:32px;font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:${BLACK};">
+          <td style="padding:36px 32px 32px 32px;">
+            <h1 style="margin:0 0 16px 0;font-size:28px;font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:${BLACK};">
               You're in, ${firstName}.
             </h1>
-            <p style="margin:0 0 24px 0;font-size:20px;font-weight:700;line-height:1.2;color:${BLACK};">
-              Not just another subscriber.
+
+            <p style="margin:0 0 14px 0;font-size:16px;line-height:1.65;color:${MUTED};">
+              We received your request for free access to TractionFlo.
+            </p>
+            <p style="margin:0 0 14px 0;font-size:16px;line-height:1.65;color:${MUTED};">
+              Someone from our team will reach out shortly to help you get ${agentBrand.name} calling your masterclass leads and booking discovery calls on your calendar.
+            </p>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#8a8780;">
+              ${conversionCopy.riskReversal}
             </p>
 
-            <p style="margin:0 0 12px 0;font-size:16px;line-height:1.65;color:${MUTED};">
-              You're joining coaches shaping TractionFlo — turn masterclass sign-ups who weren't ready into booked discovery calls with ${agentBrand.name}, our AI voice agent.
-            </p>
-            <p style="margin:0 0 28px 0;font-size:16px;line-height:1.65;color:${MUTED};">
-              Your founding spot is reserved. We'll reach out personally to get you live — no credit card required.
-            </p>
-
-            <!-- Founder price card -->
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid ${BORDER};border-radius:16px;margin-bottom:28px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;background:#fafafa;border:1px solid ${BORDER};border-radius:14px;">
               <tr>
-                <td style="padding:22px 24px;">
-                  <p style="margin:0 0 6px 0;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9a9a9a;">Your founder price</p>
-                  <table role="presentation" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td style="font-size:36px;font-weight:800;letter-spacing:-0.03em;color:${BLACK};vertical-align:baseline;">$79</td>
-                      <td style="padding-left:4px;font-size:15px;font-weight:600;color:${MUTED};vertical-align:baseline;">/month</td>
-                      <td style="padding-left:12px;vertical-align:middle;">
-                        <span style="background:#f4f4f5;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;color:#6b6b6b;">Public price: $99/month</span>
-                      </td>
-                    </tr>
-                  </table>
-                  <p style="margin:10px 0 0 0;font-size:13px;color:${MUTED};">Lock in founding pricing forever — no contracts, cancel anytime.</p>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Perks card -->
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fafafa;border:1px solid ${BORDER};border-radius:16px;margin-bottom:28px;">
-              <tr>
-                <td style="padding:24px;">
-                  <p style="margin:0 0 16px 0;font-size:14px;font-weight:700;color:${BLACK};">
-                    What's unlocked
-                  </p>
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                    ${perkRows()}
-                  </table>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Stats row -->
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fafafa;border:1px solid ${BORDER};border-radius:14px;">
-              <tr>
-                <td style="padding:18px 20px;text-align:center;">
-                  <p style="margin:0;font-size:15px;color:${MUTED};">
-                    <strong style="color:${BLACK};font-size:16px;">Limited</strong> founding spots available
-                  </p>
-                  <p style="margin:8px 0 0 0;font-size:13px;color:${MUTED};">
-                    Built for coaches &nbsp;·&nbsp; Live in one afternoon
+                <td style="padding:18px 20px;">
+                  <p style="margin:0 0 6px 0;font-size:13px;font-weight:600;color:${BLACK};">What happens next</p>
+                  <p style="margin:0;font-size:14px;line-height:1.55;color:${MUTED};">
+                    Watch for a reply from us. If you have questions before then, email
+                    <a href="mailto:${siteConfig.supportEmail}" style="color:${BLACK};font-weight:600;text-decoration:none;">${siteConfig.supportEmail}</a>.
                   </p>
                 </td>
               </tr>
             </table>
-
           </td>
         </tr>
       </table>
     </td>
   </tr>
 
-  <!-- Footer -->
   <tr>
     <td style="padding:24px 8px 0 8px;text-align:center;">
-      <p style="margin:0 0 6px 0;font-size:13px;font-weight:600;color:#999;letter-spacing:0.02em;">
-        Turn masterclass sign-ups into booked discovery calls.
+      <p style="margin:0 0 6px 0;font-size:13px;font-weight:600;color:#999;">
+        ${siteConfig.tagline}
       </p>
       <p style="margin:0;font-size:12px;color:#bbb;">
-        You received this because you joined TractionFlo founding access.
+        You received this because you signed up at ${siteConfig.url.replace(/^https?:\/\//, "")}.
       </p>
     </td>
   </tr>`;
 
   return emailShell(
     body,
-    `${firstName}, your founder price ($79/mo) is locked in for life. Here's what happens next.`
+    `We got your request, ${firstName}. Our team will reach out shortly to get you set up.`
   );
 }
 
@@ -224,7 +137,7 @@ export function buildFounderNotificationHtml(data: LeadSubmission) {
           <td style="vertical-align:middle;font-size:0;line-height:0;">
             <img src="${LOGO_URL}" width="32" height="32" alt="TractionFlo" style="display:block;border-radius:8px;" />
           </td>
-          <td style="padding-left:10px;font-size:15px;font-weight:700;color:${BLACK};vertical-align:middle;">New founding lead</td>
+          <td style="padding-left:10px;font-size:15px;font-weight:700;color:${BLACK};vertical-align:middle;">New signup</td>
         </tr>
       </table>
     </td>
@@ -233,26 +146,23 @@ export function buildFounderNotificationHtml(data: LeadSubmission) {
   <tr>
     <td style="background:#ffffff;border-radius:16px;border:1px solid ${BORDER};padding:28px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
         <tr>
           <td style="padding-bottom:20px;border-bottom:1px solid ${BORDER};">
             <p style="margin:0 0 4px 0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#999;">Contact</p>
-            <p style="margin:0;font-size:22px;font-weight:800;color:${BLACK};letter-spacing:-0.02em;">${name}</p>
+            <p style="margin:0;font-size:22px;font-weight:700;color:${BLACK};letter-spacing:-0.02em;">${name}</p>
             <p style="margin:6px 0 0 0;font-size:15px;">
               <a href="mailto:${email}" style="color:${BLACK};font-weight:600;">${email}</a>
             </p>
             <p style="margin:8px 0 0 0;font-size:12px;color:#aaa;">Submitted ${submitted}</p>
           </td>
         </tr>
-
         <tr>
           <td style="padding-top:20px;">
-            <a href="mailto:${email}?subject=Welcome%20to%20TractionFlo%20Founding%20Access" style="display:inline-block;background:${BLACK};color:#fff;font-size:13px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">
+            <a href="mailto:${email}?subject=Welcome%20to%20TractionFlo" style="display:inline-block;background:${BLACK};color:#fff;font-size:13px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">
               Reply to ${name.split(" ")[0]} →
             </a>
           </td>
         </tr>
-
       </table>
     </td>
   </tr>`;
@@ -262,23 +172,21 @@ export function buildFounderNotificationHtml(data: LeadSubmission) {
 
 export function buildWelcomeEmailText(data: LeadSubmission) {
   const firstName = data.name.split(" ")[0];
-  return `You're in, ${firstName} — Not just another subscriber.
+  return `You're in, ${firstName}.
 
-Your TractionFlo founding access is reserved.
+We received your request for free access to TractionFlo.
 
-Your founder price: $79/month (public price $99/month) — locked in forever. No contracts, cancel anytime.
+Someone from our team will reach out shortly to help you get ${agentBrand.name} calling your masterclass leads and booking discovery calls on your calendar.
 
-What's unlocked:
-${PERKS.map((p) => `✓ ${p}`).join("\n")}
+${conversionCopy.riskReversal}
 
-Limited founding spots available. Built for coaches — live in one afternoon.
-
-We'll email you when early access opens.
+What happens next:
+Watch for a reply from us. Questions? Email ${siteConfig.supportEmail}.
 
 — TractionFlo
-Turn masterclass sign-ups into booked discovery calls.`;
+${siteConfig.tagline}`;
 }
 
 export function buildFounderNotificationText(data: LeadSubmission) {
-  return `New founding lead: ${data.name} (${data.email})`;
+  return `New signup: ${data.name} (${data.email})`;
 }

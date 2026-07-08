@@ -33,7 +33,7 @@ const COLORS: Record<string, string> = {
   blue: "#3B82F6",
   sky: "#0EA5E9",
   green: "#22C55E",
-  orange: "#F97316",
+  orange: "#FF5A1F",
   purple: "#8B5CF6",
   rose: "#F43F5E",
 };

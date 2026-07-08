@@ -176,7 +176,7 @@ export default async function OgImage() {
                     padding: "12px 14px",
                     borderRadius: 14,
                     background: i === 3 ? "#fff4ef" : "#fafafa",
-                    border: i === 3 ? "1px solid rgba(255,90,31,0.2)" : "1px solid rgba(0,0,0,0.05)",
+                    border: i === 3 ? "1px solid rgba(255,90,31,0.25)" : "1px solid rgba(0,0,0,0.05)",
                   }}
                 >
                   <span style={{ fontSize: 14, fontWeight: 600, color: "#333" }}>{row.label}</span>

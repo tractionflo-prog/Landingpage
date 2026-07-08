@@ -6,12 +6,12 @@ export const funnelExample = {
   stages: [
     {
       value: "127",
-      label: "Free masterclass sign-ups",
+      label: "Sign-ups",
       detail: "Everyone who registered for your free class",
     },
     {
       value: "94",
-      label: 'Said "not yet"',
+      label: '"Not yet"',
       detail: "Interested, but didn't book or buy",
     },
     {
@@ -21,7 +21,7 @@ export const funnelExample = {
     },
     {
       value: "18",
-      label: "Discovery calls booked",
+      label: "Calls booked",
       detail: "Ready leads landed on your calendar",
       highlight: true,
     },

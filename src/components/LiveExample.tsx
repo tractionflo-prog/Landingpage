@@ -96,7 +96,7 @@ function TypingDots({ side }: { side: "in" | "out" }) {
 
 const OfferCard = (
   <div className="flex justify-end">
-    <div className="max-w-[74%] rounded-[16px] p-3" style={{ background: "#FFF7ED", border: "1px solid #F9731633" }}>
+    <div className="max-w-[74%] rounded-[16px] p-3" style={{ background: "#F5F5F5", border: "1px solid rgba(10,10,10,0.08)" }}>
       <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-[#C2620E]">
         <Gift size={13} /> This week only
       </p>

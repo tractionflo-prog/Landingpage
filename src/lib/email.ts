@@ -38,7 +38,7 @@ export async function sendWelcomeEmail(data: LeadSubmission) {
   await resend.emails.send({
     from: getFromEmail(),
     to: data.email,
-    subject: `${firstName}, you're in — TractionFlo founding access reserved ✓`,
+    subject: `${firstName}, we got your request — TractionFlo`,
     html: buildWelcomeEmailHtml(data),
     text: buildWelcomeEmailText(data),
   });

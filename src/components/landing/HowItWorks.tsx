@@ -26,9 +26,9 @@ const STEPS = [
 ];
 
 const OUTCOMES = [
-  { v: "Same day", l: "Go live" },
-  { v: "Every lead", l: "Called back" },
-  { v: "Full context", l: "Every call" },
+  { v: "Today", l: "Go live" },
+  { v: "100%", l: "Called back" },
+  { v: "Full", l: "Context" },
   { v: "Auto", l: "Follow-up" },
 ];
 

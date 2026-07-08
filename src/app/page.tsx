@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/Navbar";
 import { VoiceHero } from "@/components/landing/VoiceHero";
-import { MasterclassFunnel } from "@/components/landing/MasterclassFunnel";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { PersonalizedAtScale } from "@/components/landing/PersonalizedAtScale";
 import { LeadMemory } from "@/components/landing/LeadMemory";
@@ -24,7 +23,6 @@ export default function Home() {
       <Navbar />
       <main id="main-content" className="lp-page">
         <VoiceHero />
-        <MasterclassFunnel />
         <HowItWorks />
         <PersonalizedAtScale />
         <LeadMemory />

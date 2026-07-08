@@ -67,7 +67,7 @@ export function Hero() {
             <span className="hero-pill">
               {hero.headlineAccent}
               <svg className="hero-pill-underline" viewBox="0 0 120 8" preserveAspectRatio="none" aria-hidden>
-                <path d="M2 6 Q60 1 118 5" fill="none" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M2 6 Q60 1 118 5" fill="none" stroke="#FF5A1F" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
             </span>
             <span className="hero-pill-period">.</span>
@@ -112,7 +112,7 @@ export function Hero() {
                 key={t}
                 className="flex items-center gap-1.5 text-[13px] font-medium text-[#4b4b4b]"
               >
-                <Check size={14} strokeWidth={3} className="text-[#F97316]" />
+                <Check size={14} strokeWidth={3} className="text-[#FF5A1F]" />
                 {t}
               </li>
             ))}

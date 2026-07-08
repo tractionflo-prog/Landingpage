@@ -34,9 +34,9 @@ const BENEFITS = [
 
 const OUTCOMES = [
   { v: "30+", l: "Languages" },
-  { v: "1:1", l: "Personal tone" },
-  { v: "Parallel", l: "Every lead at once" },
-  { v: "Real time", l: "Objection handling" },
+  { v: "1:1", l: "Your tone" },
+  { v: "Parallel", l: "All leads" },
+  { v: "Live", l: "Objections" },
 ];
 
 export function PersonalizedAtScale() {
@@ -77,7 +77,7 @@ export function PersonalizedAtScale() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <OutcomeStrip items={OUTCOMES} />
+            <OutcomeStrip items={OUTCOMES} layout="narrow" />
           </Reveal>
         </div>
 

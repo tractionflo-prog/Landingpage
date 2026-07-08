@@ -46,10 +46,10 @@ const BENEFITS = [
 ];
 
 const OUTCOMES = [
-  { v: "Every call", l: "Logged automatically" },
-  { v: "Every objection", l: "Remembered" },
-  { v: "Smart", l: "Next best action" },
-  { v: "Zero", l: "Repeated questions" },
+  { v: "Auto", l: "Call logs" },
+  { v: "Saved", l: "Objections" },
+  { v: "Smart", l: "Next step" },
+  { v: "Zero", l: "Repeats" },
 ];
 
 export function LeadMemory() {
@@ -88,7 +88,7 @@ export function LeadMemory() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <OutcomeStrip items={OUTCOMES} />
+            <OutcomeStrip items={OUTCOMES} layout="narrow" />
           </Reveal>
         </div>
 

@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { agentBrand } from "@/lib/agent";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Turn Masterclass Sign-ups Into Booked Discovery Calls";
+export const alt = "TractionFlo — Flo, the AI Voice Agent That Books Clients for Coaches";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -88,7 +88,7 @@ export default async function OgImage() {
                 letterSpacing: "-0.035em",
               }}
             >
-              <span>Turn masterclass sign-ups</span>
+              <span>Turn quiet leads</span>
               <span>
                 into{" "}
                 <span
@@ -161,7 +161,7 @@ export default async function OgImage() {
                 LIVE CALL
               </span>
               {[
-                { label: "Masterclass", value: "847" },
+                { label: "Leads", value: "847" },
                 { label: "Called", value: "312" },
                 { label: "Interested", value: "94" },
                 { label: "Booked", value: "28" },

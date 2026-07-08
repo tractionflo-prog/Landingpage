@@ -1,6 +1,5 @@
 import type { LeadSubmission } from "@/lib/validations/lead";
 import { agentBrand } from "@/lib/agent";
-import { conversionCopy } from "@/lib/conversion";
 import { siteConfig } from "@/lib/seo";
 
 const BLACK = "#0a0a0a";
@@ -78,13 +77,10 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
             </h1>
 
             <p style="margin:0 0 14px 0;font-size:16px;line-height:1.65;color:${MUTED};">
-              We received your request for free access to TractionFlo.
+              Your early access spot to TractionFlo is confirmed.
             </p>
-            <p style="margin:0 0 14px 0;font-size:16px;line-height:1.65;color:${MUTED};">
-              Someone from our team will reach out shortly to help you get ${agentBrand.name} calling your masterclass leads and booking discovery calls on your calendar.
-            </p>
-            <p style="margin:0;font-size:15px;line-height:1.6;color:#8a8780;">
-              ${conversionCopy.riskReversal}
+            <p style="margin:0;font-size:16px;line-height:1.65;color:${MUTED};">
+              We're putting the finishing touches on ${agentBrand.name} — your AI voice agent that calls your leads and books discovery calls on your calendar. The moment we launch, you'll get access.
             </p>
 
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;background:#fafafa;border:1px solid ${BORDER};border-radius:14px;">
@@ -92,7 +88,7 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
                 <td style="padding:18px 20px;">
                   <p style="margin:0 0 6px 0;font-size:13px;font-weight:600;color:${BLACK};">What happens next</p>
                   <p style="margin:0;font-size:14px;line-height:1.55;color:${MUTED};">
-                    Watch for a reply from us. If you have questions before then, email
+                    You'll get an email from us the moment your access is ready — you're at the front of the line. Questions before then? Email
                     <a href="mailto:${siteConfig.supportEmail}" style="color:${BLACK};font-weight:600;text-decoration:none;">${siteConfig.supportEmail}</a>.
                   </p>
                 </td>
@@ -117,7 +113,7 @@ export function buildWelcomeEmailHtml(data: LeadSubmission) {
 
   return emailShell(
     body,
-    `We got your request, ${firstName}. Our team will reach out shortly to get you set up.`
+    `Your early access spot is confirmed, ${firstName}. You'll get access the moment we launch.`
   );
 }
 
@@ -174,14 +170,12 @@ export function buildWelcomeEmailText(data: LeadSubmission) {
   const firstName = data.name.split(" ")[0];
   return `You're in, ${firstName}.
 
-We received your request for free access to TractionFlo.
+Your early access spot to TractionFlo is confirmed.
 
-Someone from our team will reach out shortly to help you get ${agentBrand.name} calling your masterclass leads and booking discovery calls on your calendar.
-
-${conversionCopy.riskReversal}
+We're putting the finishing touches on ${agentBrand.name} — your AI voice agent that calls your leads and books discovery calls on your calendar. The moment we launch, you'll get access.
 
 What happens next:
-Watch for a reply from us. Questions? Email ${siteConfig.supportEmail}.
+You'll get an email from us the moment your access is ready — you're at the front of the line. Questions before then? Email ${siteConfig.supportEmail}.
 
 — TractionFlo
 ${siteConfig.tagline}`;

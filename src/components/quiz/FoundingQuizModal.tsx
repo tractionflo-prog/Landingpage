@@ -107,16 +107,16 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
             transition={{ type: "spring", damping: 28, stiffness: 320 }}
           >
             <div className="flex items-center justify-between border-b border-black/[0.06] px-5 py-4">
-              <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-2">
-                  <span className="lp-quiz-badge">TF</span>
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="lp-quiz-badge shrink-0">TF</span>
+                <div className="flex min-w-0 flex-col gap-0.5">
                   <span className="lp-quiz-header-title">
                     {success ? foundingCopy.spotsLabel : "Get free access"}
                   </span>
+                  <span className="lp-quiz-header-sub truncate">
+                    {success ? foundingCopy.successSub : conversionCopy.riskReversal}
+                  </span>
                 </div>
-                <span className="lp-quiz-header-sub pl-10">
-                  {success ? foundingCopy.limited : conversionCopy.riskReversal}
-                </span>
               </div>
               <button
                 type="button"

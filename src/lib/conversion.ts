@@ -6,6 +6,6 @@ export const conversionCopy = {
   stickyCta: "Get free access",
   offerCta: "Get free access",
   riskReversal: "No credit card · Live in one afternoon",
-  scarcityLine: "Turn masterclass leads into booked calls",
+  scarcityLine: "Flo turns quiet leads into booked calls",
   identityEyebrow: "Built for coaches with leads to recover",
 } as const;

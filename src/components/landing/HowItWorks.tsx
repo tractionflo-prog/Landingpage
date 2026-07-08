@@ -8,7 +8,7 @@ const STEPS = [
   {
     icon: Upload,
     title: "Connect your leads",
-    body: "Import everyone who joined a masterclass, opted into a freebie, or booked and ghosted — from your funnel, CRM, or a CSV.",
+    body: "Import everyone who joined a free class, webinar, or challenge — or booked and ghosted — from your funnel, CRM, or a CSV.",
     metric: "5 min setup",
   },
   {
@@ -39,7 +39,7 @@ export function HowItWorks() {
         <header className="lp-steps-head">
           <p className="lp-eyebrow">
             <span className="lp-eyebrow-mark" />
-            How it works
+            How the AI voice agent works
           </p>
           <h2 className="lp-h2">
             More discovery calls from the

@@ -52,7 +52,7 @@ export const demoStats = { total: "1,240", bookedToday: 18 };
 
 /** Rows shown during the "upload" stage; the row matching the live lead is highlighted. */
 export const uploadRows = [
-  { initials: "JM", name: "Jessica Morgan", meta: "Masterclass · 32 days cold" },
+  { initials: "JM", name: "Jessica Morgan", meta: "Free class · 32 days cold" },
   { initials: "MC", name: "Marcus Chen", meta: "Quote request · 18 days cold" },
   { initials: "AK", name: "Aisha Khan", meta: "Demo request · 9 days cold" },
   { initials: "JT", name: "James Tan", meta: "Free trial · 34 days cold" },
@@ -63,7 +63,7 @@ export const demoCases: CallCase[] = [
   {
     lead: {
       name: "Jessica Morgan",
-      title: "Masterclass attendee",
+      title: "Free class attendee",
       company: "Radiant Path Coaching",
       phone: "+1 (310) 555-0142",
       initials: "JM",
@@ -94,7 +94,7 @@ export const demoCases: CallCase[] = [
         speaker: "agent",
         name: "Flo",
         text: "That's wonderful. You also shared you wanted help with career transition and financial abundance — the eight-week program is built for exactly that. Would a call with Mia this week work to see if it's the right fit?",
-        recall: { source: "Masterclass note", note: "Career transition + financial abundance", mem: 2 },
+        recall: { source: "Class note", note: "Career transition + financial abundance", mem: 2 },
       },
       { at: "00:44", speaker: "lead", name: "Jessica", text: "Thursday evening would work." },
       {
@@ -119,7 +119,7 @@ export const demoCases: CallCase[] = [
       sentiment: "Positive",
       objection: { was: "Not ready to invest in the program", status: "Resolved" },
       points: [
-        "Practicing masterclass exercises — now ready for the program",
+        "Practicing the class exercises — now ready for the program",
         "Goals: career transition and financial abundance",
         "Best fit: 8-week Manifest Your Next Chapter",
       ],
@@ -276,7 +276,7 @@ export const languageSamples: LanguageSample[] = [
  */
 export const memoryLead = {
   name: "Priya Shah",
-  title: "Masterclass attendee",
+  title: "Free class attendee",
   company: "Radiant Path Coaching",
   initials: "PS",
 };
@@ -292,7 +292,7 @@ export const demoMemory: MemoryEvent[] = [
   {
     date: "Mar 8",
     type: "attended",
-    title: "Joined free masterclass",
+    title: "Joined free class",
     detail: "Stayed for the full session — high engagement on career transition content.",
   },
   {

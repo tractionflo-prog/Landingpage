@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import { conversionCopy } from "@/lib/conversion";
 import { foundingCopy } from "@/lib/founding";
 import { agentBrand } from "@/lib/agent";
 
@@ -32,14 +31,14 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
       </motion.div>
 
       <span className="lp-quiz-eyebrow inline-flex rounded-full border border-[rgba(22,163,74,0.18)] bg-[#F0FDF4] px-3 py-1 normal-case tracking-normal text-[#15803D]">
-        {foundingCopy.spotsShort} ✓
+        {foundingCopy.successBadge} ✓
       </span>
 
       <h2 id="quiz-success-title" className="lp-quiz-title mt-5 text-[2rem] md:text-[2.25rem]">
         You&apos;re in{firstName ? `, ${firstName}` : ""}.
       </h2>
 
-      <p className="lp-quiz-body mx-auto mt-3 max-w-[320px]">
+      <p className="lp-quiz-body mx-auto mt-3 max-w-[400px] [text-wrap:balance]">
         {email ? (
           <>
             Check <strong className="font-semibold text-[#111]">{email}</strong> for your
@@ -50,11 +49,9 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
         )}
       </p>
 
-      <p className="lp-quiz-body mx-auto mt-2 max-w-[320px] font-medium">
-        {foundingCopy.limited}
-      </p>
-      <p className="lp-quiz-note mx-auto mt-1 max-w-[320px]">
-        We&apos;ll reach out personally to get {agentBrand.name} calling your masterclass leads.
+      <p className="lp-quiz-note mx-auto mt-2 max-w-[400px] [text-wrap:balance]">
+        You&apos;ll get access the moment we launch — {agentBrand.name} will start calling your
+        leads.
       </p>
 
       <button
@@ -64,8 +61,6 @@ export function WaitlistSuccessScreen({ name, email, onClose }: WaitlistSuccessS
       >
         Done
       </button>
-
-      <p className="lp-quiz-note mt-5">{conversionCopy.riskReversal}</p>
     </motion.div>
   );
 }

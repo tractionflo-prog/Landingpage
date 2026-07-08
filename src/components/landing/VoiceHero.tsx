@@ -22,23 +22,32 @@ export function VoiceHero() {
 
   return (
     <section className="lp-hero lp-hero--center lp-hero--clean" id="top">
+      <div className="lp-cinema" aria-hidden>
+        <span className="lp-cinema-orb lp-cinema-orb--warm" />
+        <span className="lp-cinema-orb lp-cinema-orb--cool" />
+        <span className="lp-cinema-orb lp-cinema-orb--base" />
+        <span className="lp-cinema-grid" />
+        <span className="lp-cinema-beam" />
+        <span className="lp-cinema-grain" />
+        <span className="lp-cinema-vignette" />
+      </div>
       <div className="page-wrap">
         <div className="lp-hero-inner">
           <motion.p className="lp-eyebrow" {...rise(0)}>
             <span className="lp-eyebrow-mark" />
-            For coaches &amp; course creators
+            Fitness · Yoga · Manifestation · Every coach
           </motion.p>
 
           <motion.h1 className="lp-hero-title" {...rise(0.05)}>
-            Your masterclass leads said &ldquo;not yet.&rdquo;
+            Stop chasing leads.
             <br className="hidden sm:block" />{" "}
-            <span className="lp-hero-accent">{agentBrand.name} books them anyway.</span>
+            <span className="lp-hero-accent">Start booking clients.</span>
           </motion.h1>
 
           <motion.p className="lp-hero-sub" {...rise(0.12)}>
-            After your free training, most sign-ups go quiet. {agentBrand.name} calls each one back,
-            remembers what they shared, handles the &ldquo;I&rsquo;m not ready&rdquo; objection,
-            and puts discovery calls on your calendar &mdash; while you coach.
+            People try your free class, say they&rsquo;ll think about it — then go quiet.
+            {" "}{agentBrand.name}, your AI voice agent, calls each one back and books the ready
+            ones on your calendar. While you coach.
           </motion.p>
 
           <motion.div {...rise(0.2)}>
@@ -60,7 +69,7 @@ export function VoiceHero() {
             <span className="lp-live-dot" />
             Coach demo
           </span>
-          A masterclass lead who wasn&rsquo;t ready — called back and booked.
+          A lead who said &ldquo;not yet&rdquo; — called back and booked.
         </motion.p>
 
         <motion.div className="lp-hero-demo" {...rise(0.4)}>

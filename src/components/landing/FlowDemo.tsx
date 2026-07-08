@@ -248,10 +248,10 @@ export function FlowDemo() {
         ) : isLive ? (
           <>
             <span className="lp-voice-status-dot" />
-            Live with {firstName} · masterclass lead
+            Live with {firstName} · free-class lead
           </>
         ) : phase === "connecting" && isActive ? (
-          <>Calling {firstName} · {program ?? "masterclass lead"}…</>
+          <>Calling {firstName} · {program ?? "free-class lead"}…</>
         ) : (
           <>Ready to hear {firstName}&rsquo;s follow-up call</>
         )}
@@ -288,7 +288,7 @@ export function FlowDemo() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              She joined your free masterclass, said she wasn&rsquo;t ready — tap below to hear{" "}
+              She joined your free class, said she wasn&rsquo;t ready — tap below to hear{" "}
               {agentBrand.name} call her back.
             </motion.p>
           )}

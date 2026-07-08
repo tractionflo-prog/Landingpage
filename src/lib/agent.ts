@@ -5,5 +5,5 @@ export const agentBrand = {
   name: AGENT_NAME,
   possessive: "Flo's",
   descriptor: "AI voice agent",
-  metaTitle: "Flo — AI Voice Agent for Coaches & Course Creators",
+  metaTitle: "Flo — AI Voice Agent for Coaches",
 } as const;

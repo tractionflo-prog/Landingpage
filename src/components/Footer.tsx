@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/seo";
 
 const links = [
   { label: "How it works", href: "#how-it-works" },
+  { label: "Compare", href: "#compare" },
   { label: "FAQ", href: "#faq" },
   { label: "Support", href: `mailto:${siteConfig.supportEmail}` },
 ];

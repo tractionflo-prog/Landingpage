@@ -2,12 +2,20 @@ import { agentBrand } from "@/lib/agent";
 
 export const landingFaqs = [
   {
+    q: "What is an AI voice agent?",
+    a: `An AI voice agent is software that makes real phone calls and holds natural, two-way conversations — it listens, answers questions, and responds like a person. ${agentBrand.name} is an AI voice agent built for coaches: it calls the leads on your list, handles their objections, and books discovery calls straight onto your calendar.`,
+  },
+  {
     q: "Will it sound like a robot?",
     a: `No. ${agentBrand.name} sounds natural — pauses, listens, and responds to what your lead actually says. Prospects hear a real conversation, not a rigid script or a robocall.`,
   },
   {
+    q: "How is a call different from my email follow-up?",
+    a: `Emails and DMs are one-way — easy to skim, easier to ignore. A phone call is a two-way conversation: ${agentBrand.name} hears the real objection, answers it in the moment, and books the call while you have their attention.`,
+  },
+  {
     q: "Which leads can it call?",
-    a: "Anyone who showed interest but didn't enroll — masterclass sign-ups, webinar attendees, waitlist contacts, past clients who went quiet. It works best on warm leads who already know your work.",
+    a: `Anyone who showed interest but didn't enroll — free class attendees, webinar sign-ups, waitlist contacts, past clients who went quiet. ${agentBrand.name} works best on warm leads who already know your work.`,
   },
   {
     q: "Will this annoy my audience or get me in trouble?",

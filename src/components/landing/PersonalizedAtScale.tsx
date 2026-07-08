@@ -20,14 +20,14 @@ const MINI = [0.5, 0.9, 0.4, 0.75, 0.55, 0.95, 0.45, 0.7];
 const BENEFITS = [
   {
     title: "Speaks your lead's language",
-    body: "Natural, fluent conversations in 30+ languages — every masterclass sign-up hears from you in their own words.",
+    body: "Natural, fluent conversations in 30+ languages — every lead hears from you in their own words.",
   },
   {
     title: "Handles objections in real time",
     body: `Not ready yet, need to think about it, price concerns — ${agentBrand.name} responds with context and moves them toward a discovery call.`,
   },
   {
-    title: "Works your whole waitlist at once",
+    title: `${agentBrand.name} works your whole list at once`,
     body: `${agentBrand.name} calls every cold lead in parallel — no VAs, no scripts to write, no leads sitting in your inbox.`,
   },
 ];
@@ -49,7 +49,7 @@ export function PersonalizedAtScale() {
           <Reveal>
             <p className="lp-eyebrow">
               <span className="lp-eyebrow-mark" />
-              Meet {agentBrand.name} — thousands of conversations
+              Meet {agentBrand.name} — your AI voice agent
             </p>
             <h2 className="lp-h2">
               Personalized at scale.
@@ -83,13 +83,47 @@ export function PersonalizedAtScale() {
 
         <div className="lp-globe" aria-hidden>
           <div className="lp-globe-core">
+            <svg viewBox="0 0 320 320" className="lp-globe-sphere">
+              <defs>
+                <radialGradient id="lp-globe-shade" cx="50%" cy="40%" r="65%">
+                  <stop offset="0%" stopColor="rgba(10, 10, 10, 0)" />
+                  <stop offset="72%" stopColor="rgba(10, 10, 10, 0.035)" />
+                  <stop offset="100%" stopColor="rgba(10, 10, 10, 0.1)" />
+                </radialGradient>
+              </defs>
+              <circle cx="160" cy="160" r="150" fill="url(#lp-globe-shade)" />
+            </svg>
             <svg viewBox="0 0 320 320" className="lp-globe-lines">
               <circle cx="160" cy="160" r="150" />
-              <ellipse cx="160" cy="160" rx="150" ry="58" />
-              <ellipse cx="160" cy="160" rx="150" ry="112" />
-              <ellipse cx="160" cy="160" rx="60" ry="150" />
-              <ellipse cx="160" cy="160" rx="118" ry="150" />
+              <ellipse cx="160" cy="160" rx="150" ry="34" />
+              <ellipse cx="160" cy="160" rx="150" ry="82" />
+              <ellipse cx="160" cy="160" rx="150" ry="126" />
+              <ellipse cx="160" cy="160" rx="34" ry="150" />
+              <ellipse cx="160" cy="160" rx="82" ry="150" />
+              <ellipse cx="160" cy="160" rx="126" ry="150" />
               <line x1="10" y1="160" x2="310" y2="160" />
+            </svg>
+            <svg viewBox="0 0 320 320" className="lp-globe-net">
+              <path className="lp-globe-arc" style={{ animationDelay: "0s" }} d="M78 118 Q160 22 244 100" pathLength={1} />
+              <path className="lp-globe-arc" style={{ animationDelay: "2.1s" }} d="M112 226 Q170 150 236 198" pathLength={1} />
+              <path className="lp-globe-arc" style={{ animationDelay: "4.2s" }} d="M78 118 Q84 190 112 226" pathLength={1} />
+              <path className="lp-globe-arc" style={{ animationDelay: "5.3s" }} d="M244 100 Q252 160 236 198" pathLength={1} />
+              {[
+                { x: 78, y: 118, d: "0s" },
+                { x: 244, y: 100, d: "0.7s" },
+                { x: 112, y: 226, d: "1.4s" },
+                { x: 236, y: 198, d: "2.1s" },
+                { x: 160, y: 64, d: "2.8s" },
+              ].map((p) => (
+                <circle
+                  key={`${p.x}-${p.y}`}
+                  className="lp-globe-dot"
+                  style={{ animationDelay: p.d }}
+                  cx={p.x}
+                  cy={p.y}
+                  r="4"
+                />
+              ))}
             </svg>
           </div>
 

@@ -39,7 +39,7 @@ const EVENT_ICON: Record<MemoryEvent["type"], typeof Phone> = {
 };
 
 const BENEFITS = [
-  "Remembers every masterclass note, call, and objection",
+  `${agentBrand.name} remembers every note, call, and objection`,
   "Knows when each lead is ready — and what to say next",
   "Never asks the same question twice or forgets a promise",
   "Gets sharper with every conversation in your pipeline",
@@ -70,8 +70,8 @@ export function LeadMemory() {
               So you enroll more.
             </h2>
             <p className="lp-sub">
-              TractionFlo captures every masterclass signup, call, and objection — so
-              {agentBrand.name} always picks up exactly where the conversation left off.
+              TractionFlo captures every sign-up, call, and objection — so
+              {" "}{agentBrand.name} always picks up exactly where the conversation left off.
             </p>
           </Reveal>
           <Reveal delay={0.06}>

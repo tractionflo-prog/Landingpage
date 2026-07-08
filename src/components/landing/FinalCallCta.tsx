@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SignupBlock } from "./SignupBlock";
+import { agentBrand } from "@/lib/agent";
 
 const BADGES = ["No credit card", "Cancel anytime", "For coaches"];
 
@@ -14,11 +15,11 @@ export function FinalCallCta() {
             Start today
           </p>
           <h2 className="lp-final-title">
-            Your next client is already<br className="hidden sm:block" /> on your masterclass list.
+            Your next client is already<br className="hidden sm:block" /> on your list.
           </h2>
           <p className="lp-final-sub">
-            Get free access, connect your leads, and start booking discovery calls on autopilot
-            &mdash; while you coach.
+            Get free access, connect your leads, and let {agentBrand.name} start booking discovery
+            calls on autopilot &mdash; while you coach.
           </p>
           <SignupBlock size="lg" className="lp-final-signup" />
           <div className="lp-final-badges">

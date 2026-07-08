@@ -2,27 +2,33 @@ import { agentBrand } from "./agent";
 
 export const siteConfig = {
   name: "TractionFlo",
-  title: `TractionFlo — ${agentBrand.metaTitle}`,
+  title: "AI Voice Agent for Coaches — Books Clients on Your Calendar | TractionFlo",
   description:
-    `Turn masterclass sign-ups into booked discovery calls. ${agentBrand.name}, TractionFlo's AI voice agent, re-engages the leads who weren't ready, remembers every conversation, and books calls on your calendar.`,
-  tagline: "Turn masterclass sign-ups into booked discovery calls",
+    `${agentBrand.name}, TractionFlo's AI voice agent, calls your leads back, handles objections in 30+ languages, and books discovery calls on your calendar. Built for fitness, yoga, manifestation & business coaches. Free access — no credit card.`,
+  tagline: "The AI voice agent that turns quiet leads into booked clients",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://www.tractionflo.com",
   keywords: [
-    "TractionFlo",
-    agentBrand.name,
+    "AI voice agent",
+    "voice agent",
     "AI voice agent for coaches",
-    "coach lead follow up",
-    "masterclass lead recovery",
+    "AI phone agent",
+    "voice AI for lead follow up",
+    "AI appointment setter",
     "AI appointment setter for coaches",
-    "course creator sales automation",
+    "AI that calls leads",
+    "automated lead follow up calls",
+    "AI cold calling for coaches",
     "discovery call booking AI",
+    "AI sales agent for coaches",
+    "lead recovery for coaches",
+    "fitness coach lead follow up",
+    "yoga studio lead follow up",
     "manifestation coach leads",
     "webinar follow up automation",
-    "AI phone agent for courses",
-    "enroll more coaching clients",
-    "cold lead recovery for coaches",
+    "TractionFlo",
+    agentBrand.name,
   ],
   creator: "TractionFlo",
   locale: "en_US",
@@ -37,7 +43,7 @@ export function absoluteUrl(path = "") {
 }
 
 /** Bump when OG art changes so X/LinkedIn fetch a fresh preview URL. */
-export const OG_IMAGE_VERSION = "16";
+export const OG_IMAGE_VERSION = "17";
 
 export function ogImageUrl() {
   return `${absoluteUrl("/opengraph-image")}?v=${OG_IMAGE_VERSION}`;

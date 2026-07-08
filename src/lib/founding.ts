@@ -7,6 +7,9 @@ export const foundingCopy = {
   limited: "When they're gone, this offer is gone.",
   limitedShort: "Limited spots",
   urgency: "Founder spots are limited. Then the door closes.",
+  /** Post-signup copy — confirmation, not pressure. */
+  successBadge: "Founder spot reserved",
+  successSub: "Your founder spot is saved.",
 } as const;
 
 export const FOUNDER_BENEFITS = [

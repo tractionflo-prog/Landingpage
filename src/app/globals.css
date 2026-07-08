@@ -3498,6 +3498,11 @@ body {
   border-color: rgba(255, 90, 31, 0.35);
   background: #fff;
 }
+.lp-voice-audio.is-paused {
+  color: var(--lp-ink);
+  border-color: rgba(10, 10, 10, 0.18);
+  background: #f5f5f5;
+}
 
 .lp-hero-inner {
   position: relative;

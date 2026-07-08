@@ -51,7 +51,7 @@ export function JsonLd() {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      description: "Founding access — get free access, no credit card",
+      description: "Founding access — no credit card required, founder pricing locked in",
     },
   };
 

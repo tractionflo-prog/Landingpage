@@ -18,8 +18,8 @@ export function FinalCallCta() {
             Your next client is already<br className="hidden sm:block" /> on your list.
           </h2>
           <p className="lp-final-sub">
-            Get free access, connect your leads, and let {agentBrand.name} start booking discovery
-            calls on autopilot &mdash; while you coach.
+            Join founding access, connect your leads, and let {agentBrand.name} start booking
+            discovery calls on autopilot &mdash; while you coach.
           </p>
           <SignupBlock size="lg" className="lp-final-signup" />
           <div className="lp-final-badges">

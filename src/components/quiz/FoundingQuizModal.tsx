@@ -111,7 +111,7 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                 <span className="lp-quiz-badge shrink-0">TF</span>
                 <div className="flex min-w-0 flex-col gap-0.5">
                   <span className="lp-quiz-header-title">
-                    {success ? foundingCopy.spotsLabel : "Get free access"}
+                    {success ? foundingCopy.spotsLabel : "Join founding access"}
                   </span>
                   <span className="lp-quiz-header-sub truncate">
                     {success ? foundingCopy.successSub : conversionCopy.riskReversal}
@@ -141,10 +141,10 @@ export function FoundingQuizModal({ open, onClose }: FoundingQuizModalProps) {
                   >
                     <p className="lp-quiz-eyebrow">Founder access</p>
                     <h2 id="quiz-title" className="lp-quiz-title">
-                      Get free access
+                      Join founding access
                     </h2>
                     <p className="lp-quiz-body">
-                      Enter your name and email and we&apos;ll set up your access — no credit card,
+                      Enter your name and email to reserve your founder spot — no credit card,
                       founder pricing locked in for life.
                     </p>
                     <div className="mt-6 space-y-4">

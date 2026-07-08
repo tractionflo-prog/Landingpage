@@ -31,6 +31,6 @@ export const landingFaqs = [
   },
   {
     q: "What does it cost?",
-    a: `Get free access — no credit card required. You only grow your usage once ${agentBrand.name} is actually booking discovery calls for you.`,
+    a: `Join founding access — no credit card required, and founder pricing is locked in for life. You get access the moment we launch, and you only grow your usage once ${agentBrand.name} is actually booking discovery calls for you.`,
   },
 ] as const;

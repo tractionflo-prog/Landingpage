@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "TractionFlo",
   title: "AI Voice Agent for Coaches — Books Clients on Your Calendar | TractionFlo",
   description:
-    `${agentBrand.name}, TractionFlo's AI voice agent, calls your leads back, handles objections in 30+ languages, and books discovery calls on your calendar. Built for fitness, yoga, manifestation & business coaches. Free access — no credit card.`,
+    `${agentBrand.name}, TractionFlo's AI voice agent, calls your leads back, handles objections in 30+ languages, and books discovery calls on your calendar. Built for fitness, yoga, manifestation & business coaches. Join founding access — no credit card.`,
   tagline: "The AI voice agent that turns quiet leads into booked clients",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??

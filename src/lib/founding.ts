@@ -13,7 +13,7 @@ export const foundingCopy = {
 } as const;
 
 export const FOUNDER_BENEFITS = [
-  "Get free access — no credit card required",
+  "Founding access — no credit card required",
   "Founder pricing locked forever",
   "Every feature we ship, included",
   "Direct line to shape the product",

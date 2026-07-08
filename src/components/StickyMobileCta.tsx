@@ -31,19 +31,19 @@ export function StickyMobileCta() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ type: "spring", damping: 26, stiffness: 320 }}
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-black/[0.08] bg-white px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
+          className="lp-sticky-bar md:hidden"
         >
-          <div className="flex items-center justify-between gap-3">
+          <div className="lp-sticky-bar-inner">
             <div className="min-w-0">
-              <p className="truncate text-[13px] font-bold text-[#111]">90 days free</p>
-              <p className="truncate text-[11px] text-[#888]">{conversionCopy.scarcityLine}</p>
+              <p className="lp-sticky-title truncate">Recover your list</p>
+              <p className="lp-sticky-sub truncate">{conversionCopy.scarcityLine}</p>
             </div>
             <button
               type="button"
               onClick={openQuiz}
-              className="btn-lime btn-lime-md shrink-0"
+              className="lp-btn lp-btn--dark lp-btn--sm shrink-0"
             >
-              {conversionCopy.primaryCta}
+              {conversionCopy.stickyCta}
               <ArrowRight size={16} />
             </button>
           </div>

@@ -35,7 +35,7 @@ export function JsonLd() {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      description: "Founding access — 90 days free",
+      description: "Founding access — get free access, no credit card",
     },
   };
 

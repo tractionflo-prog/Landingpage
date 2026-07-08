@@ -4,22 +4,21 @@ import { conversionCopy } from "@/lib/conversion";
 import { siteConfig } from "@/lib/seo";
 
 const links = [
-  { label: "The Opportunity", href: "#opportunity" },
-  { label: "How It Works", href: "#journey" },
-  { label: "Pricing", href: "#founding" },
+  { label: "Results", href: "#funnel" },
+  { label: "How it works", href: "#how-it-works" },
   { label: "FAQ", href: "#faq" },
   { label: "Support", href: `mailto:${siteConfig.supportEmail}` },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-black/[0.06] bg-white py-8 pb-[max(2rem,env(safe-area-inset-bottom))]">
+    <footer className="lp-footer">
       <div className="page-wrap">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <Logo size={30} />
-            <span className="font-semibold">
-              Traction<span className="text-[#FF5A1F]">Flo</span>
+            <span className="lp-footer-brand">
+              Traction<span className="lp-nav-flo">Flo</span>
             </span>
           </div>
 
@@ -27,10 +26,7 @@ export function Footer() {
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {links.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
-                    className="text-[13px] font-medium text-[#666] no-underline hover:text-[#111]"
-                  >
+                  <a href={l.href} className="lp-footer-link">
                     {l.label}
                   </a>
                 </li>
@@ -40,14 +36,9 @@ export function Footer() {
         </div>
 
         <div className="mt-6 flex flex-col gap-4 border-t border-black/[0.06] pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[13px] text-[#888]">
+          <p className="lp-footer-copy">
             © {new Date().getFullYear()} TractionFlo ·{" "}
-            <a
-              href={`mailto:${siteConfig.supportEmail}`}
-              className="font-medium text-[#666] no-underline hover:text-[#111]"
-            >
-              {siteConfig.supportEmail}
-            </a>
+            <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
           </p>
           <QuizTrigger size="md">{conversionCopy.primaryCta}</QuizTrigger>
         </div>

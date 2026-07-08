@@ -10,7 +10,7 @@ export const foundingCopy = {
 } as const;
 
 export const FOUNDER_BENEFITS = [
-  "90 days free — test everything, pay nothing",
+  "Get free access — no credit card required",
   "Founder pricing locked forever",
   "Every feature we ship, included",
   "Direct line to shape the product",

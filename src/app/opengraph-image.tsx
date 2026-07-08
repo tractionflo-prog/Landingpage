@@ -1,9 +1,10 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { agentBrand } from "@/lib/agent";
 
 export const runtime = "nodejs";
-export const alt = "TractionFlo — Turn Social Media Engagement Into Paying Customers";
+export const alt = "TractionFlo — Turn Masterclass Sign-ups Into Booked Discovery Calls";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -87,14 +88,14 @@ export default async function OgImage() {
                 letterSpacing: "-0.035em",
               }}
             >
-              <span>Turn Social Media Engagement</span>
-              <span>Into </span>
+              <span>Turn masterclass sign-ups</span>
+              <span>into </span>
               <span
                 style={{
-                  background: "linear-gradient(180deg, transparent 55%, rgba(201,184,240,0.6) 55%)",
+                  background: "linear-gradient(180deg, transparent 55%, rgba(255,90,31,0.18) 55%)",
                 }}
               >
-                Paying Customers
+                booked discovery calls
               </span>
             </div>
 
@@ -108,11 +109,11 @@ export default async function OgImage() {
                 maxWidth: 540,
               }}
             >
-              Capture opportunities from comments, DMs and story replies — then convert them into revenue.
+{agentBrand.name} re-engages the sign-ups who weren&rsquo;t ready and books discovery calls for you.
             </div>
 
             <div style={{ display: "flex", marginTop: 28, gap: 10 }}>
-              {["90 Days Free", "Founder Pricing", "No Credit Card"].map((label) => (
+              {["For Coaches", "No Credit Card", "Live in One Afternoon"].map((label) => (
                 <div
                   key={label}
                   style={{
@@ -152,14 +153,14 @@ export default async function OgImage() {
                 boxShadow: "0 20px 60px rgba(0,0,0,0.06)",
               }}
             >
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.2, color: "#6d4aa8" }}>
-                REVENUE FLOW
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.2, color: "#ff5a1f" }}>
+                LIVE CALL
               </span>
               {[
-                { label: "Comment", value: "47" },
-                { label: "Conversation", value: "31" },
-                { label: "Qualified", value: "12" },
-                { label: "Customer", value: "4" },
+                { label: "Masterclass", value: "847" },
+                { label: "Called", value: "312" },
+                { label: "Interested", value: "94" },
+                { label: "Booked", value: "28" },
               ].map((row, i) => (
                 <div
                   key={row.label}
@@ -170,8 +171,8 @@ export default async function OgImage() {
                     marginTop: i === 0 ? 16 : 10,
                     padding: "12px 14px",
                     borderRadius: 14,
-                    background: i === 3 ? "#f2effb" : "#fafafa",
-                    border: i === 3 ? "1px solid rgba(201,184,240,0.6)" : "1px solid rgba(0,0,0,0.05)",
+                    background: i === 3 ? "#fff4ef" : "#fafafa",
+                    border: i === 3 ? "1px solid rgba(255,90,31,0.2)" : "1px solid rgba(0,0,0,0.05)",
                   }}
                 >
                   <span style={{ fontSize: 14, fontWeight: 600, color: "#333" }}>{row.label}</span>
@@ -179,7 +180,7 @@ export default async function OgImage() {
                     style={{
                       fontSize: 18,
                       fontWeight: 700,
-                      color: i === 3 ? "#6d4aa8" : "#111",
+                      color: i === 3 ? "#ff5a1f" : "#111",
                     }}
                   >
                     {row.value}

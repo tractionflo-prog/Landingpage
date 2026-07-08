@@ -1,25 +1,28 @@
+import { agentBrand } from "./agent";
+
 export const siteConfig = {
   name: "TractionFlo",
-  title: "TractionFlo — Turn Social Media Engagement Into Paying Customers",
+  title: `TractionFlo — ${agentBrand.metaTitle}`,
   description:
-    "TractionFlo helps creators, coaches, consultants and agencies turn comments, DMs, story replies and followers into qualified opportunities and paying customers — from first interaction to payment.",
-  tagline: "Turn social media engagement into paying customers",
+    `Turn masterclass sign-ups into booked discovery calls. ${agentBrand.name}, TractionFlo's AI voice agent, re-engages the leads who weren't ready, remembers every conversation, and books calls on your calendar.`,
+  tagline: "Turn masterclass sign-ups into booked discovery calls",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://www.tractionflo.com",
   keywords: [
     "TractionFlo",
-    "turn engagement into customers",
-    "convert followers into customers",
-    "Instagram DM sales platform",
-    "capture leads from comments and DMs",
-    "social media revenue system",
-    "qualify leads from social media",
-    "get paid in DMs",
-    "sales tool for creators and coaches",
-    "lead generation for agencies",
-    "DM follow-up and payments",
-    "spot buyers in comments",
+    agentBrand.name,
+    "AI voice agent for coaches",
+    "coach lead follow up",
+    "masterclass lead recovery",
+    "AI appointment setter for coaches",
+    "course creator sales automation",
+    "discovery call booking AI",
+    "manifestation coach leads",
+    "webinar follow up automation",
+    "AI phone agent for courses",
+    "enroll more coaching clients",
+    "cold lead recovery for coaches",
   ],
   creator: "TractionFlo",
   locale: "en_US",
@@ -31,7 +34,7 @@ export function absoluteUrl(path = "") {
 }
 
 /** Bump when OG art changes so X/LinkedIn fetch a fresh preview URL. */
-export const OG_IMAGE_VERSION = "12";
+export const OG_IMAGE_VERSION = "15";
 
 export function ogImageUrl() {
   return `${absoluteUrl("/opengraph-image")}?v=${OG_IMAGE_VERSION}`;

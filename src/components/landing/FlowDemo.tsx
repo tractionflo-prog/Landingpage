@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Check, Pause, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { CalendarCheck, Check, Pause, Phone, Play, RotateCcw, Sparkles } from "lucide-react";
 import { demoCases } from "@/lib/landing/callDemo";
 import { agentBrand } from "@/lib/agent";
 
@@ -11,7 +11,14 @@ type Playback = "idle" | "playing" | "paused" | "done";
 
 const CASE_INDEX = 0;
 const active = demoCases[CASE_INDEX];
-const SIMPLE_LINES = [0, 1, 4];
+
+const KNOWS = [
+  "Joined your free class · 32 days ago",
+  'Said she wasn\u2019t ready to invest — "not yet"',
+  "Goal: career transition + financial abundance",
+];
+
+const BOOKED_CHIPS = ["Objection resolved", "Prep workbook sent", "Coach briefed"];
 
 export function FlowDemo() {
   const reduce = useReducedMotion();
@@ -19,16 +26,16 @@ export function FlowDemo() {
   const [phase, setPhase] = useState<Phase>("idle");
   const [shown, setShown] = useState(0);
   const [playback, setPlayback] = useState<Playback>("idle");
+  const [seconds, setSeconds] = useState(0);
 
-  const { lead, transcript, outcome, program } = active;
-  const lines = SIMPLE_LINES.map((i) => transcript[i]).filter(Boolean);
+  const { lead, transcript, outcome } = active;
   const firstName = lead.name.split(" ")[0];
-  const current = shown > 0 ? lines[shown - 1] : null;
 
   const audioElRef = useRef<HTMLAudioElement | null>(null);
   const runRef = useRef(0);
   const pausedRef = useRef(false);
   const pauseWaitersRef = useRef<Array<() => void>>([]);
+  const feedRef = useRef<HTMLDivElement | null>(null);
 
   const getAudio = () => {
     if (!audioElRef.current && typeof window !== "undefined") {
@@ -113,7 +120,7 @@ export function FlowDemo() {
 
       a.onended = finish;
       a.onerror = finish;
-      const timeout = window.setTimeout(finish, 13000);
+      const timeout = window.setTimeout(finish, 20000);
 
       const tick = async () => {
         while (!settled) {
@@ -156,7 +163,7 @@ export function FlowDemo() {
     });
   };
 
-  const runDemo = useCallback(async () => {
+  const runDemo = async () => {
     const runId = ++runRef.current;
     pausedRef.current = false;
     pauseWaitersRef.current.forEach((resolve) => resolve());
@@ -165,26 +172,27 @@ export function FlowDemo() {
 
     setPlayback("playing");
     setShown(0);
+    setSeconds(0);
     setPhase("connecting");
 
     try {
-      await sleep(1800, runId);
+      await sleep(1600, runId);
 
       setPhase("live");
-      for (let i = 0; i < lines.length; i++) {
+      for (let i = 0; i < transcript.length; i++) {
         setShown(i + 1);
-        await playClip(SIMPLE_LINES[i], runId);
+        await playClip(i, runId);
         if (runRef.current !== runId) return;
-        await sleep(350, runId);
+        await sleep(300, runId);
       }
 
-      await sleep(600, runId);
+      await sleep(500, runId);
       setPhase("booked");
       setPlayback("done");
     } catch {
       return;
     }
-  }, [lines.length]);
+  };
 
   const handlePrimary = () => {
     if (playback === "playing") {
@@ -198,10 +206,37 @@ export function FlowDemo() {
     void runDemo();
   };
 
+  /* stop everything if the component unmounts mid-call */
+  useEffect(
+    () => () => {
+      runRef.current++;
+      pausedRef.current = false;
+      pauseWaitersRef.current.forEach((resolve) => resolve());
+      pauseWaitersRef.current = [];
+      resetAudio();
+    },
+    []
+  );
+
+  /* call timer — ticks only while live audio is playing */
+  useEffect(() => {
+    if (playback !== "playing" || phase !== "live") return;
+    const id = window.setInterval(() => setSeconds((s) => s + 1), 1000);
+    return () => window.clearInterval(id);
+  }, [playback, phase]);
+
+  /* keep the newest message in view */
+  useEffect(() => {
+    const feed = feedRef.current;
+    if (!feed) return;
+    feed.scrollTo({ top: feed.scrollHeight, behavior: reduce ? "auto" : "smooth" });
+  }, [shown, phase, reduce]);
+
   const isLive = phase === "live";
   const isBooked = phase === "booked";
   const isActive = playback === "playing" || playback === "paused";
-  const pulse = (isLive || phase === "connecting") && playback === "playing";
+  const ringing = phase === "connecting" && playback === "playing";
+  const timer = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
   const primaryLabel =
     playback === "playing"
@@ -212,98 +247,138 @@ export function FlowDemo() {
           ? "Replay call"
           : "Hear the call";
 
-  const PrimaryIcon = playback === "playing" ? Pause : Play;
+  const PrimaryIcon =
+    playback === "playing" ? Pause : playback === "done" ? RotateCcw : Play;
 
   return (
-    <div className="lp-voice-moment" id="product">
-      <div className={`lp-voice-ring${pulse ? " is-live" : ""}${isBooked ? " is-booked" : ""}`}>
-        <span className="lp-voice-ring-ripple lp-voice-ring-ripple--1" aria-hidden />
-        <span className="lp-voice-ring-ripple lp-voice-ring-ripple--2" aria-hidden />
-        <span className="lp-voice-ring-ripple lp-voice-ring-ripple--3" aria-hidden />
-        <span className="lp-voice-ring-core">
-          {isBooked && playback !== "playing" && playback !== "paused" ? (
-            <Check size={28} strokeWidth={2.5} />
+    <div className="lp-demo2">
+      {/* call header */}
+      <div className="lp-demo2-head">
+        <div className="lp-demo2-id">
+          <span className={`lp-demo2-avatar${ringing ? " is-ringing" : ""}${isLive && playback === "playing" ? " is-live" : ""}`}>
+            {lead.initials}
+          </span>
+          <div className="lp-demo2-who">
+            <p className="lp-demo2-name">{lead.name}</p>
+            <p className="lp-demo2-meta">{lead.title} · went quiet 32 days ago</p>
+          </div>
+        </div>
+
+        <span
+          className={`lp-demo2-state${isLive || ringing ? " is-live" : ""}${isBooked ? " is-booked" : ""}`}
+        >
+          {isBooked ? (
+            <>
+              <Check size={12} strokeWidth={3} /> Booked
+            </>
+          ) : ringing ? (
+            <>
+              <Phone size={12} strokeWidth={2.5} /> Calling…
+            </>
+          ) : isLive ? (
+            <>
+              <span className="lp-demo2-state-dot" /> {timer}
+            </>
+          ) : playback === "paused" ? (
+            <>Paused · {timer}</>
           ) : (
-            <span className="lp-voice-ring-bars" aria-hidden>
-              {Array.from({ length: 5 }).map((_, i) => (
-                <i
-                  key={i}
-                  style={{ animationDelay: `${i * 0.12}s` }}
-                  className={pulse ? "is-on" : ""}
-                />
-              ))}
-            </span>
+            <>Ready</>
           )}
         </span>
       </div>
 
-      <p className="lp-voice-status">
-        {playback === "paused" ? (
-          <>Paused · pick up where you left off</>
-        ) : isBooked && playback === "done" ? (
-          <>
-            <span className="lp-voice-status-dot is-green" />
-            {outcome.status} · {outcome.when}
-          </>
-        ) : isLive ? (
-          <>
-            <span className="lp-voice-status-dot" />
-            Live with {firstName} · free-class lead
-          </>
-        ) : phase === "connecting" && isActive ? (
-          <>Calling {firstName} · {program ?? "free-class lead"}…</>
+      {/* conversation feed */}
+      <div className="lp-demo2-feed" ref={feedRef}>
+        {phase === "idle" ? (
+          <div className="lp-demo2-intro">
+            <p className="lp-demo2-intro-label">
+              <Sparkles size={13} strokeWidth={2.5} />
+              What {agentBrand.name} remembers about {firstName}
+            </p>
+            <ul className="lp-demo2-knows">
+              {KNOWS.map((k) => (
+                <li key={k}>{k}</li>
+              ))}
+            </ul>
+            <p className="lp-demo2-intro-hint">
+              Tap play to hear {agentBrand.name} call her back — and book her.
+            </p>
+          </div>
         ) : (
-          <>Ready to hear {firstName}&rsquo;s follow-up call</>
-        )}
-      </p>
+          <>
+            {transcript.slice(0, shown).map((line, i) => (
+              <motion.div
+                key={line.at + line.speaker}
+                className={`lp-demo2-msg lp-demo2-msg--${line.speaker}`}
+                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {line.recall && (
+                  <span className="lp-demo2-recall">
+                    <Sparkles size={11} strokeWidth={2.5} />
+                    Remembers · {line.recall.note}
+                  </span>
+                )}
+                <div className="lp-demo2-bubble">
+                  <span className="lp-demo2-speaker">
+                    {line.speaker === "agent" ? agentBrand.name : line.name}
+                    {line.speaker === "agent" && i + 1 === shown && playback === "playing" && (
+                      <span className="lp-demo2-eq" aria-hidden>
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                    )}
+                  </span>
+                  {line.text}
+                </div>
+              </motion.div>
+            ))}
 
-      <div className="lp-voice-line-wrap">
-        <AnimatePresence mode="wait">
-          {isBooked && playback === "done" ? (
-            <motion.p
-              key="done"
-              className="lp-voice-line lp-voice-line--muted"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-            >
-              Discovery call confirmed. Prep workbook sent.
-            </motion.p>
-          ) : current ? (
-            <motion.p
-              key={current.at + current.speaker}
-              className={`lp-voice-line lp-voice-line--${current.speaker}`}
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {current.text}
-            </motion.p>
-          ) : (
-            <motion.p
-              key="wait"
-              className="lp-voice-line lp-voice-line--muted"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              She joined your free class, said she wasn&rsquo;t ready — tap below to hear{" "}
-              {agentBrand.name} call her back.
-            </motion.p>
-          )}
-        </AnimatePresence>
+            {isBooked && (
+              <motion.div
+                className="lp-demo2-outcome"
+                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span className="lp-demo2-outcome-icon">
+                  <CalendarCheck size={18} strokeWidth={2.2} />
+                </span>
+                <div className="lp-demo2-outcome-body">
+                  <p className="lp-demo2-outcome-title">{outcome.status}</p>
+                  <p className="lp-demo2-outcome-when">{outcome.when}</p>
+                  <div className="lp-demo2-outcome-chips">
+                    {BOOKED_CHIPS.map((c) => (
+                      <span key={c}>
+                        <Check size={10} strokeWidth={3} />
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </>
+        )}
       </div>
 
-      <button
-        type="button"
-        className={`lp-voice-audio${isActive ? " is-on" : ""}${playback === "paused" ? " is-paused" : ""}`}
-        onClick={handlePrimary}
-        aria-pressed={playback === "playing"}
-      >
-        <PrimaryIcon size={14} />
-        {primaryLabel}
-      </button>
+      {/* control bar */}
+      <div className="lp-demo2-bar">
+        <button
+          type="button"
+          className={`lp-demo2-btn${isActive ? " is-on" : ""}`}
+          onClick={handlePrimary}
+          aria-pressed={playback === "playing"}
+        >
+          <PrimaryIcon size={14} strokeWidth={2.5} />
+          {primaryLabel}
+        </button>
+        <p className="lp-demo2-bar-note">
+          Real product flow · {transcript.length} turns · ~1 min
+        </p>
+      </div>
     </div>
   );
 }
